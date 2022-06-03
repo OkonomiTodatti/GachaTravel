@@ -1,27 +1,30 @@
 import React, { memo } from 'react';
-import { TextInput, StyleSheet, View } from 'react-native';
+import { TextInput, StyleSheet, View, Text } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 
 export const CustomInput = memo((props) => {
   const { name, placeholder, control, rules, secureTextEntry } = props;
   return (
-    <View style={styles.container}>
-      <Controller
-        control={control}
-        rules={rules}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            style={styles.input}
-            placeholder={placeholder}
-            secureTextEntry={secureTextEntry}
-          />
-        )}
-        name={name}
-      />
-    </View>
+    <Controller
+      control={control}
+      rules={rules}
+      render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
+        <>
+          <View style={[styles.container, { borderColor: error ? 'red' : '#e8e8e8' }]}>
+            <TextInput
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              style={styles.input}
+              placeholder={placeholder}
+              secureTextEntry={secureTextEntry}
+            />
+          </View>
+          <Text style={{ color: 'red', alignSelf: 'stretch' }}>Error</Text>
+        </>
+      )}
+      name={name}
+    />
   );
 });
 
@@ -37,5 +40,7 @@ const styles = StyleSheet.create({
     includeFontPadding: 10,
     marginVertical: 5,
   },
-  input: {},
+  input: {
+    padding: 10,
+  },
 });

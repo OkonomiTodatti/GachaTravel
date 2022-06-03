@@ -11,16 +11,19 @@ export const SignScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const { handleSubmit, control, errors } = useForm({
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
     mode: 'onSubmit',
   });
 
   const onSignInPressed = handleSubmit(async (data) => {
-    console.log(data);
     try {
       setLoading(true);
       const response = await Auth.signIn(data.email, data.password);
-      Alert.alert(response);
+      // Alert.alert(response);
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
@@ -37,8 +40,7 @@ export const SignScreen = memo(() => {
   };
 
   const onSignUpPress = () => {
-    Alert.alert('aa');
-    // navigation.navigate('SignUp');
+    navigation.navigate('Home');
   };
 
   return (
@@ -56,7 +58,6 @@ export const SignScreen = memo(() => {
         rules={{ required: 'パスワードは必要です' }}
         secureTextEntry
       />
-      {/*{errors.lastName && <Text>This is required.</Text>} */}
 
       <Button title="Submit" onPress={handleSubmit(onSignInPressed)} />
       <Button title="アラート" onPress={onSignUpPress} />

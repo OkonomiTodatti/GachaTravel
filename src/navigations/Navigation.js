@@ -1,13 +1,24 @@
 import React, { memo } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from '../components/pages/Home';
+import { Home, Details } from '../components/pages/Home';
+import { Button } from 'react-native';
+import { SignScreen } from '../components/pages/SignScreen';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();
   return (
+    // <NavigationContainer>
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Group>
+        <Stack.Screen name="SignUp" component={SignScreen} />
+      </Stack.Group>
+      <Stack.Group>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Details" component={Details} />
+      </Stack.Group>
+      {/*<Stack.Screen name="Home" component={Home} />*/}
     </Stack.Navigator>
+    // </NavigationContainer>
   );
 });
