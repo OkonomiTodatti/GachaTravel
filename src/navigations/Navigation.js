@@ -13,7 +13,11 @@ export const Navigation = memo(() => {
       <Stack.Group>
         <Stack.Screen name="SignUp" component={SignScreen} />
       </Stack.Group>
-      <Stack.Group>
+      <Stack.Group
+        screenOptions={{
+          animation: 'fade',
+        }}
+      >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Details" component={Details} />
       </Stack.Group>
