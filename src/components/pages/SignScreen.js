@@ -49,7 +49,13 @@ export const SignScreen = memo(() => {
         name="email"
         placeholder="メールを入力してください"
         control={control}
-        rules={{ required: 'メールは必要です' }}
+        rules={{
+          required: 'メールは必要です',
+          pattern: {
+            value: /^[A-¥d._%+-]+@[A-Z¥d.-]+\.[A-Z]{2,}$/i,
+            message: '正しい形式で入力してください',
+          },
+        }}
       />
       <CustomInput
         name="password"
