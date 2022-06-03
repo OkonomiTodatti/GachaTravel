@@ -11,7 +11,7 @@ export const Navigation = memo(() => {
     // <NavigationContainer>
     <Stack.Navigator>
       <Stack.Group>
-        <Stack.Screen name="SignUp" component={SignScreen} />
+        <Stack.Screen name="サインアップ" component={SignScreen} />
       </Stack.Group>
       <Stack.Group
         screenOptions={{

@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Alert, Button, Image, ScrollView, Text, TextInput, useWindowDimensions } from 'react-native';
+import { Alert, Button, Image, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
@@ -44,7 +44,7 @@ export const SignScreen = memo(() => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <CustomInput
         name="email"
         placeholder="メールを入力してください"
@@ -64,9 +64,16 @@ export const SignScreen = memo(() => {
         rules={{ required: 'パスワードは必要です' }}
         secureTextEntry
       />
-
-      <Button title="Submit" onPress={handleSubmit(onSignInPressed)} />
-      <Button title="アラート" onPress={onSignUpPress} />
+      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+        <Button title="Submit" onPress={handleSubmit(onSignInPressed)} />
+        <Button title="アラート" onPress={onSignUpPress} />
+      </View>
     </ScrollView>
   );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
 });
