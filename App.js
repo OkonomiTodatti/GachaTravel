@@ -5,7 +5,6 @@ import { awsmobile } from './src/aws-exports';
 import { withAuthenticator, AmplifyTheme } from 'aws-amplify-react-native';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { Screen } from './src/components/layouts/Screen';
-import { SignScreen } from './src/components/pages/SignScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { Navigation } from './src/navigations/Navigation';
 

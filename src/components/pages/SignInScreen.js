@@ -6,7 +6,7 @@ import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
 import { SignUp } from 'aws-amplify-react-native/dist/Auth';
 
-export const SignScreen = memo(() => {
+export const SignInScreen = memo(() => {
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
@@ -48,7 +48,7 @@ export const SignScreen = memo(() => {
   };
 
   const onSignUpPress = () => {
-    navigation.navigate('Home');
+    navigation.navigate('サインアップ');
   };
 
   return (
@@ -75,7 +75,7 @@ export const SignScreen = memo(() => {
       />
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         <Button title="Submit" onPress={handleSubmit(onSignInPressed)} />
-        <Button title="アラート" onPress={onSignUpPress} />
+        <Button title="サインアップ" onPress={onSignUpPress} />
       </View>
     </ScrollView>
   );
