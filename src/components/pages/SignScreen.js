@@ -22,12 +22,20 @@ export const SignScreen = memo(() => {
   const onSignInPressed = handleSubmit(async (data) => {
     try {
       setLoading(true);
-      const response = await Auth.signIn(data.email, data.password);
+      const response = await Auth.signIn(data.email, data.password)
+        .then(() => {
+          setLoading(false);
+          navigation.navigate('Home');
+        })
+        .catch((e) => {
+          Alert.alert('Oops', e.message);
+          setLoading(false);
+        });
       // Alert.alert(response);
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
-    setLoading(false);
+    // setLoading(false);
     // navigation.navigate('Home');
   });
 
@@ -52,7 +60,8 @@ export const SignScreen = memo(() => {
         rules={{
           required: 'メールは必要です',
           pattern: {
-            value: /^[A-¥d._%+-]+@[A-Z¥d.-]+\.[A-Z]{2,}$/i,
+            value:
+              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             message: '正しい形式で入力してください',
           },
         }}
