@@ -1,0 +1,87 @@
+import React, { memo, useState } from 'react';
+import { Alert, Button, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form';
+import { Auth } from 'aws-amplify';
+import { CustomInput } from '../Inputs/CustomInput';
+
+export const SignUpScreen = memo(() => {
+  const { height } = useWindowDimensions();
+  const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
+
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    mode: 'onSubmit',
+  });
+
+  const onSignInPressed = handleSubmit(async (data) => {
+    try {
+      setLoading(true);
+      const response = await Auth.signUp(data.email, data.password)
+        .then(() => {
+          setLoading(false);
+          navigation.navigate('サインイン');
+        })
+        .catch((e) => {
+          Alert.alert('Oops', e.message);
+          setLoading(false);
+        });
+      // Alert.alert(response);
+    } catch (e) {
+      Alert.alert('Oops', e.message);
+    }
+    // setLoading(false);
+    // navigation.navigate('Home');
+  });
+
+  const onSubmit = (params) => {
+    console.log(params);
+  };
+
+  const onForgotPassWordPressed = () => {
+    navigation.navigate('ForgotPassword');
+  };
+
+  const onSignUpPress = () => {
+    navigation.navigate('サインイン');
+  };
+
+  return (
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <CustomInput
+        name="email"
+        placeholder="メールを入力してください"
+        control={control}
+        rules={{
+          required: 'メールは必要です',
+          pattern: {
+            value:
+              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            message: '正しい形式で入力してください',
+          },
+        }}
+      />
+      <CustomInput
+        name="password"
+        placeholder="パスワードを入力してください"
+        control={control}
+        rules={{ required: 'パスワードは必要です' }}
+        secureTextEntry
+      />
+      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+        <Button title="Submit" onPress={handleSubmit(onSignInPressed)} />
+        <Button title="サインイン" onPress={onSignUpPress} />
+      </View>
+    </ScrollView>
+  );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
+});
