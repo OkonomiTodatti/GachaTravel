@@ -25,6 +25,11 @@ export const SignInScreen = memo(() => {
     routes: [{ name: 'サインアップ' }],
   });
 
+  const secondResetAction = CommonActions.reset({
+    index: 1,
+    routes: [{ name: 'サインイン' }],
+  });
+
   const onSignInPressed = handleSubmit(async (data) => {
     try {
       setLoading(true);
@@ -86,7 +91,7 @@ export const SignInScreen = memo(() => {
           {/*<CustomButton text="Submit" onPress={handleSubmit(onSignInPressed)} />*/}
           {/*<Button title="ログイン" onPress={handleSubmit(onSignInPressed)} />*/}
           {/*<Button title="サインアップ" onPress={onSignUpPress} />*/}
-          <CustomButton text="ログイン" onPress={onSignUpPress} />
+          <CustomButton text="ログイン" onPress={handleSubmit(onSignInPressed)} />
           <CustomButton text="サインアップ" onPress={onSignUpPress} />
           {/*<CustomButton text="サインアップ" onPress={handleSubmit(onSignInPressed)} />*/}
         </View>

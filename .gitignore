@@ -81,4 +81,4 @@ amplifytools.xcconfig
 amplify
 ios
 android
-src/assets
+src/assets/

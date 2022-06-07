@@ -1,13 +1,14 @@
-import React, { memo, useState } from 'react';
-import { Alert, Button, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import React, { memo } from 'react';
+import { Auth } from 'aws-amplify';
+import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
-import { Auth } from 'aws-amplify';
-import { CustomInput } from '../Inputs/CustomInput';
+import { useState } from 'react';
 import Logo from '../../assets/Logo.png';
+import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
 
-export const SignUpScreen = memo(() => {
+export const ConfirmSignUpPage = memo(() => {
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
@@ -22,18 +23,13 @@ export const SignUpScreen = memo(() => {
 
   const resetAction = CommonActions.reset({
     index: 0,
-    routes: [{ name: '認証' }],
-  });
-
-  const secondResetAction = CommonActions.reset({
-    index: 1,
     routes: [{ name: 'サインイン' }],
   });
 
-  const onSignUpPressed = handleSubmit(async (data) => {
+  const onConfirmCode = handleSubmit(async (data) => {
     try {
       setLoading(true);
-      const response = await Auth.signUp(data.email, data.password)
+      const response = await Auth.confirmSignUp(data.email, data.code)
         .then(() => {
           setLoading(false);
           navigation.dispatch(resetAction);
@@ -42,24 +38,13 @@ export const SignUpScreen = memo(() => {
           Alert.alert('Oops', e.message);
           setLoading(false);
         });
-      // Alert.alert(response);
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
-    // setLoading(false);
-    // navigation.navigate('Home');
   });
 
-  const onSubmit = (params) => {
-    console.log(params);
-  };
-
-  const onForgotPassWordPressed = () => {
-    navigation.navigate('ForgotPassword');
-  };
-
-  const onSignInPress = () => {
-    navigation.dispatch(secondResetAction);
+  const onSignUpPress = () => {
+    navigation.goBack();
   };
 
   return (
@@ -80,17 +65,17 @@ export const SignUpScreen = memo(() => {
           }}
         />
         <CustomInput
-          name="password"
-          placeholder="パスワードを入力してください"
+          name="code"
+          placeholder="認証コードを入力してください"
           control={control}
-          rules={{ required: 'パスワードは必要です' }}
+          rules={{ required: '認証コードは必要です' }}
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
           {/*<Button title="登録" onPress={handleSubmit(onSignInPressed)} />*/}
           {/*<Button title="サインイン" onPress={onSignUpPress} />*/}
-          <CustomButton text="登録" onPress={handleSubmit(onSignUpPressed)} />
-          <CustomButton text="サインイン" onPress={onSignInPress} />
+          <CustomButton text="認証" onPress={handleSubmit(onConfirmCode)} />
+          <CustomButton text="サインイン" onPress={onSignUpPress} />
         </View>
       </View>
     </ScrollView>
