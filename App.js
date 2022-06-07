@@ -46,7 +46,7 @@ const App: () => Node = () => {
       </Screen>
     </NavigationContainer>
     // <Test></Test>
-    // <Authenticator></Authenticator>
+    // <Authenticator signUpConfig={signUpConfig}></Authenticator>
   );
 };
 

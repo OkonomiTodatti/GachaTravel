@@ -30,6 +30,11 @@ export const SignInScreen = memo(() => {
     routes: [{ name: 'Home' }],
   });
 
+  const thirdResetAction = CommonActions.reset({
+    index: 2,
+    routes: [{ name: 'ForgotPassword' }],
+  });
+
   const onSignInPressed = handleSubmit(async (data) => {
     try {
       setLoading(true);
@@ -42,25 +47,17 @@ export const SignInScreen = memo(() => {
           Alert.alert('Oops', e.message);
           setLoading(false);
         });
-      // Alert.alert(response);
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
-    // setLoading(false);
-    // navigation.navigate('Home');
   });
-
-  const onSubmit = (params) => {
-    console.log(params);
-  };
-
-  const onForgotPassWordPressed = () => {
-    navigation.navigate('ForgotPassword');
-  };
 
   const onSignUpPress = () => {
     navigation.dispatch(resetAction);
-    // navigation.navigate('サインアップ');
+  };
+
+  const onForgotPasswordPress = () => {
+    navigation.dispatch(thirdResetAction);
   };
 
   return (
@@ -98,7 +95,7 @@ export const SignInScreen = memo(() => {
           <CustomButton text="サインアップ" onPress={onSignUpPress} />
           {/*<CustomButton text="サインアップ" onPress={handleSubmit(onSignInPressed)} />*/}
         </View>
-        <CustomButton text="パスワードをお忘れですか?" onPress={onSignUpPress} type="TERTIARY" />
+        <CustomButton text="パスワードをお忘れですか?" onPress={onForgotPasswordPress} type="TERTIARY" />
       </View>
     </ScrollView>
   );
