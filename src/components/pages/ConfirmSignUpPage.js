@@ -13,11 +13,7 @@ export const ConfirmSignUpPage = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
   });
 

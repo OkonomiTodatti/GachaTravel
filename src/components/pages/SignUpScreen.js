@@ -12,11 +12,7 @@ export const SignUpScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
   });
 
@@ -42,12 +38,9 @@ export const SignUpScreen = memo(() => {
           Alert.alert('Oops', e.message);
           setLoading(false);
         });
-      // Alert.alert(response);
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
-    // setLoading(false);
-    // navigation.navigate('Home');
   });
 
   const onSubmit = (params) => {
