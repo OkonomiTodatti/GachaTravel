@@ -1,16 +1,14 @@
 import React, { memo, useState } from 'react';
 import { Alert, Button, Image, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
-import { useNavigation, CommonActions } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
 import Logo from '../../assets/Logo.png';
 import { CustomButton } from '../Inputs/CustomButton';
 
-export const SignInScreen = memo(() => {
+export const Test = memo(() => {
   const { height } = useWindowDimensions();
-  const navigation = useNavigation();
-  const [loading, setLoading] = useState(false);
 
   const {
     handleSubmit,
@@ -20,43 +18,7 @@ export const SignInScreen = memo(() => {
     mode: 'onSubmit',
   });
 
-  const resetAction = CommonActions.reset({
-    index: 0,
-    routes: [{ name: 'サインアップ' }],
-  });
-
-  const onSignInPressed = handleSubmit(async (data) => {
-    try {
-      setLoading(true);
-      const response = await Auth.signIn(data.email, data.password)
-        .then(() => {
-          setLoading(false);
-          navigation.navigate('Home');
-        })
-        .catch((e) => {
-          Alert.alert('Oops', e.message);
-          setLoading(false);
-        });
-      // Alert.alert(response);
-    } catch (e) {
-      Alert.alert('Oops', e.message);
-    }
-    // setLoading(false);
-    // navigation.navigate('Home');
-  });
-
-  const onSubmit = (params) => {
-    console.log(params);
-  };
-
-  const onForgotPassWordPressed = () => {
-    navigation.navigate('ForgotPassword');
-  };
-
-  const onSignUpPress = () => {
-    navigation.dispatch(resetAction);
-    // navigation.navigate('サインアップ');
-  };
+  const onPressButton = () => console.log(1);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
@@ -83,12 +45,9 @@ export const SignInScreen = memo(() => {
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          {/*<CustomButton text="Submit" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="ログイン" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="サインアップ" onPress={onSignUpPress} />*/}
-          <CustomButton text="ログイン" onPress={onSignUpPress} />
-          <CustomButton text="サインアップ" onPress={onSignUpPress} />
-          {/*<CustomButton text="サインアップ" onPress={handleSubmit(onSignInPressed)} />*/}
+          {/*<Button title="Submit" onPress={handleSubmit(onSignInPressed)} />*/}
+          <CustomButton text="サインイン" onPress={onPressButton} />
+          <CustomButton text="サインアップ" onPress={onPressButton} />
         </View>
       </View>
     </ScrollView>

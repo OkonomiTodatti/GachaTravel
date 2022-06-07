@@ -9,15 +9,15 @@ export const Navigation = memo(() => {
   return (
     // <NavigationContainer>
     <Stack.Navigator>
-      <Stack.Group>
-        <Stack.Screen name="サインイン" component={SignInScreen} />
-        <Stack.Screen name="サインアップ" component={SignUpScreen} />
-      </Stack.Group>
       <Stack.Group
         screenOptions={{
           animation: 'fade',
         }}
       >
+        <Stack.Screen name="サインイン" component={SignInScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="サインアップ" component={SignUpScreen} options={{ headerShown: false }} />
+      </Stack.Group>
+      <Stack.Group>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Details" component={Details} />
       </Stack.Group>

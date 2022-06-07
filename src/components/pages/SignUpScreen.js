@@ -1,9 +1,11 @@
 import React, { memo, useState } from 'react';
-import { Alert, Button, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Alert, Button, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
+import Logo from '../../assets/Logo.png';
+import { CustomButton } from "../Inputs/CustomButton";
 
 export const SignUpScreen = memo(() => {
   const { height } = useWindowDimensions();
@@ -16,6 +18,11 @@ export const SignUpScreen = memo(() => {
     formState: { errors },
   } = useForm({
     mode: 'onSubmit',
+  });
+
+  const resetAction = CommonActions.reset({
+    index: 0,
+    routes: [{ name: 'サインイン' }],
   });
 
   const onSignInPressed = handleSubmit(async (data) => {
@@ -47,34 +54,40 @@ export const SignUpScreen = memo(() => {
   };
 
   const onSignUpPress = () => {
-    navigation.navigate('サインイン');
+    // navigation.navigate('サインイン');
+    navigation.dispatch(resetAction);
   };
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <CustomInput
-        name="email"
-        placeholder="メールを入力してください"
-        control={control}
-        rules={{
-          required: 'メールは必要です',
-          pattern: {
-            value:
-              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: '正しい形式で入力してください',
-          },
-        }}
-      />
-      <CustomInput
-        name="password"
-        placeholder="パスワードを入力してください"
-        control={control}
-        rules={{ required: 'パスワードは必要です' }}
-        secureTextEntry
-      />
-      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-        <Button title="Submit" onPress={handleSubmit(onSignInPressed)} />
-        <Button title="サインイン" onPress={onSignUpPress} />
+      <View style={styles.form}>
+        <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
+        <CustomInput
+          name="email"
+          placeholder="メールを入力してください"
+          control={control}
+          rules={{
+            required: 'メールは必要です',
+            pattern: {
+              value:
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: '正しい形式で入力してください',
+            },
+          }}
+        />
+        <CustomInput
+          name="password"
+          placeholder="パスワードを入力してください"
+          control={control}
+          rules={{ required: 'パスワードは必要です' }}
+          secureTextEntry
+        />
+        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+          {/*<Button title="登録" onPress={handleSubmit(onSignInPressed)} />*/}
+          {/*<Button title="サインイン" onPress={onSignUpPress} />*/}
+          <CustomButton text="登録" onPress={onSignUpPress} />
+          <CustomButton text="サインイン" onPress={onSignUpPress} />
+        </View>
       </View>
     </ScrollView>
   );
@@ -83,5 +96,15 @@ export const SignUpScreen = memo(() => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: 'white',
+  },
+  Logo: {
+    width: '70%',
+    maxWidth: 300,
+    maxHeight: 200,
+  },
+  form: {
+    alignItems: 'center',
+    padding: 20,
   },
 });

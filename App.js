@@ -7,6 +7,9 @@ import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { Screen } from './src/components/layouts/Screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { Navigation } from './src/navigations/Navigation';
+import { Authenticator } from 'aws-amplify-react-native/src/Auth';
+import { SignInScreen } from './src/components/pages/SignInScreen';
+import { Test } from './src/components/pages/Test';
 
 Amplify.configure({
   ...awsmobile,
@@ -42,6 +45,8 @@ const App: () => Node = () => {
         <Navigation />
       </Screen>
     </NavigationContainer>
+    // <Test></Test>
+    // <Authenticator></Authenticator>
   );
 };
 
