@@ -72,8 +72,6 @@ export const ConfirmSignUpPage = memo(() => {
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          {/*<Button title="登録" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="サインイン" onPress={onSignUpPress} />*/}
           <CustomButton text="認証" onPress={handleSubmit(onConfirmCode)} />
           <CustomButton text="サインイン" onPress={onSignUpPress} />
         </View>
