@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { TextInput, StyleSheet, View, Text, Pressable } from 'react-native';
 
 export const CustomButton = memo((props) => {
-  const { text, onPress, type } = props;
+  const { text, onPress, type = 'PRIMARY' } = props;
   return (
     <Pressable style={[styles.container, styles[`container_${type}`]]} onPress={onPress}>
       <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
@@ -12,23 +12,31 @@ export const CustomButton = memo((props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#3B71F3',
-    width: '40%',
     padding: 15,
-    marginVertical: 20,
     marginLeft: 10,
     alignItems: 'center',
     borderRadius: 5,
   },
 
   container_PRIMARY: {
+    marginTop: 20,
+    width: '40%',
     backgroundColor: '#3B71F3',
   },
 
-  container_SECONDARY: {},
+  container_TERTIARY: {
+    marginVertical: 5,
+    width: '100%',
+  },
 
   text: {
     fontWeight: 'bold',
+  },
+
+  text_PRIMARY: {
     color: 'white',
+  },
+  text_TERTIARY: {
+    color: 'gray',
   },
 });

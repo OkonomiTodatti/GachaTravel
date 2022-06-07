@@ -27,7 +27,7 @@ export const SignInScreen = memo(() => {
 
   const secondResetAction = CommonActions.reset({
     index: 1,
-    routes: [{ name: 'サインイン' }],
+    routes: [{ name: 'Home' }],
   });
 
   const onSignInPressed = handleSubmit(async (data) => {
@@ -36,7 +36,7 @@ export const SignInScreen = memo(() => {
       const response = await Auth.signIn(data.email, data.password)
         .then(() => {
           setLoading(false);
-          navigation.navigate('Home');
+          navigation.dispatch(secondResetAction);
         })
         .catch((e) => {
           Alert.alert('Oops', e.message);
@@ -84,7 +84,10 @@ export const SignInScreen = memo(() => {
           name="password"
           placeholder="パスワードを入力してください"
           control={control}
-          rules={{ required: 'パスワードは必要です' }}
+          rules={{
+            required: 'パスワードは必要です',
+            minLength: { value: 5, message: '5文字以上のパスワードを入力してください' },
+          }}
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -95,6 +98,7 @@ export const SignInScreen = memo(() => {
           <CustomButton text="サインアップ" onPress={onSignUpPress} />
           {/*<CustomButton text="サインアップ" onPress={handleSubmit(onSignInPressed)} />*/}
         </View>
+        <CustomButton text="パスワードをお忘れですか?" onPress={onSignUpPress} type="TERTIARY" />
       </View>
     </ScrollView>
   );
