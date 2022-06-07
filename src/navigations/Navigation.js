@@ -4,7 +4,7 @@ import { Home, Details } from '../components/pages/Home';
 import { SignInScreen } from '../components/pages/SignInScreen';
 import { SignUpScreen } from '../components/pages/SignUpScreen';
 import { ConfirmSignUpPage } from '../components/pages/ConfirmSignUpPage';
-import { ForgotPasswordPage } from '../components/pages/ForgotPasswordPage';
+import { ForgotNewPasswordPage, ForgotPasswordPage } from '../components/pages/ForgotPasswordPage';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();
@@ -20,6 +20,7 @@ export const Navigation = memo(() => {
         <Stack.Screen name="サインアップ" component={SignUpScreen} options={{ headerShown: false }} />
         <Stack.Screen name="認証" component={ConfirmSignUpPage} options={{ headerShown: false }} />
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordPage} options={{ headerShown: false }} />
+        <Stack.Screen name="ForgotNewPassword" component={ForgotNewPasswordPage} options={{ headerShown: false }} />
       </Stack.Group>
       <Stack.Group>
         <Stack.Screen name="Home" component={Home} />

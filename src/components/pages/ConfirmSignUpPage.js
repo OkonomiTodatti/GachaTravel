@@ -13,11 +13,7 @@ export const ConfirmSignUpPage = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
   });
 
@@ -72,8 +68,6 @@ export const ConfirmSignUpPage = memo(() => {
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          {/*<Button title="登録" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="サインイン" onPress={onSignUpPress} />*/}
           <CustomButton text="認証" onPress={handleSubmit(onConfirmCode)} />
           <CustomButton text="サインイン" onPress={onSignUpPress} />
         </View>

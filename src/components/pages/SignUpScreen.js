@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Alert, Button, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
@@ -12,11 +12,7 @@ export const SignUpScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
   });
 
@@ -42,12 +38,9 @@ export const SignUpScreen = memo(() => {
           Alert.alert('Oops', e.message);
           setLoading(false);
         });
-      // Alert.alert(response);
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
-    // setLoading(false);
-    // navigation.navigate('Home');
   });
 
   const onSubmit = (params) => {
@@ -87,8 +80,6 @@ export const SignUpScreen = memo(() => {
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          {/*<Button title="登録" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="サインイン" onPress={onSignUpPress} />*/}
           <CustomButton text="登録" onPress={handleSubmit(onSignUpPressed)} />
           <CustomButton text="サインイン" onPress={onSignInPress} />
         </View>

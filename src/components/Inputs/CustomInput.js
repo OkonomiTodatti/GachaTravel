@@ -18,6 +18,7 @@ export const CustomInput = memo((props) => {
               style={styles.input}
               placeholder={placeholder}
               secureTextEntry={secureTextEntry}
+              autoCapitalize="none"
             />
           </View>
           {error && <Text style={{ color: 'red', alignSelf: 'stretch' }}>{error.message || 'Error'}</Text>}

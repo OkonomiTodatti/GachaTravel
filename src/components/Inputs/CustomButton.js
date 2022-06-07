@@ -16,6 +16,14 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     alignItems: 'center',
     borderRadius: 5,
+    shadowColor: '#aaaaaa',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 1,
   },
 
   container_PRIMARY: {
