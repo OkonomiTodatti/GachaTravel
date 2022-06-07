@@ -113,11 +113,11 @@ export const ForgotNewPasswordPage = memo(() => {
           navigation.dispatch(resetAction);
         })
         .catch((e) => {
-          Alert.alert('Oops', e.message);
+          Alert.alert('Oops', 'パスワードを変更することができませんでした');
           setLoading(false);
         });
     } catch (e) {
-      Alert.alert('Oops', e.message);
+      Alert.alert('Oops', 'パスワードを変更することができませんでした');
     }
   });
 
