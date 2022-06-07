@@ -84,12 +84,8 @@ export const SignInScreen = memo(() => {
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          {/*<CustomButton text="Submit" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="ログイン" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="サインアップ" onPress={onSignUpPress} />*/}
           <CustomButton text="ログイン" onPress={handleSubmit(onSignInPressed)} />
           <CustomButton text="サインアップ" onPress={onSignUpPress} />
-          {/*<CustomButton text="サインアップ" onPress={handleSubmit(onSignInPressed)} />*/}
         </View>
         <CustomButton text="パスワードをお忘れですか?" onPress={onForgotPasswordPress} type="TERTIARY" />
       </View>

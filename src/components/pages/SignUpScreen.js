@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Alert, Button, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
@@ -80,8 +80,6 @@ export const SignUpScreen = memo(() => {
           secureTextEntry
         />
         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          {/*<Button title="登録" onPress={handleSubmit(onSignInPressed)} />*/}
-          {/*<Button title="サインイン" onPress={onSignUpPress} />*/}
           <CustomButton text="登録" onPress={handleSubmit(onSignUpPressed)} />
           <CustomButton text="サインイン" onPress={onSignInPress} />
         </View>
