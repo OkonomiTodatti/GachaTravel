@@ -23,7 +23,6 @@ DerivedData
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -67,9 +66,7 @@ amplify/logs
 amplify/mock-data
 amplify/backend/amplify-meta.json
 amplify/backend/.temp
-build/
 dist/
-node_modules/
 aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
@@ -84,3 +81,4 @@ amplifytools.xcconfig
 amplify
 ios
 android
+src/assets/
