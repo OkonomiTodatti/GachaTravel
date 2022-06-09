@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
@@ -14,18 +14,13 @@ export const SignUpScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const { handleSubmit, control } = useForm({
-    mode: 'onSubmit',
+  const { handleSubmit, control, formState } = useForm({
+    mode: 'onChange',
   });
 
   const resetAction = CommonActions.reset({
     index: 0,
     routes: [{ name: '認証' }],
-  });
-
-  const secondResetAction = CommonActions.reset({
-    index: 1,
-    routes: [{ name: 'サインイン' }],
   });
 
   const onSignUpPressed = handleSubmit(async (data) => {
@@ -49,10 +44,6 @@ export const SignUpScreen = memo(() => {
     }
   });
 
-  const onSignInPress = () => {
-    navigation.dispatch(secondResetAction);
-  };
-
   return (
     <>
       {loading ? (
@@ -60,7 +51,7 @@ export const SignUpScreen = memo(() => {
       ) : (
         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
           <View style={styles.form}>
-            <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
+            <Text style={styles.text}>メールアドレス</Text>
             <CustomInput
               name="email"
               placeholder={Validation.email.placeholder}
@@ -73,6 +64,7 @@ export const SignUpScreen = memo(() => {
                 },
               }}
             />
+            <Text style={styles.text}>パスワード</Text>
             <CustomInput
               name="password"
               placeholder={Validation.password.placeholder}
@@ -86,6 +78,7 @@ export const SignUpScreen = memo(() => {
               }}
               secureTextEntry
             />
+            <Text style={styles.text}>パスワード確認</Text>
             <CustomInput
               name="confirm_password"
               placeholder={Validation.confirmPassword.placeholder}
@@ -99,10 +92,14 @@ export const SignUpScreen = memo(() => {
               }}
               secureTextEntry
             />
-            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-              <CustomButton text="登録" onPress={handleSubmit(onSignUpPressed)} />
-              <CustomButton text="サインイン" onPress={onSignInPress} />
+            <View style={{ marginTop: 45 }}>
+              <CustomButton
+                text="確認コードを送信"
+                onPress={handleSubmit(onSignUpPressed)}
+                isVisible={formState.isValid}
+              />
             </View>
+            <Text>利用規約に同意の上、アカウント登録を行ってください</Text>
           </View>
         </ScrollView>
       )}
@@ -115,13 +112,15 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'white',
   },
-  Logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
-  },
   form: {
-    alignItems: 'center',
     padding: 20,
+  },
+  text: {
+    color: '#2D2A2A',
+    fontSize: 16,
+    letterSpacing: 4,
+    fontWeight: '800',
+    alignItems: 'flex-start',
+    marginTop: 10,
   },
 });

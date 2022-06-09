@@ -21,7 +21,7 @@ export const CustomInput = memo((props) => {
               autoCapitalize="none"
             />
           </View>
-          {error && <Text style={{ color: 'red', alignSelf: 'stretch' }}>{error.message || 'Error'}</Text>}
+          {error && <Text style={{ color: '#F13C31', alignSelf: 'stretch' }}>{error.message || 'Error'}</Text>}
         </>
       )}
       name={name}
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
 
     borderColor: '#e8e8e8',
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 13,
 
     includeFontPadding: 10,
-    marginVertical: 5,
+    marginVertical: 10,
   },
   input: {
     padding: 10,

@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Alert, Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useNavigation, CommonActions } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
@@ -8,14 +8,15 @@ import Logo from '../../assets/Logo.png';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
 import { Validation } from '../../validations/Validation';
+import { Label } from '../Text/Lable';
 
 export const SignInScreen = memo(() => {
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  const { handleSubmit, control } = useForm({
-    mode: 'onSubmit',
+  const { handleSubmit, control, formState } = useForm({
+    mode: 'onChange',
   });
 
   const resetAction = CommonActions.reset({
@@ -55,7 +56,7 @@ export const SignInScreen = memo(() => {
   };
 
   const onForgotPasswordPress = () => {
-    navigation.dispatch(thirdResetAction);
+    navigation.navigate('再設定メールの送信');
   };
 
   return (
@@ -65,7 +66,7 @@ export const SignInScreen = memo(() => {
       ) : (
         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
           <View style={styles.form}>
-            <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
+            <Label text="メールアドレス" />
             <CustomInput
               name="email"
               placeholder={Validation.email.placeholder}
@@ -78,6 +79,7 @@ export const SignInScreen = memo(() => {
                 },
               }}
             />
+            <Label text="パスワード" />
             <CustomInput
               name="password"
               placeholder={Validation.password.placeholder}
@@ -91,11 +93,12 @@ export const SignInScreen = memo(() => {
               }}
               secureTextEntry
             />
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <CustomButton text="ログイン" onPress={handleSubmit(onSignInPressed)} />
-              <CustomButton text="サインアップ" onPress={onSignUpPress} />
+            <View style={styles.buttonContainer}>
+              <CustomButton text="ログイン" onPress={handleSubmit(onSignInPressed)} isVisible={formState.isValid} />
+              <Pressable style={styles.button} onPress={onForgotPasswordPress}>
+                <Text style={styles.buttonText}>パスワード忘れた場合</Text>
+              </Pressable>
             </View>
-            <CustomButton text="パスワードをお忘れですか?" onPress={onForgotPasswordPress} type="TERTIARY" />
           </View>
         </ScrollView>
       )}
@@ -109,12 +112,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   form: {
-    alignItems: 'center',
     padding: 20,
   },
-  Logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
+  button: {
+    padding: 15,
+    alignItems: 'center',
+    borderRadius: 30,
+  },
+  buttonContainer: {
+    marginTop: 30,
+  },
+  buttonText: {
+    color: '#B3B3B3',
+    fontWeight: '400',
   },
 });

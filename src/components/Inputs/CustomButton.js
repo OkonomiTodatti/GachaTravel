@@ -2,10 +2,14 @@ import React, { memo } from 'react';
 import { TextInput, StyleSheet, View, Text, Pressable } from 'react-native';
 
 export const CustomButton = memo((props) => {
-  const { text, onPress, type = 'PRIMARY' } = props;
+  const { text, onPress, type = 'PRIMARY', isVisible = true } = props;
   return (
-    <Pressable style={[styles.container, styles[`container_${type}`]]} onPress={onPress}>
-      <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
+    <Pressable
+      style={[styles.container, isVisible ? styles[`container_${type}`] : styles[`container_TERTIARY`]]}
+      onPress={onPress}
+      disabled={!isVisible}
+    >
+      <Text style={[styles.text, isVisible ? styles[`text_${type}`] : styles[`text_TERTIARY`]]}>{text}</Text>
     </Pressable>
   );
 });
@@ -13,38 +17,47 @@ export const CustomButton = memo((props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    marginLeft: 10,
     alignItems: 'center',
-    borderRadius: 5,
-    // shadowColor: '#aaaaaa',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 4,
-    // elevation: 1,
+    borderRadius: 30,
   },
 
   container_PRIMARY: {
     marginTop: 20,
-    width: '40%',
-    backgroundColor: '#3B71F3',
+    width: '100%',
+    backgroundColor: '#F13C31',
+    shadowColor: '#AD150C',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 0,
   },
 
   container_TERTIARY: {
+    backgroundColor: '#E2E2E2',
     marginVertical: 5,
     width: '100%',
+    shadowColor: '#B3B3B3',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 0,
   },
 
   text: {
     fontWeight: 'bold',
+    fontSize: 20,
   },
 
   text_PRIMARY: {
-    color: 'white',
+    color: '#FFFFFF',
   },
   text_TERTIARY: {
-    color: 'gray',
+    color: '#B3B3B3',
   },
 });
