@@ -99,7 +99,10 @@ export const SignUpScreen = memo(() => {
                 isVisible={formState.isValid}
               />
             </View>
-            <Text>利用規約に同意の上、アカウント登録を行ってください</Text>
+            <Text style={{ marginTop: 30 }}>
+              <Text style={{ color: 'red', borderStyle: 'solid' }}>利用規約</Text>
+              に同意の上、アカウント登録を行ってください
+            </Text>
           </View>
         </ScrollView>
       )}
