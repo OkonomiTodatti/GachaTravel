@@ -39,7 +39,7 @@ export const Navigation = memo(() => {
         <Stack.Screen name="loginHome" component={LoginHome} options={{ headerShown: false }} />
         <Stack.Screen name="ログイン" component={SignInScreen} />
         <Stack.Screen name="アカウント登録" component={SignUpScreen} />
-        <Stack.Screen name="認証" component={ConfirmSignUpPage} />
+        <Stack.Screen name="認証設定" component={ConfirmSignUpPage} />
         <Stack.Screen name="再設定メールの送信" component={ForgotPasswordPage} />
         <Stack.Screen name="パスワード再設定" component={ForgotNewPasswordPage} />
       </Stack.Group>

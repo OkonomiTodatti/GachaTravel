@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Auth } from 'aws-amplify';
-import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import Logo from '../../assets/Logo.png';
@@ -9,10 +9,13 @@ import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
 import { Validation } from '../../validations/Validation';
+import { Label } from '../Text/Lable';
 
 export const ConfirmSignUpPage = memo(() => {
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
+  const route = useRoute();
+  const { email } = route.params || '';
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, control } = useForm({
@@ -21,13 +24,13 @@ export const ConfirmSignUpPage = memo(() => {
 
   const resetAction = CommonActions.reset({
     index: 0,
-    routes: [{ name: 'サインイン' }],
+    routes: [{ name: 'ログイン' }],
   });
 
   const onConfirmCode = handleSubmit(async (data) => {
     try {
       setLoading(true);
-      await Auth.confirmSignUp(data.email, data.code)
+      await Auth.confirmSignUp(email, data.code)
         .then(() => {
           setLoading(false);
           navigation.dispatch(resetAction);
@@ -41,9 +44,9 @@ export const ConfirmSignUpPage = memo(() => {
     }
   });
 
-  const onSignUpPress = () => {
-    navigation.dispatch(resetAction);
-  };
+  // const onSignUpPress = () => {
+  //   navigation.dispatch(resetAction);
+  // };
 
   return (
     <>
@@ -52,18 +55,14 @@ export const ConfirmSignUpPage = memo(() => {
       ) : (
         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
           <View style={styles.form}>
-            <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
+            <Label text="確認コード" />
+            <Text>メールアドレスに確認コードを送信しました。</Text>
+            <Text>メールに記載されている確認コードを入力してください</Text>
             <CustomInput
-              name="email"
-              placeholder={Validation.email.placeholder}
+              name="code"
+              placeholder={Validation.code.placeholder}
               control={control}
-              rules={{
-                required: Validation.email.required,
-                pattern: {
-                  value: Validation.email.validation,
-                  message: Validation.email.message,
-                },
-              }}
+              rules={{ required: Validation.code.required }}
             />
             <CustomInput
               name="code"
@@ -71,10 +70,7 @@ export const ConfirmSignUpPage = memo(() => {
               control={control}
               rules={{ required: Validation.code.required }}
             />
-            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-              <CustomButton text="認証" onPress={handleSubmit(onConfirmCode)} />
-              <CustomButton text="サインイン" onPress={onSignUpPress} />
-            </View>
+            <CustomButton text="アカウント登録" onPress={handleSubmit(onConfirmCode)} />
           </View>
         </ScrollView>
       )}

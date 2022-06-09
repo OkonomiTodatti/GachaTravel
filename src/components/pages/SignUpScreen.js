@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
@@ -30,7 +30,9 @@ export const SignUpScreen = memo(() => {
         await Auth.signUp(data.email, data.password)
           .then(() => {
             setLoading(false);
-            navigation.dispatch(resetAction);
+            navigation.navigate('認証設定', {
+              email: data.email,
+            });
           })
           .catch((e) => {
             Alert.alert('Oops', e.message);
