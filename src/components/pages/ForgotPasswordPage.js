@@ -52,7 +52,7 @@ export const ForgotPasswordPage = memo(() => {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Spinner size="large" color="#00ff00" />
       ) : (
         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
           <View style={styles.form}>
