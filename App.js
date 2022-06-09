@@ -41,9 +41,9 @@ const signUpConfig = {
 const App: () => Node = () => {
   return (
     <NavigationContainer>
-      <Screen>
-        <Navigation />
-      </Screen>
+      {/*<Screen>*/}
+      <Navigation />
+      {/*</Screen>*/}
     </NavigationContainer>
     // <Test></Test>
     // <Authenticator signUpConfig={signUpConfig}></Authenticator>
