@@ -8,6 +8,7 @@ import Logo from '../../assets/Logo.png';
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
+import { Validation } from '../../validations/Validation';
 
 export const ConfirmSignUpPage = memo(() => {
   const { height } = useWindowDimensions();
@@ -26,7 +27,7 @@ export const ConfirmSignUpPage = memo(() => {
   const onConfirmCode = handleSubmit(async (data) => {
     try {
       setLoading(true);
-      const response = await Auth.confirmSignUp(data.email, data.code)
+      await Auth.confirmSignUp(data.email, data.code)
         .then(() => {
           setLoading(false);
           navigation.dispatch(resetAction);
@@ -54,23 +55,21 @@ export const ConfirmSignUpPage = memo(() => {
             <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
             <CustomInput
               name="email"
-              placeholder="メールを入力してください"
+              placeholder={Validation.email.placeholder}
               control={control}
               rules={{
-                required: 'メールは必要です',
+                required: Validation.email.required,
                 pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: '正しい形式で入力してください',
+                  value: Validation.email.validation,
+                  message: Validation.email.message,
                 },
               }}
             />
             <CustomInput
               name="code"
-              placeholder="認証コードを入力してください"
+              placeholder={Validation.code.placeholder}
               control={control}
-              rules={{ required: '認証コードは必要です' }}
-              secureTextEntry
+              rules={{ required: Validation.code.required }}
             />
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
               <CustomButton text="認証" onPress={handleSubmit(onConfirmCode)} />

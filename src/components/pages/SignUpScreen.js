@@ -7,6 +7,7 @@ import { CustomInput } from '../Inputs/CustomInput';
 import Logo from '../../assets/Logo.png';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
+import { Validation } from '../../validations/Validation';
 
 export const SignUpScreen = memo(() => {
   const { height } = useWindowDimensions();
@@ -31,7 +32,7 @@ export const SignUpScreen = memo(() => {
     try {
       if (data.password === data.confirm_password) {
         setLoading(true);
-        const response = await Auth.signUp(data.email, data.password)
+        await Auth.signUp(data.email, data.password)
           .then(() => {
             setLoading(false);
             navigation.dispatch(resetAction);
@@ -47,9 +48,6 @@ export const SignUpScreen = memo(() => {
       Alert.alert('Oops', e.message);
     }
   });
-  const onForgotPassWordPressed = () => {
-    navigation.navigate('ForgotPassword');
-  };
 
   const onSignInPress = () => {
     navigation.dispatch(secondResetAction);
@@ -65,29 +63,40 @@ export const SignUpScreen = memo(() => {
             <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
             <CustomInput
               name="email"
-              placeholder="メールを入力してください"
+              placeholder={Validation.email.placeholder}
               control={control}
               rules={{
-                required: 'メールは必要です',
+                required: Validation.email.required,
                 pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: '正しい形式で入力してください',
+                  value: Validation.email.validation,
+                  message: Validation.email.message,
                 },
               }}
             />
             <CustomInput
               name="password"
-              placeholder="パスワードを入力してください"
+              placeholder={Validation.password.placeholder}
               control={control}
-              rules={{ required: 'パスワードは必要です' }}
+              rules={{
+                required: Validation.password.required,
+                minLength: {
+                  value: Validation.password.minLength.value,
+                  message: Validation.password.minLength.message,
+                },
+              }}
               secureTextEntry
             />
             <CustomInput
               name="confirm_password"
-              placeholder="もう一度入力してください"
+              placeholder={Validation.confirmPassword.placeholder}
               control={control}
-              rules={{ required: '比較パスワードは必要です' }}
+              rules={{
+                required: Validation.confirmPassword.required,
+                minLength: {
+                  value: Validation.confirmPassword.minLength.value,
+                  message: Validation.confirmPassword.minLength.message,
+                },
+              }}
               secureTextEntry
             />
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>

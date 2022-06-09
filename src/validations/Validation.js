@@ -18,9 +18,17 @@ export const Validation = {
       message: '5文字以上のパスワードを入力してください',
     },
   },
-  new_password: {
+  confirmPassword: {
     placeholder: 'もう一度入力してください',
     required: '比較パスワードは必要です',
+    minLength: {
+      value: 5,
+      message: '5文字以上のパスワードを入力してください',
+    },
+  },
+  newPassword: {
+    placeholder: '新しいパスワードを入力してください',
+    required: '新しいパスワードが必要です',
     minLength: {
       value: 5,
       message: '5文字以上のパスワードを入力してください',

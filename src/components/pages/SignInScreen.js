@@ -1,12 +1,13 @@
 import React, { memo, useState } from 'react';
-import { ActivityIndicator, Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Alert, Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useNavigation, CommonActions } from '@react-navigation/native';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
 import Logo from '../../assets/Logo.png';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
+import { Validation } from '../../validations/Validation';
 
 export const SignInScreen = memo(() => {
   const { height } = useWindowDimensions();
@@ -35,7 +36,7 @@ export const SignInScreen = memo(() => {
   const onSignInPressed = handleSubmit(async (data) => {
     try {
       setLoading(true);
-      const response = await Auth.signIn(data.email, data.password)
+      await Auth.signIn(data.email, data.password)
         .then(() => {
           setLoading(false);
           navigation.dispatch(secondResetAction);
@@ -47,7 +48,6 @@ export const SignInScreen = memo(() => {
     } catch (e) {
       Alert.alert('Oops', e.message);
     }
-    // navigation.dispatch(secondResetAction);
   });
 
   const onSignUpPress = () => {
@@ -68,24 +68,26 @@ export const SignInScreen = memo(() => {
             <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
             <CustomInput
               name="email"
-              placeholder="メールを入力してください"
+              placeholder={Validation.email.placeholder}
               control={control}
               rules={{
-                required: 'メールは必要です',
+                required: Validation.email.required,
                 pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: '正しい形式で入力してください',
+                  value: Validation.email.validation,
+                  message: Validation.email.message,
                 },
               }}
             />
             <CustomInput
               name="password"
-              placeholder="パスワードを入力してください"
+              placeholder={Validation.password.placeholder}
               control={control}
               rules={{
-                required: 'パスワードは必要です',
-                minLength: { value: 5, message: '5文字以上のパスワードを入力してください' },
+                required: Validation.password.required,
+                minLength: {
+                  value: Validation.password.minLength.value,
+                  message: Validation.password.minLength.message,
+                },
               }}
               secureTextEntry
             />
@@ -104,7 +106,6 @@ export const SignInScreen = memo(() => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    // alignItems: 'center',
   },
   form: {
     alignItems: 'center',
