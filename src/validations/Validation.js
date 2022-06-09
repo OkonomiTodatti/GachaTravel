@@ -1,7 +1,7 @@
 export const Validation = {
   email: {
-    placeholder: 'メールを入力してください',
-    required: 'メールは必要です',
+    placeholder: 'mail@tabi-gatya.com',
+    required: 'メールを入力してください',
     validation:
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     message: '正しい形式で入力してください',
@@ -11,27 +11,27 @@ export const Validation = {
     required: '認証コードは必要です',
   },
   password: {
-    placeholder: 'パスワードを入力してください',
+    placeholder: '半角英数字で8文字以上',
     required: 'パスワードは必要です',
     minLength: {
       value: 5,
-      message: '5文字以上のパスワードを入力してください',
+      message: '半角英数字で8文字以上で入力してください',
     },
   },
   confirmPassword: {
-    placeholder: 'もう一度入力してください',
-    required: '比較パスワードは必要です',
+    placeholder: '半角英数字で8文字以上',
+    required: 'もう一度入力してください',
     minLength: {
-      value: 5,
-      message: '5文字以上のパスワードを入力してください',
+      value: 8,
+      message: '半角英数字で8文字以上で入力してください',
     },
   },
   newPassword: {
-    placeholder: '新しいパスワードを入力してください',
-    required: '新しいパスワードが必要です',
+    placeholder: '半角英数字で8文字以上',
+    required: '半角英数字で8文字以上',
     minLength: {
-      value: 5,
-      message: '5文字以上のパスワードを入力してください',
+      value: 8,
+      message: '半角英数字で8文字以上で入力してください',
     },
   },
 };
