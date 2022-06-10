@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
-import { Spinner } from '../Spinner/Spinner';
 import { Validation } from '../../validations/Validation';
 
 export const SignUpScreen = memo(() => {
@@ -46,68 +45,65 @@ export const SignUpScreen = memo(() => {
   });
 
   return (
-    <>
-      {loading ? (
-        <Spinner size="large" color="#00ff00" />
-      ) : (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-          <View style={styles.form}>
-            <Text style={styles.text}>メールアドレス</Text>
-            <CustomInput
-              name="email"
-              placeholder={Validation.email.placeholder}
-              control={control}
-              rules={{
-                required: Validation.email.required,
-                pattern: {
-                  value: Validation.email.validation,
-                  message: Validation.email.message,
-                },
-              }}
-            />
-            <Text style={styles.text}>パスワード</Text>
-            <CustomInput
-              name="password"
-              placeholder={Validation.password.placeholder}
-              control={control}
-              rules={{
-                required: Validation.password.required,
-                minLength: {
-                  value: Validation.password.minLength.value,
-                  message: Validation.password.minLength.message,
-                },
-              }}
-              secureTextEntry
-            />
-            <Text style={styles.text}>パスワード確認</Text>
-            <CustomInput
-              name="confirm_password"
-              placeholder={Validation.confirmPassword.placeholder}
-              control={control}
-              rules={{
-                required: Validation.confirmPassword.required,
-                minLength: {
-                  value: Validation.confirmPassword.minLength.value,
-                  message: Validation.confirmPassword.minLength.message,
-                },
-              }}
-              secureTextEntry
-            />
-            <View style={{ marginTop: 45 }}>
-              <CustomButton
-                text="確認コードを送信"
-                onPress={handleSubmit(onSignUpPressed)}
-                isVisible={formState.isValid}
-              />
-            </View>
-            <Text style={{ marginTop: 30 }}>
-              <Text style={{ color: 'red', borderStyle: 'solid', textDecorationLine: 'underline' }}>利用規約</Text>
-              に同意の上、アカウント登録を行ってください
-            </Text>
-          </View>
-        </ScrollView>
-      )}
-    </>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <View style={styles.form}>
+        <Text style={styles.text}>メールアドレス</Text>
+        <CustomInput
+          name="email"
+          placeholder={Validation.email.placeholder}
+          control={control}
+          rules={{
+            required: Validation.email.required,
+            pattern: {
+              value: Validation.email.validation,
+              message: Validation.email.message,
+            },
+          }}
+        />
+        <Text style={styles.text}>パスワード</Text>
+        <CustomInput
+          name="password"
+          placeholder={Validation.password.placeholder}
+          control={control}
+          rules={{
+            required: Validation.password.required,
+            minLength: {
+              value: Validation.password.minLength.value,
+              message: Validation.password.minLength.message,
+            },
+          }}
+          secureTextEntry
+        />
+        <Text style={styles.text}>パスワード確認</Text>
+        <CustomInput
+          name="confirm_password"
+          placeholder={Validation.confirmPassword.placeholder}
+          control={control}
+          rules={{
+            required: Validation.confirmPassword.required,
+            minLength: {
+              value: Validation.confirmPassword.minLength.value,
+              message: Validation.confirmPassword.minLength.message,
+            },
+          }}
+          secureTextEntry
+        />
+        <View style={{ marginTop: 45 }}>
+          <CustomButton
+            text="確認コードを送信"
+            onPress={handleSubmit(onSignUpPressed)}
+            isVisible={formState.isValid}
+            loading={loading}
+          />
+        </View>
+        <Text style={{ marginTop: 30 }}>
+          <Text style={{ color: 'red', borderStyle: 'solid', textDecorationLine: 'underline' }}>利用規約</Text>
+          に同意の上、アカウント登録を行ってください
+        </Text>
+      </View>
+    </ScrollView>
+    //   )}
+    // </>
   );
 });
 

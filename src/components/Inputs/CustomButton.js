@@ -1,15 +1,20 @@
 import React, { memo } from 'react';
 import { TextInput, StyleSheet, View, Text, Pressable } from 'react-native';
+import { Spinner } from '../Spinner/Spinner';
 
 export const CustomButton = memo((props) => {
-  const { text, onPress, type = 'PRIMARY', isVisible = true } = props;
+  const { text, onPress, type = 'PRIMARY', isVisible = true, loading = false } = props;
   return (
     <Pressable
       style={[styles.container, isVisible ? styles[`container_${type}`] : styles[`container_TERTIARY`]]}
       onPress={onPress}
       disabled={!isVisible}
     >
-      <Text style={[styles.text, isVisible ? styles[`text_${type}`] : styles[`text_TERTIARY`]]}>{text}</Text>
+      {loading ? (
+        <Spinner size="small" color="#fff" />
+      ) : (
+        <Text style={[styles.text, isVisible ? styles[`text_${type}`] : styles[`text_TERTIARY`]]}>{text}</Text>
+      )}
     </Pressable>
   );
 });
