@@ -9,6 +9,7 @@ import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
 import { Validation } from '../../validations/Validation';
 import { Label } from '../Text/Lable';
+import { Footer } from '../layouts/Footer';
 
 export const SignInScreen = memo(() => {
   const { height } = useWindowDimensions();
