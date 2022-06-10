@@ -79,6 +79,4 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 
 amplify
-ios
-android
 src/assets/

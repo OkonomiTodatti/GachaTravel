@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Button, Text, ScrollView, StyleSheet, ImageBackground, View } from 'react-native';
-import image from '../../assets/background.jpeg';
+import image from '../../assets/Logo.png';
 
 export const Home = memo((props) => {
   const { navigation } = props;
