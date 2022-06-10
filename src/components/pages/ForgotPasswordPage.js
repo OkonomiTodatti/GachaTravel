@@ -1,12 +1,10 @@
 import React, { memo, useState } from 'react';
 import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import Logo from '../../assets/Logo.png';
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Auth } from 'aws-amplify';
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
-import { Spinner } from '../Spinner/Spinner';
 import { Validation } from '../../validations/Validation';
 import { Label } from '../Text/Lable';
 
@@ -54,31 +52,25 @@ export const ForgotPasswordPage = memo(() => {
   };
 
   return (
-    <>
-      {loading ? (
-        <Spinner size="large" color="#00ff00" />
-      ) : (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-          <View style={styles.form}>
-            <Label text="メールアドレス" />
-            <Text style={styles.description}>パスワードをリセットするために、メールアドレスを入力してください。</Text>
-            <CustomInput
-              name="email"
-              placeholder={Validation.email.placeholder}
-              control={control}
-              rules={{
-                required: Validation.email.required,
-                pattern: {
-                  value: Validation.email.validation,
-                  message: Validation.email.message,
-                },
-              }}
-            />
-            <CustomButton text="メール送信" onPress={handleSubmit(onForgotPasswordPressed)} />
-          </View>
-        </ScrollView>
-      )}
-    </>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <View style={styles.form}>
+        <Label text="メールアドレス" />
+        <Text style={styles.description}>パスワードをリセットするために、メールアドレスを入力してください。</Text>
+        <CustomInput
+          name="email"
+          placeholder={Validation.email.placeholder}
+          control={control}
+          rules={{
+            required: Validation.email.required,
+            pattern: {
+              value: Validation.email.validation,
+              message: Validation.email.message,
+            },
+          }}
+        />
+        <CustomButton text="メール送信" onPress={handleSubmit(onForgotPasswordPressed)} loading={loading} />
+      </View>
+    </ScrollView>
   );
 });
 
@@ -118,58 +110,53 @@ export const ForgotNewPasswordPage = memo(() => {
   });
 
   return (
-    <>
-      {loading ? (
-        <Spinner size="large" color="#00ff00" />
-      ) : (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-          <View style={styles.form}>
-            <Label text="確認コード" />
-            <Text>メールアドレスに確認コードを送信しました。</Text>
-            <Text>メールに記載されている確認コードを入力してください</Text>
-            <CustomInput
-              name="code"
-              placeholder={Validation.code.placeholder}
-              control={control}
-              rules={{ required: Validation.code.required }}
-            />
-            <Label text="新しいパスワード" />
-            <CustomInput
-              name="new_password"
-              placeholder={Validation.newPassword.placeholder}
-              control={control}
-              rules={{
-                required: Validation.newPassword.required,
-                minLength: {
-                  value: Validation.newPassword.minLength.value,
-                  message: Validation.newPassword.minLength.message,
-                },
-              }}
-              secureTextEntry
-            />
-            <Label text="新しいパスワード確認" />
-            <CustomInput
-              name="confirm_new_password"
-              placeholder={Validation.newPassword.placeholder}
-              control={control}
-              rules={{
-                required: Validation.newPassword.required,
-                minLength: {
-                  value: Validation.newPassword.minLength.value,
-                  message: Validation.newPassword.minLength.message,
-                },
-              }}
-              secureTextEntry
-            />
-            <CustomButton
-              text="パスワードを再設定"
-              onPress={handleSubmit(onForgotPasswordPressed)}
-              isVisible={formState.isValid}
-            />
-          </View>
-        </ScrollView>
-      )}
-    </>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <View style={styles.form}>
+        <Label text="確認コード" />
+        <Text>メールアドレスに確認コードを送信しました。</Text>
+        <Text>メールに記載されている確認コードを入力してください</Text>
+        <CustomInput
+          name="code"
+          placeholder={Validation.code.placeholder}
+          control={control}
+          rules={{ required: Validation.code.required }}
+        />
+        <Label text="新しいパスワード" />
+        <CustomInput
+          name="new_password"
+          placeholder={Validation.newPassword.placeholder}
+          control={control}
+          rules={{
+            required: Validation.newPassword.required,
+            minLength: {
+              value: Validation.newPassword.minLength.value,
+              message: Validation.newPassword.minLength.message,
+            },
+          }}
+          secureTextEntry
+        />
+        <Label text="新しいパスワード確認" />
+        <CustomInput
+          name="confirm_new_password"
+          placeholder={Validation.newPassword.placeholder}
+          control={control}
+          rules={{
+            required: Validation.newPassword.required,
+            minLength: {
+              value: Validation.newPassword.minLength.value,
+              message: Validation.newPassword.minLength.message,
+            },
+          }}
+          secureTextEntry
+        />
+        <CustomButton
+          text="パスワードを再設定"
+          onPress={handleSubmit(onForgotPasswordPressed)}
+          isVisible={formState.isValid}
+          loading={loading}
+        />
+      </View>
+    </ScrollView>
   );
 });
 

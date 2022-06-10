@@ -14,7 +14,7 @@ export const Validation = {
     placeholder: '半角英数字で8文字以上',
     required: 'パスワードは必要です',
     minLength: {
-      value: 5,
+      value: 8,
       message: '半角英数字で8文字以上で入力してください',
     },
   },
