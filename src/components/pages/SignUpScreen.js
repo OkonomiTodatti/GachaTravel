@@ -1,10 +1,9 @@
 import React, { memo, useState } from 'react';
-import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
-import Logo from '../../assets/Logo.png';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Spinner } from '../Spinner/Spinner';
 import { Validation } from '../../validations/Validation';
@@ -102,7 +101,7 @@ export const SignUpScreen = memo(() => {
               />
             </View>
             <Text style={{ marginTop: 30 }}>
-              <Text style={{ color: 'red', borderStyle: 'solid' }}>利用規約</Text>
+              <Text style={{ color: 'red', borderStyle: 'solid', textDecorationLine: 'underline' }}>利用規約</Text>
               に同意の上、アカウント登録を行ってください
             </Text>
           </View>

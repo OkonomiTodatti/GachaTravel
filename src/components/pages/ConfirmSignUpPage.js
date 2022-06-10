@@ -24,7 +24,7 @@ export const ConfirmSignUpPage = memo(() => {
 
   const resetAction = CommonActions.reset({
     index: 0,
-    routes: [{ name: 'ログイン' }],
+    routes: [{ name: 'loginHome' }],
   });
 
   const onConfirmCode = handleSubmit(async (data) => {
@@ -44,10 +44,6 @@ export const ConfirmSignUpPage = memo(() => {
     }
   });
 
-  // const onSignUpPress = () => {
-  //   navigation.dispatch(resetAction);
-  // };
-
   return (
     <>
       {loading ? (
@@ -56,14 +52,10 @@ export const ConfirmSignUpPage = memo(() => {
         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
           <View style={styles.form}>
             <Label text="確認コード" />
-            <Text>メールアドレスに確認コードを送信しました。</Text>
-            <Text>メールに記載されている確認コードを入力してください</Text>
-            <CustomInput
-              name="code"
-              placeholder={Validation.code.placeholder}
-              control={control}
-              rules={{ required: Validation.code.required }}
-            />
+            <View style={{ marginTop: 10 }}>
+              <Text style={styles.description}>メールアドレスに確認コードを送信しました。</Text>
+              <Text style={styles.description}>メールに記載されている確認コードを入力してください。</Text>
+            </View>
             <CustomInput
               name="code"
               placeholder={Validation.code.placeholder}
@@ -71,6 +63,10 @@ export const ConfirmSignUpPage = memo(() => {
               rules={{ required: Validation.code.required }}
             />
             <CustomButton text="アカウント登録" onPress={handleSubmit(onConfirmCode)} />
+            <Text style={{ marginTop: 30 }}>
+              <Text style={{ color: 'red', borderStyle: 'solid', textDecorationLine: 'underline' }}>利用規約</Text>
+              に同意の上、アカウント登録を行ってください
+            </Text>
           </View>
         </ScrollView>
       )}
@@ -89,7 +85,9 @@ const styles = StyleSheet.create({
     maxHeight: 200,
   },
   form: {
-    alignItems: 'center',
     padding: 20,
+  },
+  description: {
+    fontWeight: '400',
   },
 });
