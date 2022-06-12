@@ -20,17 +20,7 @@ export const SignInScreen = memo(() => {
 
   const resetAction = CommonActions.reset({
     index: 0,
-    routes: [{ name: 'サインアップ' }],
-  });
-
-  const secondResetAction = CommonActions.reset({
-    index: 1,
     routes: [{ name: 'Home' }],
-  });
-
-  const thirdResetAction = CommonActions.reset({
-    index: 2,
-    routes: [{ name: 'ForgotPassword' }],
   });
 
   const onSignInPressed = handleSubmit(async (data) => {
@@ -39,7 +29,7 @@ export const SignInScreen = memo(() => {
       await Auth.signIn(data.email, data.password)
         .then(() => {
           setLoading(false);
-          navigation.dispatch(secondResetAction);
+          navigation.dispatch(resetAction);
         })
         .catch((e) => {
           Alert.alert('Oops', e.message);
@@ -50,16 +40,16 @@ export const SignInScreen = memo(() => {
     }
   });
 
-  const onSignUpPress = () => {
-    navigation.dispatch(resetAction);
-  };
-
   const onForgotPasswordPress = () => {
     navigation.navigate('再設定メールの送信');
   };
 
+  const onSignUpPress = () => {
+    navigation.navigate('アカウント登録');
+  };
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.form}>
         <Label text="メールアドレス" />
         <CustomInput
@@ -100,16 +90,20 @@ export const SignInScreen = memo(() => {
           </Pressable>
         </View>
       </View>
-    </ScrollView>
+      <Footer text="アカウントをお持ちでない方は" onPress={onSignUpPress} navText="こちら" />
+    </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 10,
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   form: {
+    width: '100%',
     padding: 20,
   },
   button: {

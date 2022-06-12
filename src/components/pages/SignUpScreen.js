@@ -6,6 +6,7 @@ import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Validation } from '../../validations/Validation';
+import { Footer } from "../layouts/Footer";
 
 export const SignUpScreen = memo(() => {
   const { height } = useWindowDimensions();
@@ -18,7 +19,7 @@ export const SignUpScreen = memo(() => {
 
   const resetAction = CommonActions.reset({
     index: 0,
-    routes: [{ name: '認証' }],
+    routes: [{ name: '認証設定' }],
   });
 
   const onSignUpPressed = handleSubmit(async (data) => {
@@ -28,9 +29,12 @@ export const SignUpScreen = memo(() => {
         await Auth.signUp(data.email, data.password)
           .then(() => {
             setLoading(false);
-            navigation.navigate('認証設定', {
-              email: data.email,
-            });
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 0,
+                routes: [{ name: '認証設定', params: data.email }],
+              }),
+            );
           })
           .catch((e) => {
             Alert.alert('Oops', e.message);
@@ -44,8 +48,12 @@ export const SignUpScreen = memo(() => {
     }
   });
 
+  const onSignInPress = () => {
+    navigation.navigate('ログイン');
+  };
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.form}>
         <Text style={styles.text}>メールアドレス</Text>
         <CustomInput
@@ -101,18 +109,20 @@ export const SignUpScreen = memo(() => {
           に同意の上、アカウント登録を行ってください
         </Text>
       </View>
-    </ScrollView>
-    //   )}
-    // </>
+      <Footer text="アカウントをお持ちの方は" onPress={onSignInPress} navText="こちら" />
+    </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 10,
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   form: {
+    width: '100%',
     padding: 20,
   },
   text: {
