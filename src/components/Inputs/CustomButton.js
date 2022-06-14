@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   container_PRIMARY: {
     marginTop: 20,
     width: '100%',
+    height: 55,
     backgroundColor: '#F13C31',
     shadowColor: '#AD150C',
     shadowOffset: {

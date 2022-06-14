@@ -5,12 +5,12 @@ import image from '../../assets/Logo.png';
 export const Home = memo((props) => {
   const { navigation } = props;
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text>Home</Text>
       <Button title="detail" onPress={() => navigation.navigate('Details')}>
         Go to Details
       </Button>
-    </ScrollView>
+    </View>
   );
 });
 

@@ -52,7 +52,7 @@ export const ForgotPasswordPage = memo(() => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <View showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.form}>
         <Label text="メールアドレス" />
         <Text style={styles.description}>パスワードをリセットするために、メールアドレスを入力してください。</Text>
@@ -70,7 +70,7 @@ export const ForgotPasswordPage = memo(() => {
         />
         <CustomButton text="メール送信" onPress={handleSubmit(onForgotPasswordPressed)} loading={loading} />
       </View>
-    </ScrollView>
+    </View>
   );
 });
 
@@ -162,6 +162,7 @@ export const ForgotNewPasswordPage = memo(() => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 10,
     backgroundColor: 'white',
   },

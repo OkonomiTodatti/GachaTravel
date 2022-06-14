@@ -14,14 +14,17 @@ export const SignInScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
-  console.log(height);
-
   const { handleSubmit, control, formState } = useForm({
     mode: 'onChange',
   });
 
   const resetAction = CommonActions.reset({
     index: 0,
+    routes: [{ name: 'サインアップ' }],
+  });
+
+  const secondResetAction = CommonActions.reset({
+    index: 1,
     routes: [{ name: 'Home' }],
   });
 
@@ -31,7 +34,7 @@ export const SignInScreen = memo(() => {
       await Auth.signIn(data.email, data.password)
         .then(() => {
           setLoading(false);
-          navigation.dispatch(resetAction);
+          navigation.dispatch(secondResetAction);
         })
         .catch((e) => {
           Alert.alert('Oops', e.message);
@@ -42,12 +45,12 @@ export const SignInScreen = memo(() => {
     }
   });
 
-  const onForgotPasswordPress = () => {
-    navigation.navigate('再設定メールの送信');
-  };
-
   const onSignUpPress = () => {
     navigation.navigate('アカウント登録');
+  };
+
+  const onForgotPasswordPress = () => {
+    navigation.navigate('再設定メールの送信');
   };
 
   return (
@@ -88,22 +91,20 @@ export const SignInScreen = memo(() => {
             loading={loading}
           />
           <Pressable style={styles.button} onPress={onForgotPasswordPress}>
-            <Text style={styles.buttonText} onPress={onForgotPasswordPress}>
-              パスワード忘れた場合
-            </Text>
+            <Text style={styles.buttonText}>パスワード忘れた場合</Text>
           </Pressable>
         </View>
       </View>
-      <Footer text="アカウントをお持ちでない方は" onPress={onSignUpPress} navText="こちら" />
+      <Footer text="アカウントお持ちでない方は" onPress={onSignUpPress} navText="こちら" />
     </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 10,
     backgroundColor: 'white',
+    flex: 1,
     alignItems: 'center',
   },
   form: {

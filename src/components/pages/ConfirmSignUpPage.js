@@ -43,7 +43,7 @@ export const ConfirmSignUpPage = memo(() => {
   });
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <View showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.form}>
         <Label text="確認コード" />
         <View style={{ marginTop: 10 }}>
@@ -62,12 +62,13 @@ export const ConfirmSignUpPage = memo(() => {
           に同意の上、アカウント登録を行ってください
         </Text>
       </View>
-    </ScrollView>
+    </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 10,
     backgroundColor: 'white',
   },
