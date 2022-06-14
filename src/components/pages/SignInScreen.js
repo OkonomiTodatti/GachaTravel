@@ -14,6 +14,8 @@ export const SignInScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
+  console.log(height);
+
   const { handleSubmit, control, formState } = useForm({
     mode: 'onChange',
   });
@@ -86,7 +88,9 @@ export const SignInScreen = memo(() => {
             loading={loading}
           />
           <Pressable style={styles.button} onPress={onForgotPasswordPress}>
-            <Text style={styles.buttonText}>パスワード忘れた場合</Text>
+            <Text style={styles.buttonText} onPress={onForgotPasswordPress}>
+              パスワード忘れた場合
+            </Text>
           </Pressable>
         </View>
       </View>

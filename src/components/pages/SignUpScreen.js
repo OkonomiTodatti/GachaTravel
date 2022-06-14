@@ -6,7 +6,7 @@ import { Auth } from 'aws-amplify';
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
 import { Validation } from '../../validations/Validation';
-import { Footer } from "../layouts/Footer";
+import { Footer } from '../layouts/Footer';
 
 export const SignUpScreen = memo(() => {
   const { height } = useWindowDimensions();

@@ -1,16 +1,19 @@
 import React, { memo } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export const Footer = memo((props) => {
   const { onPress, text, navText } = props;
   return (
     <View style={styles.container}>
-      <Text style={{ lineHeight: 100, textAlign: 'center' }}>
-        {text}
-        <Pressable style={styles.button} onPress={onPress}>
+      <Pressable style={styles.button} onPress={onPress}>
+        <Text style={{ lineHeight: 100, textAlign: 'center' }}>
+          {text}
           <Text style={styles.buttonText}>{navText}</Text>
-        </Pressable>
-      </Text>
+        </Text>
+      </Pressable>
+      {/*<View style={styles.button}>*/}
+      {/*  <Text style={styles.buttonText}>あR</Text>*/}
+      {/*</View>*/}
     </View>
   );
 });
@@ -28,6 +31,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     fontWeight: '900',
   },
 });

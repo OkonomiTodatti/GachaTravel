@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 0,
-    elevation: 0,
+    elevation: 7,
   },
 
   container_TERTIARY: {
