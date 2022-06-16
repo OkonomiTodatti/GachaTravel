@@ -28,11 +28,6 @@ export const SignInScreen = memo(() => {
     routes: [{ name: 'Home' }],
   });
 
-  const thirdResetAction = CommonActions.reset({
-    index: 2,
-    routes: [{ name: 'ForgotPassword' }],
-  });
-
   const onSignInPressed = handleSubmit(async (data) => {
     try {
       setLoading(true);
@@ -51,7 +46,7 @@ export const SignInScreen = memo(() => {
   });
 
   const onSignUpPress = () => {
-    navigation.dispatch(resetAction);
+    navigation.navigate('アカウント登録');
   };
 
   const onForgotPasswordPress = () => {
@@ -59,7 +54,7 @@ export const SignInScreen = memo(() => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.form}>
         <Label text="メールアドレス" />
         <CustomInput
@@ -100,7 +95,8 @@ export const SignInScreen = memo(() => {
           </Pressable>
         </View>
       </View>
-    </ScrollView>
+      <Footer text="アカウントお持ちでない方は" onPress={onSignUpPress} navText="こちら" />
+    </View>
   );
 });
 
@@ -108,8 +104,11 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     backgroundColor: 'white',
+    flex: 1,
+    alignItems: 'center',
   },
   form: {
+    width: '100%',
     padding: 20,
   },
   button: {

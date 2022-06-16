@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   container_PRIMARY: {
     marginTop: 20,
     width: '100%',
+    height: 55,
     backgroundColor: '#F13C31',
     shadowColor: '#AD150C',
     shadowOffset: {
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 0,
-    elevation: 0,
+    elevation: 7,
   },
 
   container_TERTIARY: {

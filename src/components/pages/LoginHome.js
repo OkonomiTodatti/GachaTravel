@@ -17,7 +17,7 @@ export const LoginHome = memo(() => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.form}>
         <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
         <Text style={styles.text}>ガチャで旅行先を決められる</Text>
@@ -25,12 +25,13 @@ export const LoginHome = memo(() => {
         <CustomButton text="アカウント登録" onPress={onPressSignUp} />
         <CustomButton text="ログイン" onPress={onPressLogin} />
       </View>
-    </ScrollView>
+    </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 20,
     backgroundColor: 'white',
   },
