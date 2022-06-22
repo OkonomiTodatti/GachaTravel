@@ -1,8 +1,11 @@
 import React, { memo } from 'react';
-import { Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import Logo from '../../assets/Logo.png';
+import { Platform, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import Logo from '../../assets/Logo.svg';
+import Gacha from '../../assets/Gacha.svg';
+import Background from '../../assets/bg.svg';
 import { useNavigation } from '@react-navigation/native';
 import { CustomButton } from '../Inputs/CustomButton';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const LoginHome = memo(() => {
   const { height } = useWindowDimensions();
@@ -18,13 +21,20 @@ export const LoginHome = memo(() => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.form}>
-        <Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />
-        <Text style={styles.text}>ガチャで旅行先を決められる</Text>
-        <Text style={styles.text}>お得な旅行サポートアプリ</Text>
+      {/*<LinearGradient colors={['#DDEEF2', '#ADE1E9', '#77DEEC']} style={styles.linearGradient}>*/}
+      <Background />
+      <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
+        {/*<Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />*/}
+        <Logo />
+        <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>
+        <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
+        <Gacha />
         <CustomButton text="アカウント登録" onPress={onPressSignUp} />
-        <CustomButton text="ログイン" onPress={onPressLogin} />
+        <Pressable style={styles.button} onPress={onPressLogin}>
+          <Text style={styles.buttonText}>ログイン</Text>
+        </Pressable>
       </View>
+      {/*</LinearGradient>*/}
     </View>
   );
 });
@@ -32,9 +42,16 @@ export const LoginHome = memo(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: 'white',
   },
+
+  linearGradient: {
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+
   Logo: {
     width: '70%',
     maxWidth: 300,
@@ -42,16 +59,49 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: '#2D2A2A',
-    fontSize: 16,
+    color: '#FFFFFF',
+    fontFamily: '07NikumaruFont',
     letterSpacing: 4,
     padding: 5,
     fontWeight: '500',
+    textShadowColor: '#EE695E',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 2,
+  },
+
+  text_ios: {
+    fontSize: 22,
+  },
+
+  text_android: {
+    fontSize: 12,
+    elevation: 2,
   },
 
   form: {
-    marginVertical: 80,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+
+  form_android: {},
+
+  form_ios: {
+    marginVertical: 64,
+  },
+
+  button: {
+    padding: 15,
+    alignItems: 'center',
+    borderRadius: 30,
+  },
+  buttonText: {
+    padding: 5,
+    color: '#818181',
+    fontWeight: '800',
+    fontSize: 16,
   },
 });
