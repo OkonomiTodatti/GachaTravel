@@ -5,9 +5,15 @@ import Background from '../../assets/bg.svg';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
 import { CustomButton } from '../Inputs/CustomButton';
+import { CommonActions } from '@react-navigation/native';
 
 export const Home = memo((props) => {
   const { navigation } = props;
+  const resetAction = CommonActions.reset({
+    index: 0,
+    routes: [{ name: 'GachaPage' }],
+  });
+
   return (
     <View style={styles.container}>
       <Background />
@@ -16,7 +22,7 @@ export const Home = memo((props) => {
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
         <Gacha />
-        <CustomButton text="はじめる" onPress={() => navigation.navigate('SettingGacha')} />
+        <CustomButton text="はじめる" onPress={() => navigation.dispatch(resetAction)} />
       </View>
     </View>
   );
