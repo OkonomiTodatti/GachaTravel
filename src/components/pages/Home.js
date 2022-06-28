@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Button, Text, ScrollView, StyleSheet, ImageBackground, View, Platform } from 'react-native';
+import { Text, StyleSheet, ImageBackground, View, Platform } from 'react-native';
 import image from '../../assets/Logo.png';
 import Background from '../../assets/bg.svg';
 import Logo from '../../assets/Logo.svg';
@@ -10,17 +10,14 @@ export const Home = memo((props) => {
   const { navigation } = props;
   return (
     <View style={styles.container}>
-      {/*<LinearGradient colors={['#DDEEF2', '#ADE1E9', '#77DEEC']} style={styles.linearGradient}>*/}
       <Background />
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
-        {/*<Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />*/}
         <Logo />
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
         <Gacha />
         <CustomButton text="はじめる" onPress={() => navigation.navigate('SettingGacha')} />
       </View>
-      {/*</LinearGradient>*/}
     </View>
   );
 });
