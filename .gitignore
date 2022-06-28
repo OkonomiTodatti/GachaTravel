@@ -79,5 +79,5 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 
 amplify
-src/assets/
+
 ios/GachaTravel.xcodeproj/project.xcworkspace

@@ -1,14 +1,12 @@
 import React, { memo } from 'react';
-import { Platform, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
 import Background from '../../assets/bg.svg';
 import { useNavigation } from '@react-navigation/native';
 import { CustomButton } from '../Inputs/CustomButton';
-import LinearGradient from 'react-native-linear-gradient';
 
 export const LoginHome = memo(() => {
-  const { height } = useWindowDimensions();
   const navigation = useNavigation();
 
   const onPressSignUp = () => {
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
   },
 
   text_ios: {
-    fontSize: 22,
+    fontSize: 20,
   },
 
   text_android: {

@@ -6,7 +6,7 @@ import { SignUpScreen } from '../components/pages/SignUpScreen';
 import { ConfirmSignUpPage } from '../components/pages/ConfirmSignUpPage';
 import { ForgotNewPasswordPage, ForgotPasswordPage } from '../components/pages/ForgotPasswordPage';
 import { LoginHome } from '../components/pages/LoginHome';
-import { StyleSheet } from 'react-native';
+import { SettingGacha } from '../components/pages/SettingGacha';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();
@@ -17,7 +17,7 @@ export const Navigation = memo(() => {
         screenOptions={{
           animation: 'fade',
           headerStyle: {
-            backgroundColor: '#F13C31',
+            backgroundColor: '#FF654A',
             shadowColor: '#AD150C',
             shadowOffset: {
               width: 0,
@@ -43,18 +43,37 @@ export const Navigation = memo(() => {
         <Stack.Screen name="再設定メールの送信" component={ForgotPasswordPage} />
         <Stack.Screen name="パスワード再設定" component={ForgotNewPasswordPage} />
       </Stack.Group>
-      <Stack.Group>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Group
+        screenOptions={{
+          animation: 'fade',
+          headerStyle: {
+            backgroundColor: '#FF654A',
+            shadowColor: '#AD150C',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 1,
+            shadowRadius: 0,
+            borderBottomWidth: 0,
+            elevation: 0,
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            color: '#fff',
+          },
+        }}
+      >
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Details" component={Details} />
+        <Stack.Screen
+          name="SettingGacha"
+          component={SettingGacha}
+          options={{ headerBackTitle: 'キャンセル', headerTitle: 'ガチャを回す' }}
+        />
       </Stack.Group>
       {/*<Stack.Screen name="Home" component={Home} />*/}
     </Stack.Navigator>
     // </NavigationContainer>
   );
-});
-
-const styles = StyleSheet.create({
-  back: {
-    padding: 5,
-  },
 });
