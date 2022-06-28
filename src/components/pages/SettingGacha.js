@@ -3,14 +3,16 @@ import { Text, StyleSheet, View, TextInput } from 'react-native';
 import { Label } from '../Text/Lable';
 import { CustomButton } from '../Inputs/CustomButton';
 import { CustomModal } from '../Modal/CustomModal';
-import { peopleData, stayDaysData } from '../data';
+import { peopleData, stayDaysData, travelPlanData } from '../data';
 
 export const SettingGacha = memo((props) => {
   const { navigation } = props;
   const [people, setPeople] = useState('1人');
   const [stayDays, setStayDays] = useState('1日');
+  const [travelPlan, setTravelPlan] = useState('夏旅行');
   const [modalPeopleVisible, setModalPeopleVisible] = useState(false);
   const [modalStayDaysVisible, setModalStayDaysVisible] = useState(false);
+  const [modalTravelPlanVisible, setModalTravelPlanVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -43,7 +45,7 @@ export const SettingGacha = memo((props) => {
         />
         <CustomModal
           modalOpen={modalStayDaysVisible}
-          setModalOpen={setModalStayDaysVisible()}
+          setModalOpen={setModalStayDaysVisible}
           value={stayDays}
           setValue={setStayDays}
           items={stayDaysData}
@@ -54,9 +56,17 @@ export const SettingGacha = memo((props) => {
         </View>
         <TextInput
           style={{ height: 40, borderBottomColor: '#EDEDED', borderBottomWidth: 2, color: '#777777' }}
-          value={stayDays}
-          onChangeText={setStayDays}
+          value={travelPlan}
+          onChangeText={setTravelPlan}
           keyboardType="numeric"
+          onPressIn={() => setModalTravelPlanVisible(!modalTravelPlanVisible)}
+        />
+        <CustomModal
+          modalOpen={modalTravelPlanVisible}
+          setModalOpen={setModalTravelPlanVisible}
+          value={travelPlan}
+          setValue={setTravelPlan}
+          items={travelPlanData}
         />
       </View>
 

@@ -24,7 +24,7 @@ export const CustomModal = memo((props) => {
             <TouchableOpacity onPressIn={() => setModalOpen(!modalOpen)}>
               <Text style={[styles.text, styles.text_cansel]}>キャンセル</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPressIn={() => setModalOpen(!modalOpen)}>
               <Text style={[styles.text, styles.text_decision]}>決定</Text>
             </TouchableOpacity>
           </View>
