@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Auth } from 'aws-amplify';
-import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
@@ -10,10 +10,9 @@ import { Validation } from '../../validations/Validation';
 import { Label } from '../Text/Lable';
 
 export const ConfirmSignUpPage = memo(() => {
-  const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const route = useRoute();
-  const { email } = route.params || '';
+  const email = route.params || '';
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, control } = useForm({
@@ -38,7 +37,7 @@ export const ConfirmSignUpPage = memo(() => {
           setLoading(false);
         });
     } catch (e) {
-      Alert.alert('Oops', e.message);
+      Alert.alert('認証コードが違います', e.message);
     }
   });
 
