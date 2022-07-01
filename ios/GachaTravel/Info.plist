@@ -43,6 +43,7 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NotoSans-Bold.ttf</string>
 		<string>07にくまるフォント.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

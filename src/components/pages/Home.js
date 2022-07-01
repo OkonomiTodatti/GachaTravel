@@ -1,13 +1,20 @@
 import React, { memo } from 'react';
-import { Text, StyleSheet, ImageBackground, View, Platform } from 'react-native';
+import { Text, StyleSheet, ImageBackground, View, Platform, TouchableOpacity } from 'react-native';
 import image from '../../assets/Logo.png';
 import Background from '../../assets/bg.svg';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
 import { CustomButton } from '../Inputs/CustomButton';
+import { CommonActions } from '@react-navigation/native';
+import ButtonSvg from '../../assets/Button.svg';
 
 export const Home = memo((props) => {
   const { navigation } = props;
+  const resetAction = CommonActions.reset({
+    index: 0,
+    routes: [{ name: 'GachaPage' }],
+  });
+
   return (
     <View style={styles.container}>
       <Background />
@@ -16,7 +23,11 @@ export const Home = memo((props) => {
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
         <Gacha />
-        <CustomButton text="はじめる" onPress={() => navigation.navigate('SettingGacha')} />
+        <CustomButton text="はじめる" onPress={() => navigation.dispatch(resetAction)} />
+        {/*<TouchableOpacity style={{ position: 'relative',marginTop:50 }}>*/}
+        {/*  <ButtonSvg />*/}
+        {/*  <Text style={styles.button_text}>はじめる</Text>*/}
+        {/*</TouchableOpacity>*/}
       </View>
     </View>
   );
@@ -101,5 +112,15 @@ const styles = StyleSheet.create({
     color: '#818181',
     fontWeight: '800',
     fontSize: 16,
+  },
+
+  button_text: {
+    color: '#FFFFFF',
+    position: 'absolute',
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'Noto Sans',
+    top: 20,
+    left: 118,
   },
 });

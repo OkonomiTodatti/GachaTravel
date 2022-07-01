@@ -81,3 +81,5 @@ amplifytools.xcconfig
 amplify
 
 ios/GachaTravel.xcodeproj/project.xcworkspace
+ios/GachaTravel.xcworkspace/xcshareddata
+ios/Fonts/NotoSans-Bold.ttf

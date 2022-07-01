@@ -37,7 +37,9 @@ export const SignInScreen = memo(() => {
           navigation.dispatch(secondResetAction);
         })
         .catch((e) => {
-          Alert.alert('Oops', e.message);
+          Alert.alert('メールアドレスまたはパスワードが異なります。', [
+            { text: 'OK', onPress: () => console.log('アラートのOKをタップした時の挙動を書く') },
+          ]);
           setLoading(false);
         });
     } catch (e) {
