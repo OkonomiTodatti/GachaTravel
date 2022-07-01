@@ -4,6 +4,7 @@ import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import { CustomButton } from '../Inputs/CustomButton';
 import Coin from '../../assets/coin.svg';
 import Setting from '../../assets/setting.svg';
+import ButtonSvg from '../../assets/Button.svg';
 
 export const GachaTopPage = memo((props) => {
   const { navigation } = props;
@@ -36,8 +37,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    bottom: 95,
-    padding: 20,
+    bottom: 85,
+    padding: 25,
     alignItems: 'center',
     justifyContent: 'flex-end',
   },

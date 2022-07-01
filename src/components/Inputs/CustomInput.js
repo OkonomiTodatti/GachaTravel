@@ -16,6 +16,7 @@ export const CustomInput = memo((props) => {
               onChangeText={onChange}
               value={value}
               style={styles.input}
+              placeholderTextColor="#B6B6B7"
               placeholder={placeholder}
               secureTextEntry={secureTextEntry}
               autoCapitalize="none"
@@ -43,5 +44,9 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 10,
+  },
+
+  place_holder: {
+    color: '#B6B6B7',
   },
 });
