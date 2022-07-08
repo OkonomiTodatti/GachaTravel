@@ -25,7 +25,7 @@ export const GachaTopPage = memo((props) => {
 
   let filter = {
     user_id: {
-      eq: loginUser, // filter priority = 1
+      eq: loginUser, // filter ユーザーID
     },
   };
 
