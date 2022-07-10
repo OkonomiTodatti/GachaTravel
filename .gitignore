@@ -12,6 +12,7 @@ build/
 *.mode2v3
 !default.mode2v3
 *.perspectivev3
+*.perspectivev3
 !default.perspectivev3
 xcuserdata
 *.xccheckout
@@ -67,7 +68,6 @@ amplify/mock-data
 amplify/backend/amplify-meta.json
 amplify/backend/.temp
 dist/
-aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
 amplifyconfiguration.dart
@@ -78,7 +78,6 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 
-amplify
 
 ios/GachaTravel.xcodeproj/project.xcworkspace
 ios/GachaTravel.xcworkspace/xcshareddata
