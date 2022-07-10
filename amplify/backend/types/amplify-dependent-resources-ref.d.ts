@@ -17,3 +17,4 @@ export type AmplifyDependentResourcesAttributes = {
       GraphQLAPIEndpointOutput: 'string';
     };
   };
+};

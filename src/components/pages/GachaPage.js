@@ -33,7 +33,9 @@ export const GachaPage = memo(() => {
         component={GachaTopPage}
         options={{
           tabBarLabel: 'ガチャ',
-          tabBarIcon: ({ focused, color, size }) => < Gacha style={{ color: (focused ? '#F13C31' : '#C3C7C6'), opacity: (focused ? 1 : 0.3) }} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <Gacha style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.3 }} />
+          ),
           tabBarLabelStyle: { color: '#C3C7C6' },
           tabBarBadge: '1',
           tabBarBadgeStyle: { maxWidth: 18, maxHeight: 18 },
@@ -45,7 +47,9 @@ export const GachaPage = memo(() => {
         component={CollectionPage}
         options={{
           tabBarLabel: 'コレクション',
-          tabBarIcon: ({ focused, color, size }) => <Collection style={{ color: (focused ? '#F13C31' : '#C3C7C6'), opacity: (focused ? 1 : 0.3) }} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <Collection style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.3 }} />
+          ),
           tabBarLabelStyle: { color: '#C3C7C6' },
           headerShown: false,
         }}
@@ -55,12 +59,14 @@ export const GachaPage = memo(() => {
         component={MyPage}
         options={{
           tabBarLabel: 'マイページ',
-          tabBarIcon: ({ focused, color, size }) => <Mypage style={{ color: (focused ? '#F13C31' : '#C3C7C6'), opacity: (focused ? 1 : 0.3) }} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <Mypage style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.3 }} />
+          ),
           tabBarLabelStyle: { color: '#C3C7C6' },
           headerShown: false,
           animationEnabled: true,
         }}
       />
-    </Tab.Navigator >
+    </Tab.Navigator>
   );
 });
