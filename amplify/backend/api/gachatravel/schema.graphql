@@ -1,0 +1,101 @@
+
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type User @model {
+  id: ID!
+  username: String!
+  user_image: String
+  point: Int!
+  old: Int!
+  stocks: [Stock] @hasMany(indexName:"byUser",fields:["id"])
+}
+
+type Stock @model {
+  id: ID!
+  user_id: ID! @index(name:"byUser")
+  ticket_id: ID!
+  plan_id: ID!
+  status: Status!
+  people: Int!
+  stock_details : [StockDetail] @hasMany(indexName:"byStock",fields: ["id"])
+  tickets:[Ticket] @hasMany(indexName:"byTicket",fields: ["ticket_id"])
+  recommend_plans : [RecommendPlan] @hasMany(indexName:"byRecommendPlan",fields: ["plan_id"])
+  stock_coupons: [StockCoupon] @hasMany(indexName:"byStockCoupon",fields: ["id"])
+  user: User @belongsTo
+}
+
+type StockDetail @model {
+  id: ID! @index(name: "byStock")
+  detail_num: Int!
+  people: Int!
+  mission_id: Int!
+  stock: Stock @belongsTo
+}
+
+type StockCoupon @model {
+  id: ID! @index(name: "byStockCoupon")
+  detail_num: Int!
+  people: Int!
+  coupon_id: ID!
+  status: Status!
+  stock: Stock @belongsTo
+}
+
+type Ticket @model {
+  id:ID! @index(name: "byTicket")
+  ticket:Int!
+  ratio:Int!
+  stock: Stock @belongsTo
+}
+
+type RecommendPlan @model {
+  id: ID! @index(name: "byRecommendPlan")
+  prefecture_id: ID!
+  content: String!
+  prefecture:[Prefecture] @hasMany(indexName:"byPrefecture",fields: ["prefecture_id"])
+  roots:[Root] @hasMany(indexName:"byRoot",fields: ["id"])
+  missions:[Mission] @hasMany(indexName:"byMission",fields: ["id"])
+  coupons:[Coupon] @hasMany(indexName:"byCoupon",fields: ["id"])
+  stock: Stock @belongsTo
+}
+
+type Prefecture @model {
+  id: ID! @index(name: "byPrefecture")
+  prefecture: String!
+  recommend_plan:RecommendPlan @belongsTo
+}
+
+type Root @model {
+  id: ID! @index(name: "byRoot")
+  detail_num: Int!
+  root: String!
+  latitude:Float!
+  longitude:Float!
+  recommend_plan:RecommendPlan @belongsTo
+}
+
+type Mission
+@model
+{
+  id: ID! @index(name: "byMission")
+  plan_id:ID!
+  contents:String
+  recommend_plan:RecommendPlan @belongsTo
+}
+
+type Coupon
+@model
+{
+  id:ID! @index(name: "byCoupon")
+  plan_id:ID!
+  contents:String!
+  discount:Int!
+  recommend_plan:RecommendPlan @belongsTo
+}
+
+enum Status {
+  Before,
+  After
+}

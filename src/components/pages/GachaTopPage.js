@@ -1,13 +1,44 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import Background from '../../assets/SBg.svg';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { CustomButton } from '../Inputs/CustomButton';
 import Coin from '../../assets/coin.svg';
 import Setting from '../../assets/setting.svg';
 import ButtonSvg from '../../assets/Button.svg';
+import { API, Auth, graphqlOperation } from 'aws-amplify';
+import { getUser, listStocks, listUsers } from '../../graphql/queries';
+import { useLoginUser } from '../../provider/LoginUserProvider';
 
 export const GachaTopPage = memo((props) => {
   const { navigation } = props;
+
+  const { loginUser, setLoginUser } = useLoginUser();
+
+  Auth.currentSession()
+    .then((data) => setLoginUser(data.getAccessToken().payload.client_id))
+    .catch((err) => console.log(err));
+
+  // console.log(loginUser);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  let filter = {
+    user_id: {
+      eq: loginUser, // filter ユーザーID
+    },
+  };
+
+  async function fetchUsers() {
+    try {
+      // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
+      const data = await API.graphql(graphqlOperation(listStocks, { filter: filter }));
+      console.log(data.data.listStocks.items);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Background />

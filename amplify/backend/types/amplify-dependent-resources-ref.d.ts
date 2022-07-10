@@ -10,4 +10,10 @@ export type AmplifyDependentResourcesAttributes = {
       AppClientID: 'string';
     };
   };
-};
+  api: {
+    gachatravel: {
+      GraphQLAPIKeyOutput: 'string';
+      GraphQLAPIIdOutput: 'string';
+      GraphQLAPIEndpointOutput: 'string';
+    };
+  };
