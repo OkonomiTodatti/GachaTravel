@@ -1,10 +1,17 @@
 import React, { memo } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export const MyPage = memo(() => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>マイページ</Text>
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
 });
