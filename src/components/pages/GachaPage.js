@@ -30,15 +30,6 @@ export const GachaPage = memo(() => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarStyle: { borderTopLeftRadius: 37, borderTopRightRadius: 37, position: 'absolute', height: '12%' },
-        // tabBarIcon: ({ focused }) => {
-        //   if (route.name === 'gachaTopPage') {
-        //     setSelectTab('gacha', focused);
-        //   } else if (route.name === 'Collection') {
-        //     setSelectTab('collection', focused);
-        //   } else if (route.name === 'MyPage') {
-        //     setSelectTab('mypage', focused);
-        //   }
-        // },
       })}
     >
       <Tab.Screen
