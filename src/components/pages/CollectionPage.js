@@ -1,10 +1,16 @@
 import React, { memo } from 'react';
-import { Text, View } from 'react-native';
-
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 export const CollectionPage = memo(() => {
   return (
-    <View>
-      <Text>コレクションページ</Text>
+    <View style={styles.container}>
+      <Text>コレクション</Text>
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
 });

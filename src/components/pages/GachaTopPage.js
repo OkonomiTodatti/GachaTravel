@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Background from '../../assets/SBg.svg';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { CustomButton } from '../Inputs/CustomButton';
@@ -13,6 +13,7 @@ export const GachaTopPage = memo((props) => {
   const { navigation } = props;
 
   const { loginUser, setLoginUser } = useLoginUser();
+  const [data, setData] = useState();
 
   Auth.currentSession()
     .then((data) => setLoginUser(data.getAccessToken().payload.client_id))
@@ -33,11 +34,13 @@ export const GachaTopPage = memo((props) => {
     try {
       // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
       const data = await API.graphql(graphqlOperation(listStocks, { filter: filter }));
-      console.log(data.data.listStocks.items);
+      setData(data.data.listStocks.items);
     } catch (err) {
       console.log(err);
     }
   }
+
+  console.log(loginUser);
 
   return (
     <View style={styles.container}>

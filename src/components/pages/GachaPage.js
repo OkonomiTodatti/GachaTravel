@@ -30,6 +30,23 @@ export const GachaPage = memo(() => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarStyle: { borderTopLeftRadius: 37, borderTopRightRadius: 37, position: 'absolute', height: '12%' },
+        animation: 'fade',
+        headerStyle: {
+          backgroundColor: '#FF654A',
+          shadowColor: '#AD150C',
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 1,
+          shadowRadius: 0,
+          borderBottomWidth: 0,
+          elevation: 0,
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          color: '#fff',
+        },
       })}
     >
       <Tab.Screen
@@ -68,7 +85,7 @@ export const GachaPage = memo(() => {
             <Collection style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.6 }} />
           ),
           tabBarLabelStyle: { color: collectionTab ? '#F13C31' : '#C3C7C6' },
-          headerShown: false,
+          headerTitle: 'コレクション',
         }}
       />
       <Tab.Screen
@@ -87,8 +104,8 @@ export const GachaPage = memo(() => {
             <Mypage style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.3 }} />
           ),
           tabBarLabelStyle: { color: mypageTab ? '#F13C31' : '#C3C7C6' },
-          headerShown: false,
           animationEnabled: true,
+          headerTitle: 'マイページ',
         }}
       />
     </Tab.Navigator>

@@ -42,7 +42,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-gachatravel-dev-172929-deployment/amplify-cfn-templates/auth/gachatravel6d2dc26b-cloudformation-template.json",
         "logicalId": "authgachatravel6d2dc26b"
       },
-      "lastPushTimeStamp": "2022-05-30T09:01:31.142Z",
+      "lastPushTimeStamp": "2022-07-10T07:20:36.271Z",
       "output": {
         "UserPoolId": "us-east-1_9RdSGMmME",
         "AppClientIDWeb": "7hanama4mgkt160dd47ao8t2lq",
@@ -52,7 +52,34 @@
         "IdentityPoolName": "gachatravel6d2dc26b_identitypool_6d2dc26b__dev",
         "UserPoolName": "gachatravel6d2dc26b_userpool_6d2dc26b"
       },
-      "lastPushDirHash": "adh+ULxPhyIlzdiZhjrTPXt3Pbk="
+      "lastPushDirHash": "c0DL00t4Ttbu5zfAMNaGxNjbwD0="
+    }
+  },
+  "api": {
+    "gachatravel": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "iw2uabes6bhcddjx73zax3y7zm",
+        "GraphQLAPIEndpointOutput": "https://3435uwuzrrbkdorekk2gxsjhqa.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-fkdqbhiwm5b2lcp55gg7yd3duu"
+      },
+      "lastPushTimeStamp": "2022-07-10T07:20:36.276Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-gachatravel-dev-172929-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apigachatravel"
+      },
+      "lastPushDirHash": "Rs9dqsZt20QydIvHBNHbMIhbEwY="
     }
   }
 }
