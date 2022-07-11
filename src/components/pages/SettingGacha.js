@@ -91,7 +91,7 @@ export const SettingGacha = memo((props) => {
         </View>
       </View>
       <View style={{ width: '80%', marginTop: 30 }}>
-        <CustomButton text="はじめる" onPress={() => navigation.navigate('SettingGacha')} />
+        <CustomButton text="はじめる" onPress={() => navigation.navigate('GachaAnimation')} />
       </View>
     </View>
   );
