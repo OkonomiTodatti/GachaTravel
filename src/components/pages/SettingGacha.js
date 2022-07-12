@@ -1,9 +1,10 @@
 import React, { memo, useCallback, useState } from 'react';
-import { Text, StyleSheet, View, TextInput } from 'react-native';
+import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
 import { Label } from '../Text/Lable';
 import { CustomButton } from '../Inputs/CustomButton';
 import { CustomModal } from '../Modal/CustomModal';
 import { peopleData, stayDaysData, travelPlanData } from '../data';
+import PrimaryButton from '../../assets/Button.svg';
 
 export const SettingGacha = memo((props) => {
   const { navigation } = props;
@@ -19,10 +20,12 @@ export const SettingGacha = memo((props) => {
       <View style={styles.form}>
         <Label text="人数" type="secondary" />
         <TextInput
-          style={{ height: 40, borderBottomColor: '#EDEDED', borderBottomWidth: 2, color: '#777777' }}
+          style={styles.input}
           value={people}
           onChangeText={setPeople}
           keyboardType="numeric"
+          editable={false}
+          selectTextOnFocus={false}
           onPressIn={() => setModalPeopleVisible(!modalPeopleVisible)}
         />
         <CustomModal
@@ -32,15 +35,17 @@ export const SettingGacha = memo((props) => {
           setValue={setPeople}
           items={peopleData}
         />
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={styles.labelContainer}>
           <Label text="宿泊日数" type="secondary" />
           <Label text="任意" type="secondary" />
         </View>
         <TextInput
-          style={{ height: 40, borderBottomColor: '#EDEDED', borderBottomWidth: 2, color: '#777777' }}
+          style={styles.input}
           value={stayDays}
           onChangeText={setStayDays}
           keyboardType="numeric"
+          editable={false}
+          selectTextOnFocus={false}
           onPressIn={() => setModalStayDaysVisible(!modalStayDaysVisible)}
         />
         <CustomModal
@@ -50,15 +55,17 @@ export const SettingGacha = memo((props) => {
           setValue={setStayDays}
           items={stayDaysData}
         />
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={styles.labelContainer}>
           <Label text="旅行名" type="secondary" />
           <Label text="任意" type="secondary" />
         </View>
         <TextInput
-          style={{ height: 40, borderBottomColor: '#EDEDED', borderBottomWidth: 2, color: '#777777' }}
+          style={styles.input}
           value={travelPlan}
           onChangeText={setTravelPlan}
           keyboardType="numeric"
+          editable={false}
+          selectTextOnFocus={false}
           onPressIn={() => setModalTravelPlanVisible(!modalTravelPlanVisible)}
         />
         <CustomModal
@@ -90,8 +97,27 @@ export const SettingGacha = memo((props) => {
           </View>
         </View>
       </View>
-      <View style={{ width: '80%', marginTop: 30 }}>
-        <CustomButton text="はじめる" onPress={() => navigation.navigate('SettingGacha')} />
+      <View style={{ marginTop: 30 }}>
+        {/*<CustomButton text="はじめる" onPress={() => navigation.navigate('GachaAnimation')} />*/}
+        <Pressable
+          style={{ width: 350, height: 90, position: 'relative' }}
+          onPress={() => navigation.navigate('GachaAnimation')}
+        >
+          <PrimaryButton />
+          <Text
+            style={{
+              color: '#fff',
+              fontFamily: 'Noto Sans',
+              fontWeight: 'bold',
+              fontSize: 24,
+              position: 'absolute',
+              top: 36,
+              left: 95,
+            }}
+          >
+            ガチャを回す
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -112,5 +138,17 @@ const styles = StyleSheet.create({
     paddingVertical: 13,
     paddingHorizontal: 16,
     marginTop: 10,
+  },
+
+  input: {
+    height: 40,
+    borderBottomColor: '#EDEDED',
+    borderBottomWidth: 2,
+    color: '#777777',
+  },
+
+  labelContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });

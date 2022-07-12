@@ -9,6 +9,7 @@ import { LoginHome } from '../components/pages/LoginHome';
 import { SettingGacha } from '../components/pages/SettingGacha';
 import { GachaPage } from '../components/pages/GachaPage';
 import { CollectionPage } from '../components/pages/CollectionPage';
+import { GachaAnimationPage } from '../components/pages/GachaAnimationPage';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();
@@ -58,6 +59,7 @@ export const Navigation = memo(() => {
           options={{ headerBackTitle: 'キャンセル', headerTitle: 'ガチャを回す' }}
         />
         <Stack.Screen name="GachaPage" component={GachaPage} options={{ headerShown: false }} />
+        <Stack.Screen name="GachaAnimation" component={GachaAnimationPage} options={{ headerShown: false }} />
       </Stack.Group>
       {/*<Stack.Screen name="Home" component={Home} />*/}
     </Stack.Navigator>

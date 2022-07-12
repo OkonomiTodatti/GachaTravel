@@ -42,7 +42,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-gachatravel-dev-172929-deployment/amplify-cfn-templates/auth/gachatravel6d2dc26b-cloudformation-template.json",
         "logicalId": "authgachatravel6d2dc26b"
       },
-      "lastPushTimeStamp": "2022-07-10T07:20:36.271Z",
+      "lastPushTimeStamp": "2022-07-12T01:34:12.328Z",
       "output": {
         "UserPoolId": "us-east-1_9RdSGMmME",
         "AppClientIDWeb": "7hanama4mgkt160dd47ao8t2lq",
@@ -74,12 +74,12 @@
         "GraphQLAPIEndpointOutput": "https://3435uwuzrrbkdorekk2gxsjhqa.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-fkdqbhiwm5b2lcp55gg7yd3duu"
       },
-      "lastPushTimeStamp": "2022-07-10T07:20:36.276Z",
+      "lastPushTimeStamp": "2022-07-12T01:34:13.788Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-gachatravel-dev-172929-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apigachatravel"
       },
-      "lastPushDirHash": "Rs9dqsZt20QydIvHBNHbMIhbEwY="
+      "lastPushDirHash": "XRjSWOsAZ88KsOzSg08r3uD/UBo="
     }
   }
 }
