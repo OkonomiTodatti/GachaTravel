@@ -5,6 +5,7 @@ import Gacha from '../../assets/Gacha.svg';
 import Background from '../../assets/bg.svg';
 import { useNavigation } from '@react-navigation/native';
 import { CustomButton } from '../Inputs/CustomButton';
+import PrimaryButton from '../../assets/Button.svg';
 
 export const LoginHome = memo(() => {
   const navigation = useNavigation();
@@ -27,7 +28,23 @@ export const LoginHome = memo(() => {
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
         <Gacha />
-        <CustomButton text="アカウント登録" onPress={onPressSignUp} />
+        {/*<CustomButton text="アカウント登録" onPress={onPressSignUp} />*/}
+        <Pressable style={{ width: 350, height: 90, position: 'relative' }} onPress={onPressSignUp}>
+          <PrimaryButton />
+          <Text
+            style={{
+              color: '#fff',
+              fontFamily: 'Noto Sans',
+              fontWeight: 'bold',
+              fontSize: 19,
+              position: 'absolute',
+              top: 39,
+              left: 92,
+            }}
+          >
+            アカウントを登録
+          </Text>
+        </Pressable>
         <Pressable style={styles.button} onPress={onPressLogin}>
           <Text style={styles.buttonText}>ログイン</Text>
         </Pressable>
