@@ -80,7 +80,7 @@ type Mission
 @model
 {
   id: ID! @index(name: "byMission")
-  plan_id:ID!
+  plan_id:String!
   contents:String
   recommend_plan:RecommendPlan @belongsTo
 }
@@ -89,7 +89,7 @@ type Coupon
 @model
 {
   id:ID! @index(name: "byCoupon")
-  plan_id:ID!
+  plan_id:String!
   contents:String!
   discount:Int!
   recommend_plan:RecommendPlan @belongsTo
