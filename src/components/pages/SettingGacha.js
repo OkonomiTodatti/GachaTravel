@@ -76,7 +76,6 @@ export const SettingGacha = memo((props) => {
           items={travelPlanData}
         />
       </View>
-
       <View style={[styles.form, { marginTop: 70, paddingBottom: 30 }]}>
         <Label text="1人1回5000円" type="secondary" />
         <View
