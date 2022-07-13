@@ -4,11 +4,13 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { listStocks } from '../../graphql/queries';
 import { createStock } from '../../graphql/mutations';
 import { useLoginUser } from '../../provider/LoginUserProvider';
+import { Overlay } from '@rneui/base';
 
 export const GachaAnimationPage = memo((props) => {
   const { navigation } = props;
   const lottieRef = useRef();
   const [gachaState, setGachaState] = useState(true);
+  const [visible, setVisible] = useState(true);
   const { loginUser } = useLoginUser();
   const resetAnimation = () => {
     if (lottieRef.current) {
@@ -28,14 +30,14 @@ export const GachaAnimationPage = memo((props) => {
 
   setTimeout(() => {
     // setGachaState(false);
-    fetchCreateStock({
-      user_id: loginUser,
-      ticket_id: Math.round(Math.random() * 3 + 1),
-      plan_id: '1',
-      status: 'Before',
-      people: '1',
-    }).then(() => navigation.navigate('GachaPage'));
-    // navigation.navigate('GachaPage');
+    // fetchCreateStock({
+    //   user_id: loginUser,
+    //   ticket_id: Math.round(Math.random() * 3 + 1),
+    //   plan_id: '1',
+    //   status: 'Before',
+    //   people: '1',
+    // }).then(() => navigation.navigate('GachaPage'));
+    navigation.navigate('GachaPage');
   }, 5.05 * 1000);
 
   async function fetchCreateStock(stockDatas) {
@@ -46,14 +48,22 @@ export const GachaAnimationPage = memo((props) => {
     }
   }
 
+  const toggleOverlay = () => setVisible(!visible);
+
   return (
-    <LottieView
-      ref={lottieRef}
-      loop={false}
-      style={{
-        flex: 1,
-      }}
-      source={require('../../assets/gacha.json')}
-    />
+    <Overlay isVisible={visible} style={{ position: 'absolute', height: '80%', width: '80%' }}>
+      <LottieView
+        ref={lottieRef}
+        loop={false}
+        style={{
+          flex: 1,
+          backgroundColor: '#919191',
+          height: '10%',
+          width: '10%',
+        }}
+        source={require('../../assets/43029-gacha-world-mascot-entrance-animation (1).json')}
+        resizeMode="cover"
+      />
+    </Overlay>
   );
 });

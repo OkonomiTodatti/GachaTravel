@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
-import Background from '../../assets/bg.svg';
+import Background from '../../assets/bg2.svg';
 import { useNavigation } from '@react-navigation/native';
 import { CustomButton } from '../Inputs/CustomButton';
 import PrimaryButton from '../../assets/Button.svg';
@@ -29,7 +29,7 @@ export const LoginHome = memo(() => {
         <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
         <Gacha />
         {/*<CustomButton text="アカウント登録" onPress={onPressSignUp} />*/}
-        <Pressable style={{ width: 350, height: 90, position: 'relative' }} onPress={onPressSignUp}>
+        <Pressable style={{ width: 350, height: 90, position: 'relative', marginTop: 14 }} onPress={onPressSignUp}>
           <PrimaryButton />
           <Text
             style={{
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
 
   text_ios: {
-    fontSize: 20,
+    fontSize: 18,
   },
 
   text_android: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    padding: 15,
+    padding: 12,
     alignItems: 'center',
     borderRadius: 30,
   },

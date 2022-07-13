@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import { Text, StyleSheet, ImageBackground, View, Platform, TouchableOpacity, Pressable } from 'react-native';
+import { Text, StyleSheet, ImageBackground, View, Platform, Pressable } from 'react-native';
 import image from '../../assets/Logo.png';
-import Background from '../../assets/bg.svg';
+import Background from '../../assets/bg2.svg';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
 import { CustomButton } from '../Inputs/CustomButton';
@@ -26,7 +26,7 @@ export const Home = memo((props) => {
         <Gacha />
         {/*<CustomButton text="はじめる" onPress={() => navigation.dispatch(resetAction)} />*/}
         <Pressable
-          style={{ width: 350, height: 90, position: 'relative' }}
+          style={{ width: 350, height: 90, position: 'relative', marginTop: 20 }}
           onPress={() => navigation.dispatch(resetAction)}
         >
           <PrimaryButton />
