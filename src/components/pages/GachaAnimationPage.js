@@ -5,6 +5,7 @@ import { listStocks } from '../../graphql/queries';
 import { createStock } from '../../graphql/mutations';
 import { useLoginUser } from '../../provider/LoginUserProvider';
 import { Overlay } from '@rneui/base';
+import { Text, View } from 'react-native';
 
 export const GachaAnimationPage = memo((props) => {
   const { navigation } = props;
@@ -51,19 +52,26 @@ export const GachaAnimationPage = memo((props) => {
   const toggleOverlay = () => setVisible(!visible);
 
   return (
-    <Overlay isVisible={visible} style={{ position: 'absolute', height: '80%', width: '80%' }}>
-      <LottieView
-        ref={lottieRef}
-        loop={false}
-        style={{
-          flex: 1,
-          backgroundColor: '#919191',
-          height: '10%',
-          width: '10%',
-        }}
-        source={require('../../assets/43029-gacha-world-mascot-entrance-animation (1).json')}
-        resizeMode="cover"
-      />
-    </Overlay>
+    <View style={{ position: 'relative' }}>
+      <Text>こんにちは</Text>
+      <Overlay isVisible={visible} style={{ height: '100%', width: '80%' }}>
+        <LottieView
+          ref={lottieRef}
+          loop={false}
+          style={{
+            width: 300,
+            height: 200,
+            left: -45,
+            top: -25,
+            backgroundColor: '#919191',
+            // backgroundColor:'rgba(145, 145, 145, .1)',
+            flex: 1,
+            position: 'absolute',
+          }}
+          source={require('../../assets/43029-gacha-world-mascot-entrance-animation (1).json')}
+          resizeMode="cover"
+        />
+      </Overlay>
+    </View>
   );
 });
