@@ -13,6 +13,18 @@ export const CollectionPage = memo(() => {
       {/*    </View>*/}
       {/*  </View>*/}
       {/*</Pressable>*/}
+      <View
+        style={{
+          height: '100%',
+          position: 'absolute',
+          width: '100%',
+          flexDirection: 'row',
+        }}
+      >
+        <View style={styles.border} />
+        <View style={styles.border} />
+        <View style={styles.border} />
+      </View>
     </ScrollView>
   );
 });
@@ -21,6 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f1f1f1',
+    position: 'relative',
   },
 
   card: {
@@ -31,5 +44,12 @@ const styles = StyleSheet.create({
     width: 180,
     height: 180,
     padding: 10,
+  },
+
+  border: {
+    borderRightWidth: 30,
+    borderColor: '#333',
+    height: '100%',
+    width: '20%',
   },
 });
