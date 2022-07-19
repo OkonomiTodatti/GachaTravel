@@ -8,7 +8,6 @@ import { Overlay } from '@rneui/base';
 import { StyleSheet, Text, View, LogBox, Dimensions } from 'react-native';
 import Video from 'react-native-video';
 import video from '../../assets/gacha.mp4';
-import video2 from '../../assets/gacha5.webm';
 
 const { width, height } = Dimensions.get('window');
 
