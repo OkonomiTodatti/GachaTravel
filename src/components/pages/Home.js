@@ -8,6 +8,7 @@ import { CustomButton } from '../Inputs/CustomButton';
 import { CommonActions } from '@react-navigation/native';
 import ButtonSvg from '../../assets/StartButton.svg';
 import PrimaryButton from '../../assets/Button.svg';
+import SubTitle from '../../assets/subTitle.svg';
 
 export const Home = memo((props) => {
   const { navigation } = props;
@@ -21,8 +22,9 @@ export const Home = memo((props) => {
       <Background />
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
         <Logo />
-        <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>
-        <Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>
+        <SubTitle />
+        {/*<Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>*/}
+        {/*<Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>*/}
         <Gacha />
         {/*<CustomButton text="はじめる" onPress={() => navigation.dispatch(resetAction)} />*/}
         <Pressable
