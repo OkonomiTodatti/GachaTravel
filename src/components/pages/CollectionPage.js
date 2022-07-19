@@ -4,15 +4,15 @@ import Logo from '../../assets/Logo.png';
 export const CollectionPage = memo(() => {
   return (
     <ScrollView style={styles.container}>
-      <Pressable onPress={() => alert('aa')}>
-        <View style={styles.card}>
-          <Image source={Logo} style={{ width: '100%', height: '100%' }} />
-          <View>
-            <Text>こんにちは</Text>
-            <Text>コレクション</Text>
-          </View>
-        </View>
-      </Pressable>
+      {/*<Pressable onPress={() => alert('aa')}>*/}
+      {/*  <View style={styles.card}>*/}
+      {/*    <Image source={Logo} style={{ width: '100%', height: '100%' }} />*/}
+      {/*    <View>*/}
+      {/*      <Text>こんにちは</Text>*/}
+      {/*      <Text>コレクション</Text>*/}
+      {/*    </View>*/}
+      {/*  </View>*/}
+      {/*</Pressable>*/}
     </ScrollView>
   );
 });

@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: '100%',
     height: 55,
-    backgroundColor: '#F13C31',
-    shadowColor: '#AD150C',
+    backgroundColor: '#FF654A',
+    shadowColor: '#CB472F',
     shadowOffset: {
       width: 0,
       height: 4,
