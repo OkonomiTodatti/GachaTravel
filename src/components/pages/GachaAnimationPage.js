@@ -42,7 +42,7 @@ export const GachaAnimationPage = memo((props) => {
     //   status: 'Before',
     //   people: '1',
     // }).then(() => navigation.navigate('GachaPage'));
-    navigation.navigate('GachaPage');
+    navigation.navigate('GachaResult');
     // navigation.navigate('GachaResult');
   }, 10 * 1000);
 
