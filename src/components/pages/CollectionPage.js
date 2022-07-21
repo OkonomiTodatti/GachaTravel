@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import collectionBg from '../../assets/collectionBg.png';
 import CollectionHeader from '../../assets/collectionHeader.svg';
-import { GachaFrame } from '../GachaFrame/GachaFrame';
+import { GachaFrame } from '../Gacha/GachaFrame';
 
 export const CollectionPage = memo(() => {
   return (
