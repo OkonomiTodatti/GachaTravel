@@ -82,7 +82,7 @@ export const GachaResultPage = memo((props) => {
           <Modal nextButton={true} onPressUp={onPressUpPage} onPressDown={onPressDownPage} />
         </View>
         <View style={{ flexDirection: 'row', position: 'absolute', top: 250, left: -150 }}>
-          <Pressable onPress={() => navigation.navigate('Collection')}>
+          <Pressable onPress={() => navigation.navigate('gachaTopPage')}>
             <Button />
             <Text
               style={{
