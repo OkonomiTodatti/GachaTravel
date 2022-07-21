@@ -89,10 +89,10 @@ export const SettingGacha = memo((props) => {
         >
           <Label text="合計" type="secondary" />
           <View style={{ flexDirection: 'row' }}>
-            <Text style={{ marginTop: 5, color: '#777777', fontWeight: 'bold', fontSize: 23 }}>
+            <Text style={{ marginTop: 2, color: '#777777', fontWeight: 'bold', fontSize: 23, fontFamily: 'Noto Sans' }}>
               {Number(people.slice(0, 1)) * 5000}
             </Text>
-            <Text style={{ marginTop: 14, color: '#777777' }}>円</Text>
+            <Text style={{ marginTop: 14, color: '#777777', fontFamily: 'Noto Sans' }}>円</Text>
           </View>
         </View>
       </View>
@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EDEDED',
     borderBottomWidth: 2,
     color: '#777777',
+    fontFamily: 'Noto Sans',
   },
 
   labelContainer: {
