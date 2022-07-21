@@ -7,7 +7,10 @@ import { useLoginUser } from '../../provider/LoginUserProvider';
 import { Overlay } from '@rneui/base';
 import { StyleSheet, Text, View, LogBox, Dimensions } from 'react-native';
 import Video from 'react-native-video';
-import video from '../../assets/gacha.mp4';
+import Gvideo from '../../assets/Ggacha.mp4';
+import Rvideo from '../../assets/Rgacha.mp4';
+import Bvideo from '../../assets/Bgacha.mp4';
+import Yvideo from '../../assets/Ygacha.mp4';
 
 const { width, height } = Dimensions.get('window');
 
@@ -23,6 +26,16 @@ export const GachaAnimationPage = memo((props) => {
       lottieRef.current.play();
     }
   };
+  let flag = Math.floor(Math.random() * (4 + 1 - 1)) + 1;
+  const videoComponents = {
+    1: Rvideo,
+    2: Gvideo,
+    3: Yvideo,
+    4: Bvideo,
+  };
+
+  const video = videoComponents[flag];
+
   useEffect(() => {
     if (lottieRef.current) {
       if (gachaState) {
@@ -56,8 +69,6 @@ export const GachaAnimationPage = memo((props) => {
 
   const toggleOverlay = () => setVisible(!visible);
 
-  console.log(video);
-
   return (
     <View style={{ position: 'relative' }}>
       {/*<Text>こんにちは</Text>*/}
@@ -84,9 +95,6 @@ export const GachaAnimationPage = memo((props) => {
       {/*/>*/}
 
       <Video
-        // source={{
-        //   uri: '../../assets/gacha.mp4',
-        // }} // Can be a URL or a local file.
         source={video}
         ref={(ref) => {
           this.player = ref;
