@@ -12,6 +12,7 @@ import { CollectionPage } from '../components/pages/CollectionPage';
 import { GachaAnimationPage } from '../components/pages/GachaAnimationPage';
 import { GachaResultPage } from '../components/pages/GachaResultPage';
 import { GachaResultDetailPage } from '../components/pages/GachaResultDetailPage';
+import { BuyTicketPage } from '../components/pages/BuyTicketPage';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();
@@ -86,6 +87,11 @@ export const Navigation = memo(() => {
             headerBackTitleVisible: false,
             title: route.params.name,
           })}
+        />
+        <Stack.Screen
+          name="BuyTicket"
+          component={BuyTicketPage}
+          options={{ headerTitle: 'チケット購入手続き', headerBackTitleVisible: false }}
         />
       </Stack.Group>
       {/*<Stack.Screen name="Home" component={Home} />*/}
