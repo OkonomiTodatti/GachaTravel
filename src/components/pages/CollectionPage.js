@@ -11,10 +11,10 @@ export const CollectionPage = memo(() => {
         <CollectionHeader />
         <View style={{ alignItems: 'center' }}>
           <ScrollView contentInset={{ bottom: 200 }}>
+            <GachaFrame color="B" status={false} prefecture="長崎県" plan="夏旅行" people="1" />
             <GachaFrame color="R" status={true} prefecture="長崎県" plan="春旅行" people="1" />
             <GachaFrame color="Y" status={false} prefecture="愛媛県" plan="夏旅行" people="2" />
             <GachaFrame color="G" status={true} prefecture="長崎県" plan="春旅行" people="1" />
-            <GachaFrame color="B" status={false} prefecture="長崎県" plan="夏旅行" people="2" />
             <GachaFrame color="R" status={true} prefecture="長崎県" plan="春旅行" people="1" />
             <GachaFrame color="Y" status={true} prefecture="長崎県" plan="夏旅行" people="2" />
             <GachaFrame color="G" status={false} prefecture="長崎県" plan="春旅行" people="1" />
