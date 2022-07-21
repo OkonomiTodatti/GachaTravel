@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Platform, Pressable } from 'react-native';
 import { Overlay } from '@rneui/base';
 import Background from '../../assets/SBg.svg';
@@ -8,9 +8,37 @@ import StartButton from '../../assets/StartButton.svg';
 import { TravelModal } from '../Modal/TravelModal';
 import Confetti from '../../assets/Confetti.svg';
 import { ResultTag } from '../Gacha/ResultTag';
+import Button from '../../assets/QuaternaryButton.svg';
+import ORCapsule from '../../assets/ORcapsule.svg';
+import RCapsule from '../../assets/Rcapsule.svg';
+import OGCapsule from '../../assets/OGcapsule.svg';
+import GCapsule from '../../assets/Gcapsule.svg';
+import OBCapsule from '../../assets/OBcapsule.svg';
+import BCapsule from '../../assets/Bcapsule.svg';
+import OYCapsule from '../../assets/OYcapsule.svg';
+import YCapsule from '../../assets/Ycapsule.svg';
+import { TicketModal } from '../Modal/TicketModal';
+import { MissionModal } from '../Modal/MissionModal';
+import { RootModal } from '../Modal/RootModal';
+import { MemoryModal } from '../Modal/MemoryModal';
+import { BounusModal } from '../Modal/BounusModal';
 
 export const GachaResultPage = memo((props) => {
   const { navigation } = props;
+  const [count, setCount] = useState(1);
+
+  const onPressUpPage = () => (count < 6 ? setCount(count + 1) : setCount(6));
+  const onPressDownPage = () => (count > 1 ? setCount(count - 1) : setCount(1));
+
+  const modalComponents = {
+    1: TravelModal,
+    2: TicketModal,
+    3: MissionModal,
+    4: RootModal,
+    5: MemoryModal,
+    6: BounusModal,
+  };
+  const Modal = modalComponents[count];
 
   // setTimeout(() => {
   //   // setGachaState(false);
@@ -50,7 +78,42 @@ export const GachaResultPage = memo((props) => {
         <Confetti style={{ position: 'absolute', left: -180, top: -310 }} />
         <View style={{ width: '90%', height: 600, position: 'absolute', left: -150, top: -300 }}>
           <ResultTag />
-          <TravelModal nextButton={true} />
+          {/*<TravelModal nextButton={true} onPressUp={onPressUpPage} onPressDown={onPressDownPage} />*/}
+          <Modal nextButton={true} onPressUp={onPressUpPage} onPressDown={onPressDownPage} />
+        </View>
+        <View style={{ flexDirection: 'row', position: 'absolute', top: 250, left: -150 }}>
+          <Pressable onPress={() => navigation.navigate('Collection')}>
+            <Button />
+            <Text
+              style={{
+                fontSize: 12,
+                fontFamily: 'Noto Sans',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                position: 'absolute',
+                top: 27,
+                left: 40,
+              }}
+            >
+              ストックする
+            </Text>
+          </Pressable>
+          <Pressable style={{ marginLeft: 20 }} onPress={() => navigation.navigate('')}>
+            <Button />
+            <Text
+              style={{
+                fontSize: 12,
+                fontFamily: 'Noto Sans',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                position: 'absolute',
+                top: 27,
+                left: 20,
+              }}
+            >
+              チケット購入手続きへ
+            </Text>
+          </Pressable>
         </View>
       </Overlay>
     </View>
