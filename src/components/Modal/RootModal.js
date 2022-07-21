@@ -1,22 +1,14 @@
 import React, { memo } from 'react';
-import { Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Light from '../../assets/light.svg';
 import BGrid from '../../assets/B2grid.svg';
+import PageButton from '../../assets/route_arrow.svg';
 
-export const RootModal = memo(() => {
+export const RootModal = memo((props) => {
+  const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
   return (
-    <View style={{ marginTop: 20 }}>
-      <View
-        style={{
-          backgroundColor: '#3896d9',
-          borderColor: '#186eab',
-          borderWidth: 3,
-          paddingHorizontal: 3,
-          paddingBottom: 3,
-          borderRadius: 40,
-          position: 'relative',
-        }}
-      >
+    <View style={[styles[`container_${type}`]]}>
+      <View style={styles.card}>
         <Light style={{ top: 10, left: 20, position: 'absolute' }} />
         <Text
           style={{
@@ -38,7 +30,7 @@ export const RootModal = memo(() => {
             paddingTop: 35,
             borderBottomEndRadius: 35,
             borderBottomStartRadius: 35,
-            paddingBottom: 40,
+            paddingBottom: 15,
           }}
         >
           <BGrid style={{ position: 'absolute' }} />
@@ -61,7 +53,7 @@ export const RootModal = memo(() => {
                 <View
                   nativeID="root_content"
                   style={{
-                    paddingVertical: 15,
+                    paddingVertical: 10,
                     paddingHorizontal: 30,
                     borderWidth: 3,
                     borderColor: '#3896d9',
@@ -87,7 +79,7 @@ export const RootModal = memo(() => {
                   <Text
                     style={{
                       textAlign: 'center',
-                      fontSize: 16,
+                      fontSize: 15,
                       color: '#3896d9',
                       marginBottom: 4,
                       fontFamily: 'Noto Sans',
@@ -112,7 +104,7 @@ export const RootModal = memo(() => {
                 <View
                   nativeID="root_content"
                   style={{
-                    paddingVertical: 15,
+                    paddingVertical: 10,
                     paddingHorizontal: 30,
                     borderWidth: 3,
                     borderColor: '#3896d9',
@@ -163,7 +155,7 @@ export const RootModal = memo(() => {
                 <View
                   nativeID="root_content"
                   style={{
-                    paddingVertical: 15,
+                    paddingVertical: 10,
                     paddingHorizontal: 30,
                     borderWidth: 3,
                     borderColor: '#3896d9',
@@ -203,10 +195,74 @@ export const RootModal = memo(() => {
                   <Text style={{ color: '#777', fontSize: 12, fontFamily: 'Noto Sans', marginTop: 5 }}>種類：観光</Text>
                 </View>
               </View>
+              {nextButton ? (
+                <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 11 }}>
+                  <Pressable onPress={onPressDown}>
+                    <PageButton />
+                  </Pressable>
+                  <View
+                    style={{
+                      backgroundColor: '#3896d9',
+                      borderWidth: 1,
+                      borderColor: '#186eab',
+                      borderRadius: 5,
+                      marginTop: 6,
+                      height: 30,
+                      shadowColor: '#186eab',
+                      shadowOffset: {
+                        width: 0,
+                        height: 2,
+                      },
+                      shadowOpacity: 1,
+                      shadowRadius: 0,
+                      elevation: 1,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 14,
+                        color: '#fff',
+                        paddingHorizontal: 14,
+                        lineHeight: 26,
+                        fontWeight: 'bold',
+                        letterSpacing: 3,
+                        fontFamily: 'Noto Sans',
+                      }}
+                    >
+                      4/6
+                    </Text>
+                  </View>
+                  <Pressable onPress={onPressUp}>
+                    <PageButton style={{ transform: [{ rotate: '60deg' }] }} />
+                  </Pressable>
+                </View>
+              ) : (
+                <View></View>
+              )}
             </View>
           </View>
         </View>
       </View>
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container_primary: {
+    marginTop: 0,
+  },
+
+  container_detail: {
+    marginTop: 20,
+  },
+
+  card: {
+    backgroundColor: '#3896d9',
+    borderColor: '#186eab',
+    borderWidth: 3,
+    paddingHorizontal: 3,
+    paddingBottom: 3,
+    borderRadius: 40,
+    position: 'relative',
+  },
 });

@@ -87,30 +87,30 @@ export const GachaResultDetailPage = memo(() => {
             </View>
             <View>
               <ResultTag />
-              <TravelModal />
+              <TravelModal type="detail" />
               <GlassButton color="B" onPress={() => console.log('push')} />
             </View>
             <View>
-              <TicketModal />
+              <TicketModal type="detail" />
               <GlassButton color="R" onPress={() => console.log('push')} />
             </View>
             <View>
-              <MissionModal />
+              <MissionModal type="detail" />
               <GlassButton color="Pe" onPress={() => console.log('push')} />
             </View>
             <View>
-              <RootModal />
+              <RootModal type="detail" />
               {/*<Pressable onPress={() => console.log('push')}>*/}
               {/*  <B2glass style={{ position: 'absolute', bottom: 20, right: 20 }} />*/}
               {/*</Pressable>*/}
               <GlassButton color="B2" onPress={() => console.log('push')} />
             </View>
             <View>
-              <MemoryModal />
+              <MemoryModal type="detail" />
               <GlassButton color="Y" onPress={() => console.log('push')} />
             </View>
             <View>
-              <BounusModal />
+              <BounusModal type="detail" />
               <GlassButton color="P" onPress={() => console.log('push')} />
             </View>
           </ScrollView>
