@@ -55,7 +55,6 @@ export const Navigation = memo(() => {
       </Stack.Group>
       <Stack.Group>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-        <Stack.Screen name="Details" component={Details} />
         <Stack.Screen
           name="SettingGacha"
           component={SettingGacha}
