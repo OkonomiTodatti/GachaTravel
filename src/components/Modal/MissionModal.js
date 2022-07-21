@@ -1,24 +1,16 @@
 import React, { memo } from 'react';
-import { ImageBackground, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import Light from '../../assets/light.svg';
 import Mission from '../../assets/mission.svg';
 import PeGrid from '../../assets/Pegrid.svg';
 import MissionBack from '../../assets/mission_back.svg';
+import PageButton from '../../assets/mission_arrow.svg';
 
-export const MissionModal = memo(() => {
+export const MissionModal = memo((props) => {
+  const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
   return (
-    <View style={{ marginTop: 20 }}>
-      <View
-        style={{
-          backgroundColor: '#ac8bd6',
-          borderColor: '#8761b7',
-          borderWidth: 3,
-          paddingHorizontal: 3,
-          paddingBottom: 3,
-          borderRadius: 40,
-          position: 'relative',
-        }}
-      >
+    <View style={[styles[`container_${type}`]]}>
+      <View style={styles.card}>
         <Light style={{ top: 10, left: 20, position: 'absolute' }} />
         <Text
           style={{
@@ -105,9 +97,73 @@ export const MissionModal = memo(() => {
             <View style={{ marginTop: 20, marginLeft: 'auto', marginRight: 'auto' }}>
               <Mission />
             </View>
+            {nextButton ? (
+              <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
+                <Pressable onPress={onPressDown}>
+                  <PageButton />
+                </Pressable>
+                <View
+                  style={{
+                    backgroundColor: '#ac8bd6',
+                    borderWidth: 1,
+                    borderColor: '#8761b7',
+                    borderRadius: 5,
+                    marginTop: 6,
+                    height: 30,
+                    shadowColor: '#8761b7',
+                    shadowOffset: {
+                      width: 0,
+                      height: 2,
+                    },
+                    shadowOpacity: 1,
+                    shadowRadius: 0,
+                    elevation: 1,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: '#fff',
+                      paddingHorizontal: 14,
+                      lineHeight: 26,
+                      fontWeight: 'bold',
+                      letterSpacing: 3,
+                      fontFamily: 'Noto Sans',
+                    }}
+                  >
+                    3/6
+                  </Text>
+                </View>
+                <Pressable onPress={onPressUp}>
+                  <PageButton style={{ transform: [{ rotate: '60deg' }] }} />
+                </Pressable>
+              </View>
+            ) : (
+              <View></View>
+            )}
           </View>
         </View>
       </View>
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container_primary: {
+    marginTop: 0,
+  },
+
+  container_detail: {
+    marginTop: 20,
+  },
+
+  card: {
+    backgroundColor: '#ac8bd6',
+    borderColor: '#8761b7',
+    borderWidth: 3,
+    paddingHorizontal: 3,
+    paddingBottom: 3,
+    borderRadius: 40,
+    position: 'relative',
+  },
 });
