@@ -86,6 +86,7 @@ export const GachaPage = memo(() => {
           ),
           tabBarLabelStyle: { color: collectionTab ? '#F13C31' : '#C3C7C6' },
           headerTitle: 'コレクション',
+          headerShown: false,
         }}
       />
       <Tab.Screen

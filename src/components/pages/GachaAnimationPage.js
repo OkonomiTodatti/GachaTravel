@@ -43,6 +43,7 @@ export const GachaAnimationPage = memo((props) => {
     //   people: '1',
     // }).then(() => navigation.navigate('GachaPage'));
     navigation.navigate('GachaResult');
+    // navigation.navigate('GachaResult');
   }, 10 * 1000);
 
   async function fetchCreateStock(stockDatas) {

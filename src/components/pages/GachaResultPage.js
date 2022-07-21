@@ -5,9 +5,25 @@ import Background from '../../assets/SBg.svg';
 import Setting from '../../assets/setting.svg';
 import Coin from '../../assets/coin.svg';
 import StartButton from '../../assets/StartButton.svg';
+import { TravelModal } from '../Modal/TravelModal';
+import Confetti from '../../assets/Confetti.svg';
+import { ResultTag } from '../Gacha/ResultTag';
 
 export const GachaResultPage = memo((props) => {
   const { navigation } = props;
+
+  // setTimeout(() => {
+  //   // setGachaState(false);
+  //   // fetchCreateStock({
+  //   //   user_id: loginUser,
+  //   //   ticket_id: Math.round(Math.random() * 3 + 1),
+  //   //   plan_id: '1',
+  //   //   status: 'Before',
+  //   //   people: '1',
+  //   // }).then(() => navigation.navigate('GachaPage'));
+  //   navigation.navigate('GachaPage');
+  //   // navigation.navigate('GachaResult');
+  // }, 10 * 1000);
 
   return (
     <View style={styles.container}>
@@ -30,9 +46,11 @@ export const GachaResultPage = memo((props) => {
           <StartButton />
         </Pressable>
       </View>
-      <Overlay isVisible={true}>
-        <View style={{ backgroundColor: 'white', width: 200, height: 200, position: 'absolute', top: -90, left: -90 }}>
-          <Text>こんにちは</Text>
+      <Overlay isVisible={true} style={{ paddingVertical: 10, flex: 2 }}>
+        <Confetti style={{ position: 'absolute', left: -180, top: -310 }} />
+        <View style={{ width: '90%', height: 600, position: 'absolute', left: -150, top: -300 }}>
+          <ResultTag />
+          <TravelModal nextButton={true} />
         </View>
       </Overlay>
     </View>

@@ -11,6 +11,8 @@ import { GachaPage } from '../components/pages/GachaPage';
 import { CollectionPage } from '../components/pages/CollectionPage';
 import { GachaAnimationPage } from '../components/pages/GachaAnimationPage';
 import { GachaResultPage } from '../components/pages/GachaResultPage';
+import { GachaResultDetailPage } from '../components/pages/GachaResultDetailPage';
+import { BuyTicketPage } from '../components/pages/BuyTicketPage';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();
@@ -62,6 +64,35 @@ export const Navigation = memo(() => {
         <Stack.Screen name="GachaPage" component={GachaPage} options={{ headerShown: false }} />
         <Stack.Screen name="GachaAnimation" component={GachaAnimationPage} options={{ headerShown: false }} />
         <Stack.Screen name="GachaResult" component={GachaResultPage} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="GachaResultDetail"
+          component={GachaResultDetailPage}
+          options={({ route }) => ({
+            headerStyle: {
+              backgroundColor: '#FFF3D1',
+              shadowColor: '#F4E2AF',
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 1,
+              shadowRadius: 0,
+              borderBottomWidth: 0,
+              elevation: 0,
+            },
+            headerTintColor: '#683719',
+            headerTitleStyle: {
+              color: '#683719',
+            },
+            headerBackTitleVisible: false,
+            title: route.params.name,
+          })}
+        />
+        <Stack.Screen
+          name="BuyTicket"
+          component={BuyTicketPage}
+          options={{ headerTitle: 'チケット購入手続き', headerBackTitleVisible: false }}
+        />
       </Stack.Group>
       {/*<Stack.Screen name="Home" component={Home} />*/}
     </Stack.Navigator>
