@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     alignItems: 'flex-start',
     marginTop: 10,
+    fontFamily: 'Noto Sans',
   },
   text_primary: {
     fontSize: 16,
@@ -20,5 +21,9 @@ const styles = StyleSheet.create({
   text_secondary: {
     fontSize: 14,
     color: '#777777',
+  },
+  text_tertiary: {
+    fontSize: 14,
+    color: '#67533A',
   },
 });
