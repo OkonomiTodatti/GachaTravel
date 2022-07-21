@@ -1,24 +1,14 @@
 import React, { memo } from 'react';
-import { FlatList, Image, Text, View } from 'react-native';
+import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Light from '../../assets/light.svg';
-import Ticket from '../../assets/ticket.svg';
 import YGrid from '../../assets/Ygrid.svg';
-import TicketBack from '../../assets/ticket_back.svg';
+import PageButton from '../../assets/memory_arrow.svg';
 
-export const MemoryModal = memo(() => {
+export const MemoryModal = memo((props) => {
+  const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
   return (
-    <View style={{ marginTop: 20 }}>
-      <View
-        style={{
-          backgroundColor: '#ea9c3b',
-          borderColor: '#bb7e31',
-          borderWidth: 3,
-          paddingHorizontal: 3,
-          paddingBottom: 3,
-          borderRadius: 40,
-          position: 'relative',
-        }}
-      >
+    <View style={[styles[`container_${type}`]]}>
+      <View style={styles.card}>
         <Light style={{ top: 10, left: 20, position: 'absolute' }} />
         <Text
           style={{
@@ -48,21 +38,152 @@ export const MemoryModal = memo(() => {
             <View
               nativeID="memory_wrap"
               style={{
-                width: '70%',
+                width: '80%',
                 marginLeft: 'auto',
                 marginRight: 'auto',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                flexDirection: 'row',
               }}
             >
-              {/*<FlatList data={} renderItem={}/>*/}
-              {/*<Image*/}
-              {/*  source={{*/}
-              {/*    uri: 'https://reactnative.dev/img/tiny_logo.png',*/}
-              {/*  }}*/}
-              {/*/>*/}
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
+              <Image
+                style={{ width: '33%', height: 80, marginVertical: 1 }}
+                source={require('../../assets/memory.png')}
+              />
             </View>
+            {type === 'primary' ? (
+              <Pressable>
+                <Text
+                  style={{ color: '#ea9c3b', fontSize: 16, textAlign: 'center', marginTop: 22, borderColor: '#ea9c3b' }}
+                >
+                  すべて見る
+                </Text>
+              </Pressable>
+            ) : (
+              <View style={{ marginRight: 'auto', marginLeft: 'auto', marginTop: 10 }}>
+                <Text
+                  style={{
+                    color: '#777',
+                    fontSize: 18,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: 'bold',
+                    lineHeight: 23,
+                  }}
+                >
+                  色々な方のその地の
+                </Text>
+                <Text
+                  style={{
+                    color: '#777',
+                    fontSize: 18,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: 'bold',
+                    lineHeight: 23,
+                  }}
+                >
+                  思い出を見られます。
+                </Text>
+              </View>
+            )}
+            {nextButton ? (
+              <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
+                <Pressable onPress={onPressDown}>
+                  <PageButton />
+                </Pressable>
+                <View
+                  style={{
+                    backgroundColor: '#ea9c3b',
+                    borderWidth: 1,
+                    borderColor: '#bb7e31',
+                    borderRadius: 5,
+                    marginTop: 6,
+                    height: 30,
+                    shadowColor: '#bb7e31',
+                    shadowOffset: {
+                      width: 0,
+                      height: 2,
+                    },
+                    shadowOpacity: 1,
+                    shadowRadius: 0,
+                    elevation: 1,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: '#fff',
+                      paddingHorizontal: 14,
+                      lineHeight: 26,
+                      fontWeight: 'bold',
+                      letterSpacing: 3,
+                      fontFamily: 'Noto Sans',
+                    }}
+                  >
+                    5/6
+                  </Text>
+                </View>
+                <Pressable onPress={onPressUp}>
+                  <PageButton style={{ transform: [{ rotate: '60deg' }] }} />
+                </Pressable>
+              </View>
+            ) : (
+              <View></View>
+            )}
           </View>
         </View>
       </View>
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container_primary: {
+    marginTop: 0,
+  },
+
+  container_detail: {
+    marginTop: 20,
+  },
+
+  card: {
+    backgroundColor: '#ea9c3b',
+    borderColor: '#bb7e31',
+    borderWidth: 3,
+    paddingHorizontal: 3,
+    paddingBottom: 3,
+    borderRadius: 40,
+    position: 'relative',
+  },
 });
