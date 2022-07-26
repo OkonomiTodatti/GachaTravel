@@ -1,10 +1,10 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
 import { Label } from '../Text/Lable';
-import { CustomButton } from '../Inputs/CustomButton';
 import { CustomModal } from '../Modal/CustomModal';
 import { peopleData, stayDaysData, travelPlanData } from '../data';
 import PrimaryButton from '../../assets/Button.svg';
+import Polygon from '../../assets/polygon.svg';
 
 export const SettingGacha = memo((props) => {
   const { navigation } = props;
@@ -28,6 +28,7 @@ export const SettingGacha = memo((props) => {
           selectTextOnFocus={false}
           onPressIn={() => setModalPeopleVisible(!modalPeopleVisible)}
         />
+        <Polygon style={{ position: 'absolute', top: 50, right: 30 }} />
         <CustomModal
           modalOpen={modalPeopleVisible}
           setModalOpen={setModalPeopleVisible}
@@ -48,6 +49,7 @@ export const SettingGacha = memo((props) => {
           selectTextOnFocus={false}
           onPressIn={() => setModalStayDaysVisible(!modalStayDaysVisible)}
         />
+        <Polygon style={{ position: 'absolute', top: 116, right: 30 }} />
         <CustomModal
           modalOpen={modalStayDaysVisible}
           setModalOpen={setModalStayDaysVisible}
@@ -68,6 +70,7 @@ export const SettingGacha = memo((props) => {
           selectTextOnFocus={false}
           onPressIn={() => setModalTravelPlanVisible(!modalTravelPlanVisible)}
         />
+        <Polygon style={{ position: 'absolute', top: 179, right: 30 }} />
         <CustomModal
           modalOpen={modalTravelPlanVisible}
           setModalOpen={setModalTravelPlanVisible}
@@ -77,7 +80,7 @@ export const SettingGacha = memo((props) => {
         />
       </View>
       <View style={[styles.form, { marginTop: 70, paddingBottom: 30 }]}>
-        <Label text="1人1回5000円" type="secondary" />
+        <Label text="1人1回5,000円" type="secondary" />
         <View
           style={{
             flexDirection: 'row',
@@ -90,7 +93,7 @@ export const SettingGacha = memo((props) => {
           <Label text="合計" type="secondary" />
           <View style={{ flexDirection: 'row' }}>
             <Text style={{ marginTop: 2, color: '#777777', fontWeight: 'bold', fontSize: 23, fontFamily: 'Noto Sans' }}>
-              {Number(people.slice(0, 1)) * 5000}
+              {(Number(people.slice(0, 1)) * 5000).toLocaleString()}
             </Text>
             <Text style={{ marginTop: 14, color: '#777777', fontFamily: 'Noto Sans' }}>円</Text>
           </View>

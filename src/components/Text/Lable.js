@@ -8,7 +8,7 @@ export const Label = memo((props) => {
 
 const styles = StyleSheet.create({
   text: {
-    letterSpacing: 4,
+    letterSpacing: 3,
     fontWeight: '800',
     alignItems: 'flex-start',
     marginTop: 10,

@@ -4,9 +4,11 @@ import Light from '../../assets/light.svg';
 import Japan from '../../assets/japan.svg';
 import BGrid from '../../assets/Bgrid.svg';
 import PageButton from '../../assets/travel_arrow.svg';
+import { data } from '../../data';
 
 export const TravelModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
+  // let flag = Math.floor(Math.random() * (3 + 1 - 1)) + 1;
   return (
     <View style={[styles[`container_${type}`]]}>
       <View style={styles.card}>
@@ -50,9 +52,13 @@ export const TravelModal = memo((props) => {
             >
               <View nativeID="place_name">
                 <Text style={{ color: '#20bdbd', fontSize: 12, fontWeight: 'bold', textAlign: 'center' }}>
+                  {/*{data[flag].kana}*/}
                   NAGASAKI
                 </Text>
-                <Text style={{ color: '#20bdbd', fontSize: 35, fontWeight: 'bold', textAlign: 'center' }}>長崎県</Text>
+                <Text style={{ color: '#20bdbd', fontSize: 35, fontWeight: 'bold', textAlign: 'center' }}>
+                  {/*{data[flag].prefecture}*/}
+                  長崎県
+                </Text>
               </View>
             </View>
             <Text style={{ color: '#777', fontSize: 17, fontWeight: 'bold', textAlign: 'center', marginTop: 18 }}>

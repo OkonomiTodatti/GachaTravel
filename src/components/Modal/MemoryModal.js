@@ -50,38 +50,14 @@ export const MemoryModal = memo((props) => {
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
                 source={require('../../assets/memory.png')}
               />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
-              <Image
-                style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/memory.png')}
-              />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/208.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/209.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/210.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/211.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/212.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/213.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/214.png')} />
+              <Image style={{ width: '33%', height: 80, marginVertical: 1 }} source={require('../../assets/215.png')} />
             </View>
             {type === 'primary' ? (
               <Pressable>

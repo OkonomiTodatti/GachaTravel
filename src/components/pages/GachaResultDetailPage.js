@@ -13,12 +13,15 @@ import { MissionModal } from '../Modal/MissionModal';
 import { RootModal } from '../Modal/RootModal';
 import { MemoryModal } from '../Modal/MemoryModal';
 import { BounusModal } from '../Modal/BounusModal';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { GlassButton } from '../Inputs/GlassButton';
 import { ResultTag } from '../Gacha/ResultTag';
 
 export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const plan = route.params.name;
+  console.log(plan);
   return (
     <View style={styles.container}>
       <ImageBackground source={collectionBg} resizeMode="cover" style={{ flex: 1 }}>
@@ -78,11 +81,11 @@ export const GachaResultDetailPage = memo(() => {
               </View>
               <View style={{ marginTop: 5 }}>
                 <Label text="宿泊日数" type="tertiary" />
-                <TextInput style={styles.input} value="2日" editable={false} selectTextOnFocus={false} />
+                <TextInput style={styles.input} value="1日" editable={false} selectTextOnFocus={false} />
               </View>
               <View style={{ marginTop: 5 }}>
                 <Label text="旅行名" type="tertiary" />
-                <TextInput style={styles.input} value="春の旅行" editable={false} selectTextOnFocus={false} />
+                <TextInput style={styles.input} value={plan} editable={false} selectTextOnFocus={false} />
               </View>
             </View>
             <View>
@@ -121,7 +124,8 @@ export const GachaResultDetailPage = memo(() => {
             height: '13%',
             position: 'absolute',
             bottom: 0,
-            borderRadius: 65,
+            borderTopLeftRadius: 65,
+            borderTopRightRadius: 65,
             backgroundColor: '#fff',
           }}
         >
