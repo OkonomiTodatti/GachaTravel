@@ -81,7 +81,7 @@ export const GachaResultDetailPage = memo(() => {
               </View>
               <View style={{ marginTop: 5 }}>
                 <Label text="宿泊日数" type="tertiary" />
-                <TextInput style={styles.input} value="2日" editable={false} selectTextOnFocus={false} />
+                <TextInput style={styles.input} value="1日" editable={false} selectTextOnFocus={false} />
               </View>
               <View style={{ marginTop: 5 }}>
                 <Label text="旅行名" type="tertiary" />
@@ -124,7 +124,8 @@ export const GachaResultDetailPage = memo(() => {
             height: '13%',
             position: 'absolute',
             bottom: 0,
-            borderRadius: 65,
+            borderTopLeftRadius: 65,
+            borderTopRightRadius: 65,
             backgroundColor: '#fff',
           }}
         >
