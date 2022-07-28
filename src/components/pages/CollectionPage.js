@@ -1,11 +1,41 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import collectionBg from '../../assets/collectionBg.png';
 import CollectionHeader from '../../assets/collectionHeader.svg';
 import { GachaFrame } from '../Gacha/GachaFrame';
 import Test from '../../assets/test.svg';
+import { API, graphqlOperation } from 'aws-amplify';
+import { getStock, listStocks, listUsers } from '../../graphql/queries';
+import { useLoginUser } from '../../provider/LoginUserProvider';
+import * as queries from '../../graphql/queries';
 
 export const CollectionPage = memo(() => {
+  const { loginUser } = useLoginUser();
+  const [stocks, setStocks] = useState();
+  async function fetchListStocks(id) {
+    try {
+      // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
+      // API.graphql(graphqlOperation(listUsers, { filter: { user_id: { eq: id } } })).then((result)=>{
+      //   setStocks(result);
+      //   console.log(result);
+      // });
+      // const data = API.graphql(graphqlOperation(listStocks, { filter: { id: { eq: id } } }));
+      // const data = API.graphql(graphqlOperation(getStock, { id: '3a259431-94c7-4171-9e88-d087791c6377' }));
+      const data = await API.graphql({ query: queries.listStocks, filter: { id: { eq: id }, limit: 20 } });
+      const test = await API.graphql(graphqlOperation(getStock, { id: '3a259431-94c7-4171-9e88-d087791c6378' }));
+      setStocks(data.data.listStocks.items[0]);
+      // const data = API.graphql(graphqlOperation(listUsers));
+      // console.log(test.data.getStock.recommend_plans);
+      console.log(data.data.listStocks.items[0].recommend_plans);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    fetchListStocks(loginUser);
+  }, []);
+
   return (
     <View style={styles.container}>
       <ImageBackground source={collectionBg} resizeMode="cover" style={{ flex: 1 }}>

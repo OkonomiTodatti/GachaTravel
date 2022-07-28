@@ -113,16 +113,48 @@ export const listStocks = /* GraphQL */ `
         plan_id
         status
         people
+        color
         stock_details {
+          items {
+            id
+            detail_num
+            people
+            mission_id
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         tickets {
+          items {
+            id
+            ticket
+            ratio
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         recommend_plans {
+          items {
+            id
+            prefecture_id
+            content
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         stock_coupons {
+          items {
+            id
+            detail_num
+            people
+            coupon_id
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
