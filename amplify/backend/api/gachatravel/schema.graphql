@@ -19,6 +19,7 @@ type Stock @model {
   plan_id: ID!
   status: Status!
   people: Int!
+  color:String!
   stock_details : [StockDetail] @hasMany(indexName:"byStock",fields: ["id"])
   tickets:[Ticket] @hasMany(indexName:"byTicket",fields: ["ticket_id"])
   recommend_plans : [RecommendPlan] @hasMany(indexName:"byRecommendPlan",fields: ["plan_id"])
