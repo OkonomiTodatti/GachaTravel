@@ -1,7 +1,7 @@
 export const data = {
   1: {
-    prefecture: '長崎',
-    kana: 'NAGASAKI',
+    prefecture: '北海道',
+    kana: 'HOKAIDO',
   },
   2: {
     prefecture: '東京',
@@ -10,5 +10,9 @@ export const data = {
   3: {
     prefecture: '大阪',
     kana: 'OSAKA',
+  },
+  4: {
+    prefecture: '長崎',
+    kana: 'NAGASAKI',
   },
 };
