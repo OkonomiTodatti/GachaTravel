@@ -163,6 +163,16 @@ export const listStocks = /* GraphQL */ `
                 prefecture
               }
             }
+            missions {
+              items {
+                id
+                plan_id
+                contents
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
           }
           nextToken
         }
