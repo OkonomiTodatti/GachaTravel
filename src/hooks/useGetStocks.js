@@ -10,7 +10,7 @@ export const useGetStocks = () => {
     try {
       API.graphql({ query: queries.listStocks, filter: { id: { eq: id }, limit: 20 } }).then((result) => {
         setStocks(result.data.listStocks.items);
-        console.log(result.data.listStocks.items[0].recommend_plans.items[0].content);
+        console.log(result.data.listStocks.items[0].recommend_plans.items[0].prefecture.items[0].prefecture);
       });
       // setStocks(data.data.listStocks.items);
     } catch (err) {

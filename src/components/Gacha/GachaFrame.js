@@ -37,7 +37,15 @@ export const GachaFrame = memo((props) => {
           </View>
           <Pressable
             style={styles.button}
-            onPress={() => navigation.navigate('GachaResultDetail', { name: plan, id: prefectureId })}
+            onPress={() =>
+              navigation.navigate('GachaResultDetail', {
+                name: plan,
+                id: prefectureId,
+                color: color,
+                status: status,
+                prefecture: prefecture,
+              })
+            }
           >
             <SecondaryButton />
             <Text style={styles.buttonText}>詳細を見る</Text>

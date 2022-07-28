@@ -1,10 +1,6 @@
 import React, { memo } from 'react';
 import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import collectionBg from '../../assets/collectionBg.png';
-import RCapsule from '../../assets/RbigCapusel.svg';
-import YCapsule from '../../assets/YbigCapsule.svg';
-import Gcapsule from '../../assets/GbigCapsule.svg';
-import BCapsule from '../../assets/BbigCapsule.svg';
 import TertiaryButton from '../../assets/TertiaryButton.svg';
 import { TravelModal } from '../Modal/TravelModal';
 import { Label } from '../Text/Lable';
@@ -16,12 +12,30 @@ import { BounusModal } from '../Modal/BounusModal';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { GlassButton } from '../Inputs/GlassButton';
 import { ResultTag } from '../Gacha/ResultTag';
+import RCapsule from '../../assets/RbigCapusel.svg';
+import YCapsule from '../../assets/YbigCapsule.svg';
+import BCapsule from '../../assets/BbigCapsule.svg';
+import GCapsule from '../../assets/Gcapsule.svg';
+import ORCapsule from '../../assets/ORcapsule.svg';
+import OGCapsule from '../../assets/OGcapsule.svg';
+import OBCapsule from '../../assets/OBcapsule.svg';
+import OYCapsule from '../../assets/OYcapsule.svg';
 
 export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();
   const route = useRoute();
   const plan = route.params.name;
   const id = route.params.id;
+  const color = route.params.color;
+  const status = route.params.status;
+  const prefecture = route.params.prefecture;
+  const capsuleComponents = {
+    R: status ? ORCapsule : RCapsule,
+    G: status ? OGCapsule : GCapsule,
+    B: status ? OBCapsule : BCapsule,
+    Y: status ? OYCapsule : YCapsule,
+  };
+  const Capsule = capsuleComponents[color];
   console.log(id);
   return (
     <View style={styles.container}>
@@ -51,7 +65,7 @@ export const GachaResultDetailPage = memo(() => {
                   marginTop: 8,
                 }}
               >
-                <BCapsule style={{ marginRight: 'auto', marginLeft: 'auto', marginTop: 10 }} />
+                <Capsule style={{ marginRight: 'auto', marginLeft: 'auto', marginTop: 10 }} />
                 <View style={{ position: 'absolute', bottom: 15, left: 70 }}>
                   <Text style={{ color: '#ED5954', fontSize: 17, fontFamily: 'Noto Sans' }}>有効期限：2023/7/12</Text>
                 </View>
@@ -91,7 +105,7 @@ export const GachaResultDetailPage = memo(() => {
             </View>
             <View>
               <ResultTag />
-              <TravelModal type="detail" prefectureId={id} />
+              <TravelModal type="detail" prefectureId={id} prefecture={prefecture} />
               <GlassButton color="B" onPress={() => console.log('push')} />
             </View>
             <View>

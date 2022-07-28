@@ -17,7 +17,7 @@ type Stock @model {
   user_id: ID! @index(name:"byUser")
   ticket_id: ID!
   plan_id: ID!
-  status: Status!
+  status: Boolean! @default(value:false)
   people: Int!
   color:String!
   stock_details : [StockDetail] @hasMany(indexName:"byStock",fields: ["id"])

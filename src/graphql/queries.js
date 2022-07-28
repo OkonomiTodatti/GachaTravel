@@ -157,6 +157,12 @@ export const listStocks = /* GraphQL */ `
             content
             createdAt
             updatedAt
+            prefecture {
+              items {
+                id
+                prefecture
+              }
+            }
           }
           nextToken
         }

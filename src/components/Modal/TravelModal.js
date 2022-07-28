@@ -7,7 +7,14 @@ import PageButton from '../../assets/travel_arrow.svg';
 import { data } from '../../data';
 
 export const TravelModal = memo((props) => {
-  const { nextButton = false, onPressUp, onPressDown, type = 'primary', prefectureId = 1 } = props;
+  const {
+    nextButton = false,
+    onPressUp,
+    onPressDown,
+    type = 'primary',
+    prefectureId = 1,
+    prefecture = '北海道',
+  } = props;
   // let flag = Math.floor(Math.random() * (3 + 1 - 1)) + 1;
   return (
     <View style={[styles[`container_${type}`]]}>
@@ -56,7 +63,7 @@ export const TravelModal = memo((props) => {
                 </Text>
                 <Text style={{ color: '#20bdbd', fontSize: 35, fontWeight: 'bold', textAlign: 'center' }}>
                   {/*{data[flag].prefecture}*/}
-                  {data[prefectureId].prefecture}
+                  {prefecture}
                 </Text>
               </View>
             </View>

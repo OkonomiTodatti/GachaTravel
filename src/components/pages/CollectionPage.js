@@ -68,7 +68,7 @@ export const CollectionPage = memo(() => {
                 <GachaFrame
                   color={stock.color}
                   status={false}
-                  prefecture={data[stock.recommend_plans.items[0].prefecture_id].prefecture}
+                  prefecture={stock.recommend_plans.items[0].prefecture.items[0].prefecture}
                   plan={stock.recommend_plans.items[0].content}
                   people={stock.people}
                   prefectureId={stock.recommend_plans.items[0].prefecture_id}
