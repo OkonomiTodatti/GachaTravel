@@ -37,6 +37,16 @@ export const listUsers = /* GraphQL */ `
         point
         old
         stocks {
+          items {
+            id
+            user_id
+            ticket_id
+            plan_id
+            status
+            people
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -83,6 +93,11 @@ export const getStock = /* GraphQL */ `
           content
           createdAt
           updatedAt
+          prefecture {
+            items {
+              prefecture
+            }
+          }
         }
         nextToken
       }
@@ -428,16 +443,3 @@ export const listCoupons = /* GraphQL */ `
     }
   }
 `;
-
-// export const getUserStock = /* GraphQL */ `
-//   query GetUserStock($user_id: ID!) {
-//       getStock(user_id: $user_id) {
-//           id
-//           user_id
-//           ticket_id
-//           plan_id
-//           status
-//           people
-//       }
-//   }
-// `

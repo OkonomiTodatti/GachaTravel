@@ -21,7 +21,8 @@ export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();
   const route = useRoute();
   const plan = route.params.name;
-  console.log(plan);
+  const id = route.params.id;
+  console.log(id);
   return (
     <View style={styles.container}>
       <ImageBackground source={collectionBg} resizeMode="cover" style={{ flex: 1 }}>
@@ -90,7 +91,7 @@ export const GachaResultDetailPage = memo(() => {
             </View>
             <View>
               <ResultTag />
-              <TravelModal type="detail" />
+              <TravelModal type="detail" prefectureId={id} />
               <GlassButton color="B" onPress={() => console.log('push')} />
             </View>
             <View>
@@ -103,9 +104,6 @@ export const GachaResultDetailPage = memo(() => {
             </View>
             <View>
               <RootModal type="detail" />
-              {/*<Pressable onPress={() => console.log('push')}>*/}
-              {/*  <B2glass style={{ position: 'absolute', bottom: 20, right: 20 }} />*/}
-              {/*</Pressable>*/}
               <GlassButton color="B2" onPress={() => console.log('push')} />
             </View>
             <View>

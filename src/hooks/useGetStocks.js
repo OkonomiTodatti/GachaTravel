@@ -1,19 +1,21 @@
 import React, { useCallback, useState } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { listStocks } from '../graphql/queries';
+import { API } from 'aws-amplify';
+import * as queries from '../graphql/queries';
 
 export const useGetStocks = () => {
-  const [stock, setStocks] = useState();
+  const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(false);
   const getStocks = useCallback((id: string) => {
     setLoading(true);
     try {
-      // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
-      const data = API.graphql(graphqlOperation(listStocks, { filter: { user_id: { eq: id } } }));
-      setStocks(data);
+      API.graphql({ query: queries.listStocks, filter: { id: { eq: id }, limit: 20 } }).then((result) => {
+        setStocks(result.data.listStocks.items);
+        console.log(result.data.listStocks.items[0].recommend_plans.items[0].content);
+      });
+      // setStocks(data.data.listStocks.items);
     } catch (err) {
       console.log(err);
     }
-    return { loading, getStocks, stock };
   }, []);
+  return { loading, getStocks, stocks };
 };

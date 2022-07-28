@@ -8,32 +8,37 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { getStock, listStocks, listUsers } from '../../graphql/queries';
 import { useLoginUser } from '../../provider/LoginUserProvider';
 import * as queries from '../../graphql/queries';
+import { useGetStocks } from '../../hooks/useGetStocks';
+import { data } from '../../data';
 
 export const CollectionPage = memo(() => {
   const { loginUser } = useLoginUser();
-  const [stocks, setStocks] = useState();
-  async function fetchListStocks(id) {
-    try {
-      // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
-      // API.graphql(graphqlOperation(listUsers, { filter: { user_id: { eq: id } } })).then((result)=>{
-      //   setStocks(result);
-      //   console.log(result);
-      // });
-      // const data = API.graphql(graphqlOperation(listStocks, { filter: { id: { eq: id } } }));
-      // const data = API.graphql(graphqlOperation(getStock, { id: '3a259431-94c7-4171-9e88-d087791c6377' }));
-      const data = await API.graphql({ query: queries.listStocks, filter: { id: { eq: id }, limit: 20 } });
-      const test = await API.graphql(graphqlOperation(getStock, { id: '3a259431-94c7-4171-9e88-d087791c6378' }));
-      setStocks(data.data.listStocks.items[0]);
-      // const data = API.graphql(graphqlOperation(listUsers));
-      // console.log(test.data.getStock.recommend_plans);
-      console.log(data.data.listStocks.items[0].recommend_plans);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  // const [stocks, setStocks] = useState([]);
+  // async function fetchListStocks(id) {
+  //   try {
+  //     // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
+  //     // API.graphql(graphqlOperation(listUsers, { filter: { user_id: { eq: id } } })).then((result)=>{
+  //     //   setStocks(result);
+  //     //   console.log(result);
+  //     // });
+  //     // const data = API.graphql(graphqlOperation(listStocks, { filter: { id: { eq: id } } }));
+  //     // const data = API.graphql(graphqlOperation(getStock, { id: '3a259431-94c7-4171-9e88-d087791c6377' }));
+  //     const data = await API.graphql({ query: queries.listStocks, filter: { id: { eq: id }, limit: 20 } });
+  //     const test = await API.graphql(graphqlOperation(getStock, { id: '3a259431-94c7-4171-9e88-d087791c6378' }));
+  //     setStocks(data.data.listStocks.items);
+  //     // const data = API.graphql(graphqlOperation(listUsers));
+  //     // console.log(test.data.getStock.recommend_plans);
+  //     console.log(data.data.listStocks.items[0]);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+  const { loading, getStocks, stocks } = useGetStocks();
 
   useEffect(() => {
-    fetchListStocks(loginUser);
+    // fetchListStocks(loginUser);
+    getStocks(loginUser);
   }, []);
 
   return (
@@ -57,14 +62,26 @@ export const CollectionPage = memo(() => {
                 elevation: 1,
               }}
             />
-            <GachaFrame color="B" status={false} prefecture="長崎県" plan="夏旅行" people="1" />
-            <GachaFrame color="B" status={false} prefecture="大阪府" plan="夏旅行" people="1" />
-            <GachaFrame color="B" status={false} prefecture="東京都" plan="夏旅行" people="1" />
-            <GachaFrame color="G" status={true} prefecture="長崎県" plan="春旅行" people="1" />
-            <GachaFrame color="R" status={true} prefecture="長崎県" plan="春旅行" people="1" />
-            <GachaFrame color="Y" status={true} prefecture="長崎県" plan="夏旅行" people="2" />
-            <GachaFrame color="G" status={false} prefecture="長崎県" plan="春旅行" people="1" />
-            <GachaFrame color="R" status={false} prefecture="長崎県" plan="夏旅行" people="2" />
+            <GachaFrame color="B" status={false} prefecture="大阪府" plan="夏旅行" people="1" prefectureId={3} />
+            {stocks.map((stock, index) => (
+              <View key={index}>
+                <GachaFrame
+                  color={stock.color}
+                  status={false}
+                  prefecture={data[stock.recommend_plans.items[0].prefecture_id].prefecture}
+                  plan={stock.recommend_plans.items[0].content}
+                  people={stock.people}
+                  prefectureId={stock.recommend_plans.items[0].prefecture_id}
+                />
+              </View>
+            ))}
+            {/*<GachaFrame color="B" status={false} prefecture="長崎県" plan="夏旅行" people="1" />*/}
+            {/*<GachaFrame color="B" status={false} prefecture="東京都" plan="夏旅行" people="1" />*/}
+            {/*<GachaFrame color="G" status={true} prefecture="長崎県" plan="春旅行" people="1" />*/}
+            {/*<GachaFrame color="R" status={true} prefecture="長崎県" plan="春旅行" people="1" />*/}
+            {/*<GachaFrame color="Y" status={true} prefecture="長崎県" plan="夏旅行" people="2" />*/}
+            {/*<GachaFrame color="G" status={false} prefecture="長崎県" plan="春旅行" people="1" />*/}
+            {/*<GachaFrame color="R" status={false} prefecture="長崎県" plan="夏旅行" people="2" />*/}
           </ScrollView>
         </View>
       </ImageBackground>

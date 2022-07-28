@@ -7,7 +7,7 @@ import PageButton from '../../assets/travel_arrow.svg';
 import { data } from '../../data';
 
 export const TravelModal = memo((props) => {
-  const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
+  const { nextButton = false, onPressUp, onPressDown, type = 'primary', prefectureId = 1 } = props;
   // let flag = Math.floor(Math.random() * (3 + 1 - 1)) + 1;
   return (
     <View style={[styles[`container_${type}`]]}>
@@ -52,17 +52,16 @@ export const TravelModal = memo((props) => {
             >
               <View nativeID="place_name">
                 <Text style={{ color: '#20bdbd', fontSize: 12, fontWeight: 'bold', textAlign: 'center' }}>
-                  {/*{data[flag].kana}*/}
-                  NAGASAKI
+                  {data[prefectureId].kana}
                 </Text>
                 <Text style={{ color: '#20bdbd', fontSize: 35, fontWeight: 'bold', textAlign: 'center' }}>
                   {/*{data[flag].prefecture}*/}
-                  長崎県
+                  {data[prefectureId].prefecture}
                 </Text>
               </View>
             </View>
             <Text style={{ color: '#777', fontSize: 17, fontWeight: 'bold', textAlign: 'center', marginTop: 18 }}>
-              旅行先は長崎県です！
+              旅行先は{data[prefectureId].prefecture}です！
             </Text>
             <View style={{ marginTop: 40, marginLeft: 'auto', marginRight: 'auto' }}>
               <Japan />

@@ -13,7 +13,7 @@ import SecondaryButton from '../../assets/SecondaryButton.svg';
 import { useNavigation } from '@react-navigation/native';
 
 export const GachaFrame = memo((props) => {
-  const { color, status, prefecture, plan, people } = props;
+  const { color, status, prefecture, plan, people, prefectureId } = props;
   const navigation = useNavigation();
   const capsuleComponents = {
     R: status ? ORCapsule : RCapsule,
@@ -35,7 +35,10 @@ export const GachaFrame = memo((props) => {
             <Text style={styles.textPrefecture}>{prefecture}</Text>
             <Text style={styles.textPeople}>{people}</Text>
           </View>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('GachaResultDetail', { name: plan })}>
+          <Pressable
+            style={styles.button}
+            onPress={() => navigation.navigate('GachaResultDetail', { name: plan, id: prefectureId })}
+          >
             <SecondaryButton />
             <Text style={styles.buttonText}>詳細を見る</Text>
           </Pressable>
