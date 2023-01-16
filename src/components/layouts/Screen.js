@@ -8,7 +8,7 @@ export const Screen = memo((props) => {
       {Platform.OS === 'android' ? (
         <View style={styles.container}>{children}</View>
       ) : (
-        <SafeAreaView style={styles.container}>{children}</SafeAreaView>
+        <View style={styles.container}>{children}</View>
       )}
     </>
   );
@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
     flex: 1,
+    backgroundColor: 'white',
   },
 });
