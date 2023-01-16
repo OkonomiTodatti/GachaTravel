@@ -1,10 +1,8 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
 import LottieView from 'lottie-react-native';
 import { API, graphqlOperation } from 'aws-amplify';
-import { listStocks } from '../../graphql/queries';
 import { createStock } from '../../graphql/mutations';
 import { useLoginUser } from '../../provider/LoginUserProvider';
-import { Overlay } from '@rneui/base';
 import { StyleSheet, Text, View, LogBox, Dimensions } from 'react-native';
 import Video from 'react-native-video';
 import Gvideo from '../../assets/Ggacha.mp4';
@@ -19,7 +17,7 @@ export const GachaAnimationPage = memo((props) => {
   const lottieRef = useRef();
   const [gachaState, setGachaState] = useState(true);
   const [visible, setVisible] = useState(true);
-  const { loginUser } = useLoginUser();
+  const { loginUser, setGachaFlag } = useLoginUser();
   const resetAnimation = () => {
     if (lottieRef.current) {
       lottieRef.current.reset();
@@ -32,6 +30,13 @@ export const GachaAnimationPage = memo((props) => {
     2: Gvideo,
     3: Yvideo,
     4: Bvideo,
+  };
+
+  const colorArray = {
+    1: 'R',
+    2: 'G',
+    3: 'Y',
+    4: 'B',
   };
 
   const video = videoComponents[flag];
@@ -48,14 +53,16 @@ export const GachaAnimationPage = memo((props) => {
 
   setTimeout(() => {
     // setGachaState(false);
-    // fetchCreateStock({
-    //   user_id: loginUser,
-    //   ticket_id: Math.round(Math.random() * 3 + 1),
-    //   plan_id: '1',
-    //   status: 'Before',
-    //   people: '1',
-    // }).then(() => navigation.navigate('GachaPage'));
-    navigation.navigate('GachaResult');
+    // setGachaFlag(false);
+    fetchCreateStock({
+      user_id: loginUser,
+      ticket_id: Math.round(Math.random() * 3 + 1),
+      plan_id: '1',
+      status: 'Before',
+      color: colorArray[flag],
+      people: '1',
+    }).then(() => navigation.navigate('GachaResult'));
+    // navigation.navigate('GachaResult');
     // navigation.navigate('GachaResult');
   }, 10 * 1000);
 
@@ -66,8 +73,6 @@ export const GachaAnimationPage = memo((props) => {
       console.log(err);
     }
   }
-
-  const toggleOverlay = () => setVisible(!visible);
 
   return (
     <View style={{ position: 'relative' }}>

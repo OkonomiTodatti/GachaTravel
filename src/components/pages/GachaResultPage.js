@@ -9,19 +9,14 @@ import { TravelModal } from '../Modal/TravelModal';
 import Confetti from '../../assets/Confetti.svg';
 import { ResultTag } from '../Gacha/ResultTag';
 import Button from '../../assets/QuaternaryButton.svg';
-import ORCapsule from '../../assets/ORcapsule.svg';
-import RCapsule from '../../assets/Rcapsule.svg';
-import OGCapsule from '../../assets/OGcapsule.svg';
-import GCapsule from '../../assets/Gcapsule.svg';
-import OBCapsule from '../../assets/OBcapsule.svg';
-import BCapsule from '../../assets/Bcapsule.svg';
-import OYCapsule from '../../assets/OYcapsule.svg';
-import YCapsule from '../../assets/Ycapsule.svg';
 import { TicketModal } from '../Modal/TicketModal';
 import { MissionModal } from '../Modal/MissionModal';
 import { RootModal } from '../Modal/RootModal';
 import { MemoryModal } from '../Modal/MemoryModal';
 import { BounusModal } from '../Modal/BounusModal';
+import { useGetStocks } from '../../hooks/useGetStocks';
+import { useEffect } from '@types/react';
+import { useLoginUser } from '../../provider/LoginUserProvider';
 
 export const GachaResultPage = memo((props) => {
   const { navigation } = props;
@@ -82,6 +77,7 @@ export const GachaResultPage = memo((props) => {
           <Modal nextButton={true} onPressUp={onPressUpPage} onPressDown={onPressDownPage} />
         </View>
         <View style={{ flexDirection: 'row', position: 'absolute', top: 250, left: -150 }}>
+          {/*<Pressable onPress={() => navigation.navigate('gachaTopPage')}>*/}
           <Pressable onPress={() => navigation.navigate('gachaTopPage')}>
             <Button />
             <Text

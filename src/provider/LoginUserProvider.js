@@ -4,9 +4,12 @@ export const LoginUserContext = createContext({});
 export const LoginUserProvider = (props: { children: React.ReactNode }) => {
   const { children } = props;
   const [loginUser, setLoginUser] = useState(null);
+  const [gachaFlag, setGachaFlag] = useState(false);
   return (
     <>
-      <LoginUserContext.Provider value={{ loginUser, setLoginUser }}>{children}</LoginUserContext.Provider>
+      <LoginUserContext.Provider value={{ loginUser, setLoginUser, gachaFlag, setGachaFlag }}>
+        {children}
+      </LoginUserContext.Provider>
     </>
   );
 };

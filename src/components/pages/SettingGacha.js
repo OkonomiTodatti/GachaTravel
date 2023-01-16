@@ -10,7 +10,7 @@ export const SettingGacha = memo((props) => {
   const { navigation } = props;
   const [people, setPeople] = useState('1人');
   const [stayDays, setStayDays] = useState('1日');
-  const [travelPlan, setTravelPlan] = useState('夏旅行');
+  const [travelPlan, setTravelPlan] = useState('記念館巡り');
   const [modalPeopleVisible, setModalPeopleVisible] = useState(false);
   const [modalStayDaysVisible, setModalStayDaysVisible] = useState(false);
   const [modalTravelPlanVisible, setModalTravelPlanVisible] = useState(false);

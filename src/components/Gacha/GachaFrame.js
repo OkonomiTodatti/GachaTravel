@@ -15,11 +15,13 @@ import { useNavigation } from '@react-navigation/native';
 export const GachaFrame = memo((props) => {
   const { color, status, prefecture, plan, people, prefectureId } = props;
   const navigation = useNavigation();
+  console.log(status);
+  const capsuleStatus = status === 'Before' ? false : true;
   const capsuleComponents = {
-    R: status ? ORCapsule : RCapsule,
-    G: status ? OGCapsule : GCapsule,
-    B: status ? OBCapsule : BCapsule,
-    Y: status ? OYCapsule : YCapsule,
+    R: capsuleStatus ? ORCapsule : RCapsule,
+    G: capsuleStatus ? OGCapsule : GCapsule,
+    B: capsuleStatus ? OBCapsule : BCapsule,
+    Y: capsuleStatus ? OYCapsule : YCapsule,
   };
 
   const Capsule = capsuleComponents[color];
@@ -37,7 +39,15 @@ export const GachaFrame = memo((props) => {
           </View>
           <Pressable
             style={styles.button}
-            onPress={() => navigation.navigate('GachaResultDetail', { name: plan, id: prefectureId })}
+            onPress={() =>
+              navigation.navigate('GachaResultDetail', {
+                name: plan,
+                id: prefectureId,
+                color: color,
+                status: capsuleStatus,
+                prefecture: prefecture,
+              })
+            }
           >
             <SecondaryButton />
             <Text style={styles.buttonText}>詳細を見る</Text>
