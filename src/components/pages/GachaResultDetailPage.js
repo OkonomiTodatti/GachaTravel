@@ -36,7 +36,7 @@ export const GachaResultDetailPage = memo(() => {
     Y: status ? OYCapsule : YCapsule,
   };
   const Capsule = capsuleComponents[color];
-  console.log(id);
+
   return (
     <View style={styles.container}>
       <ImageBackground source={collectionBg} resizeMode="cover" style={{ flex: 1 }}>
@@ -67,7 +67,7 @@ export const GachaResultDetailPage = memo(() => {
               >
                 <Capsule style={{ marginRight: 'auto', marginLeft: 'auto', marginTop: 10 }} />
                 <View style={{ position: 'absolute', bottom: 15, left: 70 }}>
-                  <Text style={{ color: '#ED5954', fontSize: 17, fontFamily: 'Noto Sans' }}>有効期限：2023/7/12</Text>
+                  <Text style={{ color: '#ED5954', fontSize: 17, fontFamily: 'Noto Sans' }}>有効期限：2023/9/12</Text>
                 </View>
               </View>
             </View>

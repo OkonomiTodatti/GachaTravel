@@ -12,7 +12,8 @@ import { useGetStocks } from '../../hooks/useGetStocks';
 import { data } from '../../data';
 
 export const CollectionPage = memo(() => {
-  const { loginUser } = useLoginUser();
+  const { loginUser, gachaFlag, setGachaFlag } = useLoginUser();
+  console.log(gachaFlag);
   // const [stocks, setStocks] = useState([]);
   // async function fetchListStocks(id) {
   //   try {
@@ -38,8 +39,12 @@ export const CollectionPage = memo(() => {
 
   useEffect(() => {
     // fetchListStocks(loginUser);
+    // if (!gachaFlag) {
     getStocks(loginUser);
-  }, []);
+    // console.log(stocks);
+    //   setGachaFlag(true);
+    // }
+  }, [stocks]);
 
   return (
     <View style={styles.container}>
@@ -62,12 +67,12 @@ export const CollectionPage = memo(() => {
                 elevation: 1,
               }}
             />
-            <GachaFrame color="B" status={false} prefecture="大阪府" plan="夏旅行" people="1" prefectureId={3} />
+            {/*<GachaFrame color="B" status={false} prefecture="大阪府" plan="夏旅行" people="1" prefectureId={3} />*/}
             {stocks.map((stock, index) => (
               <View key={index}>
                 <GachaFrame
                   color={stock.color}
-                  status={false}
+                  status={stock.status}
                   prefecture={stock.recommend_plans.items[0].prefecture.items[0].prefecture}
                   plan={stock.recommend_plans.items[0].content}
                   people={stock.people}

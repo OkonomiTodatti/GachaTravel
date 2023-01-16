@@ -15,11 +15,13 @@ import { useNavigation } from '@react-navigation/native';
 export const GachaFrame = memo((props) => {
   const { color, status, prefecture, plan, people, prefectureId } = props;
   const navigation = useNavigation();
+  console.log(status);
+  const capsuleStatus = status === 'Before' ? false : true;
   const capsuleComponents = {
-    R: status ? ORCapsule : RCapsule,
-    G: status ? OGCapsule : GCapsule,
-    B: status ? OBCapsule : BCapsule,
-    Y: status ? OYCapsule : YCapsule,
+    R: capsuleStatus ? ORCapsule : RCapsule,
+    G: capsuleStatus ? OGCapsule : GCapsule,
+    B: capsuleStatus ? OBCapsule : BCapsule,
+    Y: capsuleStatus ? OYCapsule : YCapsule,
   };
 
   const Capsule = capsuleComponents[color];
@@ -42,7 +44,7 @@ export const GachaFrame = memo((props) => {
                 name: plan,
                 id: prefectureId,
                 color: color,
-                status: status,
+                status: capsuleStatus,
                 prefecture: prefecture,
               })
             }
