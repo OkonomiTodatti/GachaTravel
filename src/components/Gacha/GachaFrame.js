@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
-import CollectionFrame from '../../assets/collectionFrame.svg';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+
 import BCapsule from '../../assets/Bcapsule.svg';
 import RCapsule from '../../assets/Rcapsule.svg';
 import YCapsule from '../../assets/Ycapsule.svg';
@@ -10,7 +12,7 @@ import ORCapsule from '../../assets/ORcapsule.svg';
 import OYCapsule from '../../assets/OYcapsule.svg';
 import OGCapsule from '../../assets/OGcapsule.svg';
 import SecondaryButton from '../../assets/SecondaryButton.svg';
-import { useNavigation } from '@react-navigation/native';
+import CollectionFrame from '../../assets/collectionFrame.svg';
 
 export const GachaFrame = memo((props) => {
   const { color, status, prefecture, plan, people, prefectureId } = props;

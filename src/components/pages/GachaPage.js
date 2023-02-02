@@ -1,12 +1,14 @@
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { LoginHome } from './LoginHome';
-import Gacha from '../../assets/ant-design_home-filled.svg';
-import Collection from '../../assets/collection.svg';
-import Mypage from '../../assets/mypage.svg';
+
 import { GachaTopPage } from './GachaTopPage';
 import { CollectionPage } from './CollectionPage';
 import { MyPage } from './MyPage';
+
+import Gacha from '../../assets/ant-design_home-filled.svg';
+import Collection from '../../assets/collection.svg';
+import Mypage from '../../assets/mypage.svg';
 
 export const GachaPage = memo(() => {
   const Tab = createBottomTabNavigator();

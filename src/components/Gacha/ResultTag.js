@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+
 import Bubble from '../../assets/bubble.svg';
 
 export const ResultTag = memo(() => {

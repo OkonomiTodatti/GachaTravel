@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import { Auth } from 'aws-amplify';
 import { Alert } from 'react-native';
+
+import { Auth } from 'aws-amplify';
 
 export const useSignUpHooks = () => {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ export const useSignUpHooks = () => {
     try {
       if (data.password === data.confirm_password) {
         setLoading(true);
-        const response = await Auth.signUp(data.email, data.password)
+        await Auth.signUp(data.email, data.password)
           .then(() => {
             setLoading(false);
           })

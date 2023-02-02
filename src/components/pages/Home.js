@@ -1,10 +1,12 @@
 import React, { memo } from 'react';
 import { Text, StyleSheet, ImageBackground, View, Platform, Pressable } from 'react-native';
+
+import { CommonActions } from '@react-navigation/native';
+
 import image from '../../assets/Logo.png';
 import Background from '../../assets/bg2.svg';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
-import { CommonActions } from '@react-navigation/native';
 import PrimaryButton from '../../assets/Button.svg';
 import SubTitle from '../../assets/subTitle.svg';
 

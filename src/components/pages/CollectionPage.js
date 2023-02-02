@@ -1,11 +1,15 @@
 import React, { memo, useEffect } from 'react';
 import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+
+import { GachaFrame } from '../Gacha/GachaFrame';
+
+import { useLoginUser } from '../../provider/LoginUserProvider';
+
+import { useGetStocks } from '../../hooks/useGetStocks';
+
 import collectionBg from '../../assets/collectionBg.png';
 import CollectionHeader from '../../assets/collectionHeader.svg';
-import { GachaFrame } from '../Gacha/GachaFrame';
-import Test from '../../assets/test.svg';
-import { useLoginUser } from '../../provider/LoginUserProvider';
-import { useGetStocks } from '../../hooks/useGetStocks';
+import CollectionSectionHeader from '../../assets/collectionSectionHeader.svg';
 
 export const CollectionPage = memo(() => {
   const { loginUser, gachaFlag } = useLoginUser();
@@ -23,7 +27,7 @@ export const CollectionPage = memo(() => {
         <CollectionHeader />
         <View style={{ alignItems: 'center' }}>
           <ScrollView contentInset={{ bottom: 200 }}>
-            <Test
+            <CollectionSectionHeader
               style={{
                 marginRight: 'auto',
                 marginLeft: 'auto',

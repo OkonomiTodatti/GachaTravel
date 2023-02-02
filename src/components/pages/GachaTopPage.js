@@ -1,12 +1,16 @@
 import React, { memo, useEffect, useState } from 'react';
-import Background from '../../assets/SBg.svg';
 import { Platform, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import { API, Auth, graphqlOperation } from 'aws-amplify';
+
+import { getUser, listStocks, listUsers } from '../../graphql/queries';
+
+import { useLoginUser } from '../../provider/LoginUserProvider';
+
+import Background from '../../assets/SBg.svg';
 import Coin from '../../assets/coin.svg';
 import Setting from '../../assets/setting.svg';
 import StartButton from '../../assets/StartButton.svg';
-import { API, Auth, graphqlOperation } from 'aws-amplify';
-import { getUser, listStocks, listUsers } from '../../graphql/queries';
-import { useLoginUser } from '../../provider/LoginUserProvider';
 
 export const GachaTopPage = memo((props) => {
   const { navigation } = props;

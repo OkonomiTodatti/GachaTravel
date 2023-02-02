@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+
 import { I18n } from '@aws-amplify/core';
 
 let langRegionLocale = 'ja';

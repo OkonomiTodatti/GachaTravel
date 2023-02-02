@@ -1,17 +1,21 @@
 import React, { memo } from 'react';
 import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import collectionBg from '../../assets/collectionBg.png';
-import TertiaryButton from '../../assets/TertiaryButton.svg';
-import { TravelModal } from '../Modal/TravelModal';
+
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 import { Label } from '../Text/Lable';
+
+import { TravelModal } from '../Modal/TravelModal';
 import { TicketModal } from '../Modal/TicketModal';
 import { MissionModal } from '../Modal/MissionModal';
 import { RootModal } from '../Modal/RootModal';
 import { MemoryModal } from '../Modal/MemoryModal';
 import { BounusModal } from '../Modal/BounusModal';
-import { useNavigation, useRoute } from '@react-navigation/native';
+
 import { GlassButton } from '../Inputs/GlassButton';
+
 import { ResultTag } from '../Gacha/ResultTag';
+
 import RCapsule from '../../assets/RbigCapusel.svg';
 import YCapsule from '../../assets/YbigCapsule.svg';
 import BCapsule from '../../assets/BbigCapsule.svg';
@@ -20,6 +24,8 @@ import ORCapsule from '../../assets/ORcapsule.svg';
 import OGCapsule from '../../assets/OGcapsule.svg';
 import OBCapsule from '../../assets/OBcapsule.svg';
 import OYCapsule from '../../assets/OYcapsule.svg';
+import collectionBg from '../../assets/collectionBg.png';
+import TertiaryButton from '../../assets/TertiaryButton.svg';
 
 export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();

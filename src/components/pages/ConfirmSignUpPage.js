@@ -1,12 +1,15 @@
-import React, { memo } from 'react';
-import { Auth } from 'aws-amplify';
+import React, { memo, useState } from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
+
+import { Auth } from 'aws-amplify';
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
+
 import { Validation } from '../../validations/Validation';
+
 import { Label } from '../Text/Lable';
 
 export const ConfirmSignUpPage = memo(() => {

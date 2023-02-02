@@ -1,11 +1,15 @@
 import React, { memo, useState } from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
+
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
+
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
+
 import { Validation } from '../../validations/Validation';
+
 import { Footer } from '../layouts/Footer';
 
 export const SignUpScreen = memo(() => {

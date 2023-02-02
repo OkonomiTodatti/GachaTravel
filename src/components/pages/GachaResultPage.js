@@ -1,19 +1,23 @@
 import React, { memo, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Platform, Pressable } from 'react-native';
+
 import { Overlay } from '@rneui/base';
+
 import Background from '../../assets/SBg.svg';
 import Setting from '../../assets/setting.svg';
 import Coin from '../../assets/coin.svg';
 import StartButton from '../../assets/StartButton.svg';
-import { TravelModal } from '../Modal/TravelModal';
 import Confetti from '../../assets/Confetti.svg';
-import { ResultTag } from '../Gacha/ResultTag';
 import Button from '../../assets/QuaternaryButton.svg';
+
+import { TravelModal } from '../Modal/TravelModal';
 import { TicketModal } from '../Modal/TicketModal';
 import { MissionModal } from '../Modal/MissionModal';
 import { RootModal } from '../Modal/RootModal';
 import { MemoryModal } from '../Modal/MemoryModal';
 import { BounusModal } from '../Modal/BounusModal';
+
+import { ResultTag } from '../Gacha/ResultTag';
 
 export const GachaResultPage = memo((props) => {
   const { navigation } = props;

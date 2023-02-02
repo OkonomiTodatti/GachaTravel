@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View, Platform } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Platform } from 'react-native';
 
 export const Footer = memo((props) => {
   const { onPress, text, navText } = props;

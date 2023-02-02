@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from 'react';
+
 import { API } from 'aws-amplify';
+
 import * as queries from '../graphql/queries';
 
 export const useGetRecommendPlan = () => {
@@ -12,7 +14,6 @@ export const useGetRecommendPlan = () => {
         setStocks(result.data.listStocks.items);
         console.log(result.data.listStocks.items[0].recommend_plans.items[0].prefecture.items[0].prefecture);
       });
-      // setStocks(data.data.listStocks.items);
     } catch (err) {
       console.log(err);
     }

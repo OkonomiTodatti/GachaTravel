@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Platform, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native';
+import { Platform, View, StyleSheet } from 'react-native';
 
 export const Screen = memo((props) => {
   const { children } = props;

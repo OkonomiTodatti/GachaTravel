@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Alert, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
 import { Picker } from '@react-native-picker/picker';
 
 export const CustomModal = memo((props) => {

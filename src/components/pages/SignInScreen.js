@@ -1,12 +1,17 @@
 import React, { memo, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+
 import { useNavigation, CommonActions } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
+
 import { CustomInput } from '../Inputs/CustomInput';
 import { CustomButton } from '../Inputs/CustomButton';
+
 import { Validation } from '../../validations/Validation';
+
 import { Label } from '../Text/Lable';
+
 import { Footer } from '../layouts/Footer';
 
 export const SignInScreen = memo(() => {

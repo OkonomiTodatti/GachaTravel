@@ -1,10 +1,14 @@
 import React, { memo, useState } from 'react';
 import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
+
 import { Label } from '../Text/Lable';
+
 import { CustomModal } from '../Modal/CustomModal';
-import { peopleData, stayDaysData, travelPlanData } from '../data';
+
 import PrimaryButton from '../../assets/Button.svg';
 import Polygon from '../../assets/polygon.svg';
+
+import { peopleData, stayDaysData, travelPlanData } from '../data';
 
 export const SettingGacha = memo((props) => {
   const { navigation } = props;

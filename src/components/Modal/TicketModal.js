@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+
 import Light from '../../assets/light.svg';
 import Ticket from '../../assets/ticket.svg';
 import RGrid from '../../assets/Rgrid.svg';

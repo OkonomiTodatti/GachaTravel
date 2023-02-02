@@ -1,9 +1,13 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { createStock } from '../../graphql/mutations';
-import { useLoginUser } from '../../provider/LoginUserProvider';
 import { StyleSheet, View, Dimensions } from 'react-native';
+
 import Video from 'react-native-video';
+import { API, graphqlOperation } from 'aws-amplify';
+
+import { createStock } from '../../graphql/mutations';
+
+import { useLoginUser } from '../../provider/LoginUserProvider';
+
 import Gvideo from '../../assets/Ggacha.mp4';
 import Rvideo from '../../assets/Rgacha.mp4';
 import Bvideo from '../../assets/Bgacha.mp4';

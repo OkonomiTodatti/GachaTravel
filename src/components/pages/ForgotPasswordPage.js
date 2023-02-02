@@ -1,11 +1,12 @@
 import React, { memo, useState } from 'react';
-import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { CustomInput } from '../Inputs/CustomInput';
-import { CustomButton } from '../Inputs/CustomButton';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+
 import { Auth } from 'aws-amplify';
-import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 import { Validation } from '../../validations/Validation';
+
 import { Label } from '../Text/Lable';
 
 export const ForgotPasswordPage = memo(() => {
@@ -59,7 +60,6 @@ export const ForgotPasswordPage = memo(() => {
 });
 
 //パスワードを再設定するページ
-
 export const ForgotNewPasswordPage = memo(() => {
   const navigation = useNavigation();
   const route = useRoute();

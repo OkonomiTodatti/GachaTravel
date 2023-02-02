@@ -1,12 +1,13 @@
 import React, { useCallback, useState } from 'react';
+
 import { API } from 'aws-amplify';
+
 import * as queries from '../graphql/queries';
-import { sortByField } from '@aws-amplify/core';
 
 export const useGetStocks = () => {
   const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const getStocks = useCallback((id: string) => {
+  const getStocks = useCallback((id) => {
     setLoading(true);
     try {
       API.graphql({
@@ -16,7 +17,6 @@ export const useGetStocks = () => {
       }).then((result) => {
         setStocks(result.data.listStocks.items);
       });
-      // setStocks(data.data.listStocks.items);
     } catch (err) {
       console.log(err);
     }
