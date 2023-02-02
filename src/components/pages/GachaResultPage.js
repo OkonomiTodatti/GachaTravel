@@ -3,12 +3,12 @@ import { StyleSheet, View, Text, TouchableOpacity, Platform, Pressable } from 'r
 
 import { Overlay } from '@rneui/base';
 
-import Background from '../../assets/SBg.svg';
-import Setting from '../../assets/setting.svg';
-import Coin from '../../assets/coin.svg';
-import StartButton from '../../assets/StartButton.svg';
-import Confetti from '../../assets/Confetti.svg';
-import Button from '../../assets/QuaternaryButton.svg';
+import Background from '../../assets/svg/SBg.svg';
+import Setting from '../../assets/svg/setting.svg';
+import Coin from '../../assets/svg/coin.svg';
+import StartButton from '../../assets/svg/StartButton.svg';
+import Confetti from '../../assets/svg/Confetti.svg';
+import Button from '../../assets/svg/QuaternaryButton.svg';
 
 import { TravelModal } from '../Modal/TravelModal';
 import { TicketModal } from '../Modal/TicketModal';

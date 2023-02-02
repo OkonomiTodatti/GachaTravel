@@ -7,10 +7,10 @@ import { getUser, listStocks, listUsers } from '../../graphql/queries';
 
 import { useLoginUser } from '../../provider/LoginUserProvider';
 
-import Background from '../../assets/SBg.svg';
-import Coin from '../../assets/coin.svg';
-import Setting from '../../assets/setting.svg';
-import StartButton from '../../assets/StartButton.svg';
+import Background from '../../assets/svg/SBg.svg';
+import Coin from '../../assets/svg/coin.svg';
+import Setting from '../../assets/svg/setting.svg';
+import StartButton from '../../assets/svg/StartButton.svg';
 
 export const GachaTopPage = memo((props) => {
   const { navigation } = props;

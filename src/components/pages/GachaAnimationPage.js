@@ -8,10 +8,10 @@ import { createStock } from '../../graphql/mutations';
 
 import { useLoginUser } from '../../provider/LoginUserProvider';
 
-import Gvideo from '../../assets/Ggacha.mp4';
-import Rvideo from '../../assets/Rgacha.mp4';
-import Bvideo from '../../assets/Bgacha.mp4';
-import Yvideo from '../../assets/Ygacha.mp4';
+import Gvideo from '../../assets/mp4/Ggacha.mp4';
+import Rvideo from '../../assets/mp4/Rgacha.mp4';
+import Bvideo from '../../assets/mp4/Bgacha.mp4';
+import Yvideo from '../../assets/mp4/Ygacha.mp4';
 
 const { width, height } = Dimensions.get('window');
 

@@ -16,16 +16,16 @@ import { GlassButton } from '../Inputs/GlassButton';
 
 import { ResultTag } from '../Gacha/ResultTag';
 
-import RCapsule from '../../assets/RbigCapusel.svg';
-import YCapsule from '../../assets/YbigCapsule.svg';
-import BCapsule from '../../assets/BbigCapsule.svg';
-import GCapsule from '../../assets/Gcapsule.svg';
-import ORCapsule from '../../assets/ORcapsule.svg';
-import OGCapsule from '../../assets/OGcapsule.svg';
-import OBCapsule from '../../assets/OBcapsule.svg';
-import OYCapsule from '../../assets/OYcapsule.svg';
-import collectionBg from '../../assets/collectionBg.png';
-import TertiaryButton from '../../assets/TertiaryButton.svg';
+import RCapsule from '../../assets/svg/RbigCapusel.svg';
+import YCapsule from '../../assets/svg/YbigCapsule.svg';
+import BCapsule from '../../assets/svg/BbigCapsule.svg';
+import GCapsule from '../../assets/svg/Gcapsule.svg';
+import ORCapsule from '../../assets/svg/ORcapsule.svg';
+import OGCapsule from '../../assets/svg/OGcapsule.svg';
+import OBCapsule from '../../assets/svg/OBcapsule.svg';
+import OYCapsule from '../../assets/svg/OYcapsule.svg';
+import TertiaryButton from '../../assets/svg/TertiaryButton.svg';
+import collectionBg from '../../assets/images/collectionBg.png';
 
 export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();

@@ -6,9 +6,9 @@ import { GachaTopPage } from './GachaTopPage';
 import { CollectionPage } from './CollectionPage';
 import { MyPage } from './MyPage';
 
-import Gacha from '../../assets/ant-design_home-filled.svg';
-import Collection from '../../assets/collection.svg';
-import Mypage from '../../assets/mypage.svg';
+import Gacha from '../../assets/svg/ant-design_home-filled.svg';
+import Collection from '../../assets/svg/collection.svg';
+import Mypage from '../../assets/svg/mypage.svg';
 
 export const GachaPage = memo(() => {
   const Tab = createBottomTabNavigator();

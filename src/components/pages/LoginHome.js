@@ -3,11 +3,11 @@ import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import Logo from '../../assets/Logo.svg';
-import Gacha from '../../assets/Gacha.svg';
-import Background from '../../assets/bg2.svg';
-import PrimaryButton from '../../assets/Button.svg';
-import SubTitle from '../../assets/subTitle.svg';
+import Logo from '../../assets/svg/Logo.svg';
+import Gacha from '../../assets/svg/Gacha.svg';
+import Background from '../../assets/svg/bg2.svg';
+import PrimaryButton from '../../assets/svg/Button.svg';
+import SubTitle from '../../assets/svg/subTitle.svg';
 
 export const LoginHome = memo(() => {
   const navigation = useNavigation();

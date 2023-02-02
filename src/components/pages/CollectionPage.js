@@ -7,9 +7,9 @@ import { useLoginUser } from '../../provider/LoginUserProvider';
 
 import { useGetStocks } from '../../hooks/useGetStocks';
 
-import collectionBg from '../../assets/collectionBg.png';
-import CollectionHeader from '../../assets/collectionHeader.svg';
-import CollectionSectionHeader from '../../assets/collectionSectionHeader.svg';
+import collectionBg from '../../assets/images/collectionBg.png';
+import CollectionHeader from '../../assets/svg/collectionHeader.svg';
+import CollectionSectionHeader from '../../assets/svg/collectionSectionHeader.svg';
 
 export const CollectionPage = memo(() => {
   const { loginUser, gachaFlag } = useLoginUser();

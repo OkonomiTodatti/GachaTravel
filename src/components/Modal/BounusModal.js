@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/light.svg';
-import PGrid from '../../assets/Pgrid.svg';
-import BounusCoupon from '../../assets/bounus_coupon.svg';
-import BounusTicket from '../../assets/bounus_ticket.svg';
-import PageButton from '../../assets/bounus_arrow.svg';
+import Light from '../../assets/svg/light.svg';
+import PGrid from '../../assets/svg/Pgrid.svg';
+import BounusCoupon from '../../assets/svg/bounus_coupon.svg';
+import BounusTicket from '../../assets/svg/bounus_ticket.svg';
+import PageButton from '../../assets/svg/bounus_arrow.svg';
 
 export const BounusModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;

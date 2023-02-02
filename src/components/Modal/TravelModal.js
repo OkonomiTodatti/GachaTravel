@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/light.svg';
-import Japan from '../../assets/japan.svg';
-import BGrid from '../../assets/Bgrid.svg';
-import PageButton from '../../assets/travel_arrow.svg';
+import Light from '../../assets/svg/light.svg';
+import Japan from '../../assets/svg/japan.svg';
+import BGrid from '../../assets/svg/Bgrid.svg';
+import PageButton from '../../assets/svg/travel_arrow.svg';
 
 import { data } from '../../data';
 

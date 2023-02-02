@@ -5,8 +5,8 @@ import { Label } from '../Text/Lable';
 
 import { CustomModal } from '../Modal/CustomModal';
 
-import PrimaryButton from '../../assets/Button.svg';
-import Polygon from '../../assets/polygon.svg';
+import PrimaryButton from '../../assets/svg/Button.svg';
+import Polygon from '../../assets/svg/polygon.svg';
 
 import { peopleData, stayDaysData, travelPlanData } from '../data';
 
