@@ -117,7 +117,7 @@ export const SettingGacha = memo((props) => {
               fontWeight: 'bold',
               fontSize: 24,
               position: 'absolute',
-              top: 36,
+              top: 30,
               left: 95,
             }}
           >
