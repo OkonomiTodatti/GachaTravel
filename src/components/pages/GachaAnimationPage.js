@@ -1,5 +1,4 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-import LottieView from 'lottie-react-native';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createStock } from '../../graphql/mutations';
 import { useLoginUser } from '../../provider/LoginUserProvider';

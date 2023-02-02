@@ -21,7 +21,7 @@ export const GachaTopPage = memo((props) => {
 
   // console.log(loginUser);
   useEffect(() => {
-    fetchUsers();
+    // fetchUsers();
   }, []);
 
   let filter = {

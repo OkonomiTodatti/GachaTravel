@@ -39,7 +39,7 @@ export const Home = memo((props) => {
               fontWeight: 'bold',
               fontSize: 22,
               position: 'absolute',
-              top: 38,
+              top: 30,
               left: 125,
             }}
           >

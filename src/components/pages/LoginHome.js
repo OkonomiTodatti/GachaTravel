@@ -40,7 +40,7 @@ export const LoginHome = memo(() => {
               fontWeight: 'bold',
               fontSize: 19,
               position: 'absolute',
-              top: 39,
+              top: 30,
               left: 92,
             }}
           >
