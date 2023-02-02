@@ -3,10 +3,13 @@
   "serviceConfiguration": {
     "apiName": "gachatravel",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/Users/todaasahi/Desktop/OkonomiTodatti/GachaTravel/amplify/backend/api/gachatravel/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "expirationTime": 100,
+      "apiKeyExpirationDate": "2023-05-13T01:18:11.581Z",
+      "keyDescription": "da2-m7nlb2grjjgtbofuat4uw5wjqe"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
   }
 }

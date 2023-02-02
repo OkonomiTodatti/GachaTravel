@@ -20,8 +20,6 @@ type Stock @model {
   status: Status!  @default(value:"Before")
   people: Int!
   color:String!
-  createdAt:AWSDate
-  type: String! @index(name: "StockByDate", queryField: "StockByDate", sortKeyFields: ["createdAt"])
   stock_details : [StockDetail] @hasMany(indexName:"byStock",fields: ["id"])
   tickets:[Ticket] @hasMany(indexName:"byTicket",fields: ["ticket_id"])
   recommend_plans : [RecommendPlan] @hasMany(indexName:"byRecommendPlan",fields: ["plan_id"])

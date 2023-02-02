@@ -1,20 +1,20 @@
 export type AmplifyDependentResourcesAttributes = {
-  auth: {
-    gachatravel6d2dc26b: {
-      IdentityPoolId: 'string';
-      IdentityPoolName: 'string';
-      UserPoolId: 'string';
-      UserPoolArn: 'string';
-      UserPoolName: 'string';
-      AppClientIDWeb: 'string';
-      AppClientID: 'string';
-    };
-  };
-  api: {
-    gachatravel: {
-      GraphQLAPIKeyOutput: 'string';
-      GraphQLAPIIdOutput: 'string';
-      GraphQLAPIEndpointOutput: 'string';
-    };
-  };
-};
+  "api": {
+    "gachatravel": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
+    }
+  },
+  "auth": {
+    "gachatravel6d2dc26b": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    }
+  }
+}
