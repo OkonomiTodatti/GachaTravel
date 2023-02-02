@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Light from '../../assets/light.svg';
 import YGrid from '../../assets/Ygrid.svg';
 import PageButton from '../../assets/memory_arrow.svg';

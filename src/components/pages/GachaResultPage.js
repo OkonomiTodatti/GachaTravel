@@ -14,9 +14,6 @@ import { MissionModal } from '../Modal/MissionModal';
 import { RootModal } from '../Modal/RootModal';
 import { MemoryModal } from '../Modal/MemoryModal';
 import { BounusModal } from '../Modal/BounusModal';
-import { useGetStocks } from '../../hooks/useGetStocks';
-import { useEffect } from '@types/react';
-import { useLoginUser } from '../../provider/LoginUserProvider';
 
 export const GachaResultPage = memo((props) => {
   const { navigation } = props;
@@ -35,19 +32,6 @@ export const GachaResultPage = memo((props) => {
   };
   const Modal = modalComponents[count];
 
-  // setTimeout(() => {
-  //   // setGachaState(false);
-  //   // fetchCreateStock({
-  //   //   user_id: loginUser,
-  //   //   ticket_id: Math.round(Math.random() * 3 + 1),
-  //   //   plan_id: '1',
-  //   //   status: 'Before',
-  //   //   people: '1',
-  //   // }).then(() => navigation.navigate('GachaPage'));
-  //   navigation.navigate('GachaPage');
-  //   // navigation.navigate('GachaResult');
-  // }, 10 * 1000);
-
   return (
     <View style={styles.container}>
       <Background />
@@ -61,7 +45,6 @@ export const GachaResultPage = memo((props) => {
         <Text style={{ position: 'absolute', left: 30, fontWeight: 'bold', fontSize: 18, top: 2 }}>5000</Text>
       </View>
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
-        {/*<CustomButton text="START" onPress={() => navigation.navigate('SettingGacha')} />*/}
         <Pressable
           style={{ width: 350, height: 90, position: 'relative' }}
           onPress={() => navigation.navigate('SettingGacha')}
@@ -73,11 +56,9 @@ export const GachaResultPage = memo((props) => {
         <Confetti style={{ position: 'absolute', left: -180, top: -310 }} />
         <View style={{ width: '90%', height: 600, position: 'absolute', left: -150, top: -300 }}>
           <ResultTag />
-          {/*<TravelModal nextButton={true} onPressUp={onPressUpPage} onPressDown={onPressDownPage} />*/}
           <Modal nextButton={true} onPressUp={onPressUpPage} onPressDown={onPressDownPage} />
         </View>
         <View style={{ flexDirection: 'row', position: 'absolute', top: 250, left: -150 }}>
-          {/*<Pressable onPress={() => navigation.navigate('gachaTopPage')}>*/}
           <Pressable onPress={() => navigation.navigate('gachaTopPage')}>
             <Button />
             <Text

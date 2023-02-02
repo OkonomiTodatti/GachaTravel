@@ -10,17 +10,11 @@ import { Label } from '../Text/Lable';
 import { Footer } from '../layouts/Footer';
 
 export const SignInScreen = memo(() => {
-  const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, control, formState } = useForm({
     mode: 'onChange',
-  });
-
-  const resetAction = CommonActions.reset({
-    index: 0,
-    routes: [{ name: 'サインアップ' }],
   });
 
   const secondResetAction = CommonActions.reset({

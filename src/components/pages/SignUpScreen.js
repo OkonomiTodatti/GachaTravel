@@ -16,11 +16,6 @@ export const SignUpScreen = memo(() => {
     mode: 'onChange',
   });
 
-  const resetAction = CommonActions.reset({
-    index: 0,
-    routes: [{ name: '認証設定' }],
-  });
-
   const onSignUpPressed = handleSubmit(async (data) => {
     try {
       if (data.password === data.confirm_password) {

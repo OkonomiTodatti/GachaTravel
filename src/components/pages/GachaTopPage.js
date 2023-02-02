@@ -1,7 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import Background from '../../assets/SBg.svg';
 import { Platform, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { CustomButton } from '../Inputs/CustomButton';
 import Coin from '../../assets/coin.svg';
 import Setting from '../../assets/setting.svg';
 import StartButton from '../../assets/StartButton.svg';
@@ -19,7 +18,6 @@ export const GachaTopPage = memo((props) => {
     .then((data) => setLoginUser(data.getAccessToken().payload.client_id))
     .catch((err) => console.log(err));
 
-  // console.log(loginUser);
   useEffect(() => {
     // fetchUsers();
   }, []);
@@ -32,7 +30,6 @@ export const GachaTopPage = memo((props) => {
 
   async function fetchUsers() {
     try {
-      // const data = await API.graphql(graphqlOperation(getUser, { id: loginUser }));
       const data = await API.graphql(graphqlOperation(listStocks, { filter: filter }));
       setData(data.data.listStocks.items);
     } catch (err) {
@@ -55,7 +52,6 @@ export const GachaTopPage = memo((props) => {
         <Text style={{ position: 'absolute', left: 30, fontWeight: 'bold', fontSize: 18, top: 2 }}>5000</Text>
       </View>
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
-        {/*<CustomButton text="START" onPress={() => navigation.navigate('SettingGacha')} />*/}
         <Pressable
           style={{ width: 350, height: 90, position: 'relative' }}
           onPress={() => navigation.navigate('SettingGacha')}

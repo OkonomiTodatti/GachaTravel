@@ -78,7 +78,7 @@ export const TicketModal = memo((props) => {
             <Text
               style={{ color: '#777', fontSize: 16, fontWeight: 'bold', textAlign: 'center', fontFamily: 'Noto Sans' }}
             >
-              GETしました！
+              GETしました!
             </Text>
             <View style={{ marginTop: 4, marginLeft: 'auto', marginRight: 'auto' }}>
               <Ticket />

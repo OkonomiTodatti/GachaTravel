@@ -15,7 +15,6 @@ export const TravelModal = memo((props) => {
     prefectureId = 1,
     prefecture = '北海道',
   } = props;
-  // let flag = Math.floor(Math.random() * (3 + 1 - 1)) + 1;
   return (
     <View style={[styles[`container_${type}`]]}>
       <View style={styles.card}>

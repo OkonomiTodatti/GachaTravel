@@ -14,18 +14,6 @@ export const GachaPage = memo(() => {
   const [collectionTab, setCollectionTab] = useState(false);
   const [mypageTab, setMypageTab] = useState(false);
 
-  // const [selectTab, setSelectTab] = useState({ gacha: true, collection: false, mypage: false });
-
-  // const setFocusTab = useCallback(
-  //   (key, value) => {
-  //     setSelectTab({ ...selectTab, [key]: value });
-  //   },
-  //   [],
-  // );
-
-  // function setFocusTab(key, value) {
-  //   setSelectTab({ ...selectTab, [key]: value });
-  // }
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({

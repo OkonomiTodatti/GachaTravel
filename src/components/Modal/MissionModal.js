@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Light from '../../assets/light.svg';
 import Mission from '../../assets/mission.svg';
 import PeGrid from '../../assets/Pegrid.svg';

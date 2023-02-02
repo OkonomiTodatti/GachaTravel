@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { TextInput, StyleSheet, View, Text, Pressable } from 'react-native';
+import { StyleSheet, Text, Pressable } from 'react-native';
 import { Spinner } from '../Spinner/Spinner';
 
 export const CustomButton = memo((props) => {

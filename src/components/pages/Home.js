@@ -4,9 +4,7 @@ import image from '../../assets/Logo.png';
 import Background from '../../assets/bg2.svg';
 import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
-import { CustomButton } from '../Inputs/CustomButton';
 import { CommonActions } from '@react-navigation/native';
-import ButtonSvg from '../../assets/StartButton.svg';
 import PrimaryButton from '../../assets/Button.svg';
 import SubTitle from '../../assets/subTitle.svg';
 
@@ -23,10 +21,7 @@ export const Home = memo((props) => {
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
         <Logo />
         <SubTitle />
-        {/*<Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>*/}
-        {/*<Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>*/}
         <Gacha />
-        {/*<CustomButton text="はじめる" onPress={() => navigation.dispatch(resetAction)} />*/}
         <Pressable
           style={{ width: 350, height: 90, position: 'relative', marginTop: 20 }}
           onPress={() => navigation.dispatch(resetAction)}
@@ -46,10 +41,6 @@ export const Home = memo((props) => {
             はじめる
           </Text>
         </Pressable>
-        {/*<TouchableOpacity style={{ position: 'relative',marginTop:50 }}>*/}
-        {/*  <ButtonSvg />*/}
-        {/*  <Text style={styles.button_text}>はじめる</Text>*/}
-        {/*</TouchableOpacity>*/}
       </View>
     </View>
   );
@@ -64,18 +55,6 @@ export const Details = memo(() => {
     </View>
   );
 });
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     flexDirection: 'column',
-//   },
-//   image: {
-//     flex: 1,
-//     resizeMode: 'cover',
-//     justifyContent: 'center',
-//   },
-// });
 
 const styles = StyleSheet.create({
   container: {
@@ -117,8 +96,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-
-  form_android: {},
 
   form_ios: {
     marginVertical: 64,

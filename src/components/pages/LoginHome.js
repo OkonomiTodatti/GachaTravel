@@ -4,7 +4,6 @@ import Logo from '../../assets/Logo.svg';
 import Gacha from '../../assets/Gacha.svg';
 import Background from '../../assets/bg2.svg';
 import { useNavigation } from '@react-navigation/native';
-import { CustomButton } from '../Inputs/CustomButton';
 import PrimaryButton from '../../assets/Button.svg';
 import SubTitle from '../../assets/subTitle.svg';
 
@@ -21,16 +20,11 @@ export const LoginHome = memo(() => {
 
   return (
     <View style={styles.container}>
-      {/*<LinearGradient colors={['#DDEEF2', '#ADE1E9', '#77DEEC']} style={styles.linearGradient}>*/}
       <Background />
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
-        {/*<Image source={Logo} style={[styles.Logo, { height: height * 0.3 }]} resizeMode="contain" />*/}
         <Logo />
         <SubTitle />
-        {/*<Text style={[styles.text, styles[`text_${Platform.OS}`]]}>ガチャで旅行先を決められる</Text>*/}
-        {/*<Text style={[styles.text, styles[`text_${Platform.OS}`]]}>お得な旅行サポートアプリ</Text>*/}
         <Gacha />
-        {/*<CustomButton text="アカウント登録" onPress={onPressSignUp} />*/}
         <Pressable style={{ width: 350, height: 90, position: 'relative', marginTop: 14 }} onPress={onPressSignUp}>
           <PrimaryButton />
           <Text
@@ -51,7 +45,6 @@ export const LoginHome = memo(() => {
           <Text style={styles.buttonText}>ログイン</Text>
         </Pressable>
       </View>
-      {/*</LinearGradient>*/}
     </View>
   );
 });
