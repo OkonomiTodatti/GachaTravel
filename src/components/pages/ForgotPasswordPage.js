@@ -9,6 +9,10 @@ import { Validation } from '../../validations/Validation';
 
 import { Label } from '../Text/Lable';
 
+import { CustomInput } from '../Inputs/CustomInput';
+import { CustomButton } from '../Inputs/CustomButton';
+
+
 export const ForgotPasswordPage = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);

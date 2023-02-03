@@ -3,16 +3,16 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import BCapsule from '../../assets/Bcapsule.svg';
-import RCapsule from '../../assets/Rcapsule.svg';
-import YCapsule from '../../assets/Ycapsule.svg';
-import GCapsule from '../../assets/Gcapsule.svg';
-import OBCapsule from '../../assets/OBcapsule.svg';
-import ORCapsule from '../../assets/ORcapsule.svg';
-import OYCapsule from '../../assets/OYcapsule.svg';
-import OGCapsule from '../../assets/OGcapsule.svg';
-import SecondaryButton from '../../assets/SecondaryButton.svg';
-import CollectionFrame from '../../assets/collectionFrame.svg';
+import BCapsule from '../../assets/svg/Bcapsule.svg';
+import RCapsule from '../../assets/svg/Rcapsule.svg';
+import YCapsule from '../../assets/svg/Ycapsule.svg';
+import GCapsule from '../../assets/svg/Gcapsule.svg';
+import OBCapsule from '../../assets/svg/OBcapsule.svg';
+import ORCapsule from '../../assets/svg/ORcapsule.svg';
+import OYCapsule from '../../assets/svg/OYcapsule.svg';
+import OGCapsule from '../../assets/svg/OGcapsule.svg';
+import SecondaryButton from '../../assets/svg/SecondaryButton.svg';
+import CollectionFrame from '../../assets/svg/collectionFrame.svg';
 
 export const GachaFrame = memo((props) => {
   const { color, status, prefecture, plan, people, prefectureId } = props;
