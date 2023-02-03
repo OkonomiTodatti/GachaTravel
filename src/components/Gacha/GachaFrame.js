@@ -17,7 +17,6 @@ import CollectionFrame from '../../assets/svg/collectionFrame.svg';
 export const GachaFrame = memo((props) => {
   const { color, status, prefecture, plan, people, prefectureId } = props;
   const navigation = useNavigation();
-  console.log(status);
   const capsuleStatus = status === 'Before' ? false : true;
   const capsuleComponents = {
     R: capsuleStatus ? ORCapsule : RCapsule,
@@ -44,10 +43,12 @@ export const GachaFrame = memo((props) => {
             onPress={() =>
               navigation.navigate('GachaResultDetail', {
                 name: plan,
+                plan: plan,
                 id: prefectureId,
                 color: color,
                 status: capsuleStatus,
                 prefecture: prefecture,
+                people: people,
               })
             }
           >

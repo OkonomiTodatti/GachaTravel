@@ -13,7 +13,6 @@ import CollectionSectionHeader from '../../assets/svg/collectionSectionHeader.sv
 
 export const CollectionPage = memo(() => {
   const { loginUser, gachaFlag } = useLoginUser();
-  console.log(gachaFlag);
 
   const { getStocks, stocks } = useGetStocks();
 

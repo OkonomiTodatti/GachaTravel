@@ -30,11 +30,8 @@ import collectionBg from '../../assets/images/collectionBg.png';
 export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();
   const route = useRoute();
-  const plan = route.params.name;
-  const id = route.params.id;
-  const color = route.params.color;
-  const status = route.params.status;
-  const prefecture = route.params.prefecture;
+  const {plan,id,color,status,prefecture} = route.params;
+  const people = route.params.people.toString();
   const capsuleComponents = {
     R: status ? ORCapsule : RCapsule,
     G: status ? OGCapsule : GCapsule,
@@ -42,7 +39,6 @@ export const GachaResultDetailPage = memo(() => {
     Y: status ? OYCapsule : YCapsule,
   };
   const Capsule = capsuleComponents[color];
-
   return (
     <View style={styles.container}>
       <ImageBackground source={collectionBg} resizeMode="cover" style={{ flex: 1 }}>
@@ -94,8 +90,7 @@ export const GachaResultDetailPage = memo(() => {
                 <Label text="人数" type="tertiary" />
                 <TextInput
                   style={styles.input}
-                  value="1人"
-                  keyboardType="numeric"
+                  value={people+"人"}
                   editable={false}
                   selectTextOnFocus={false}
                 />
@@ -147,7 +142,10 @@ export const GachaResultDetailPage = memo(() => {
             backgroundColor: '#fff',
           }}
         >
-          <Pressable onPress={() => navigation.navigate('BuyTicket')}>
+          <Pressable onPress={() => navigation.navigate('BuyTicket',{
+            people : people,
+            prefecture : prefecture,
+          })}>
             <TertiaryButton style={{ position: 'absolute', top: 20, left: 50 }} />
             <Text
               style={{ fontSize: 16, fontFamily: 'Noto Sans', fontWeight: 'bold', textAlign: 'center', marginTop: 33 }}
