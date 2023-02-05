@@ -3,12 +3,12 @@ import { Text, StyleSheet, ImageBackground, View, Platform, Pressable } from 're
 
 import { CommonActions } from '@react-navigation/native';
 
-import image from '../../assets/images/collectionBg.png';
-import Background from '../../assets/svg/bg2.svg';
-import Logo from '../../assets/svg/Logo.svg';
-import Gacha from '../../assets/svg/Gacha.svg';
-import PrimaryButton from '../../assets/svg/Button.svg';
-import SubTitle from '../../assets/svg/subTitle.svg';
+import image from 'src/assets/images/collectionBg.png';
+import Background from 'src/assets/svg/bg2.svg';
+import Logo from 'src/assets/svg/Logo.svg';
+import Gacha from 'src/assets/svg/Gacha.svg';
+import PrimaryButton from 'src/assets/svg/Button.svg';
+import SubTitle from 'src/assets/svg/subTitle.svg';
 
 export const Home = memo((props) => {
   const { navigation } = props;

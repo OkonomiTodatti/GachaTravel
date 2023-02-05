@@ -4,7 +4,7 @@ import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import Modal from 'react-native-modal';
 
-import { Label } from '../Text/Lable';
+import { Label } from 'src/components/Text/Lable';
 
 import PrimaryButton from 'src/assets/svg/Button.svg';
 import Polygon from 'src/assets/svg/polygon.svg';

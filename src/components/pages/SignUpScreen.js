@@ -5,12 +5,12 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 
-import { CustomInput } from '../Inputs/CustomInput';
-import { CustomButton } from '../Inputs/CustomButton';
+import { CustomInput } from 'src/components/Inputs/CustomInput';
+import { CustomButton } from 'src/components/Inputs/CustomButton';
 
-import { Validation } from '../../validations/Validation';
+import { Validation } from 'src/validations/Validation';
 
-import { Footer } from '../layouts/Footer';
+import { Footer } from 'src/components/layouts/Footer';
 
 export const SignUpScreen = memo(() => {
   const navigation = useNavigation();

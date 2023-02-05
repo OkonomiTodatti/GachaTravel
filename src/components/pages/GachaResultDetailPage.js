@@ -3,34 +3,34 @@ import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, TextInput, Vi
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { Label } from '../Text/Lable';
+import { Label } from 'src/components/Text/Lable';
 
-import { TravelModal } from '../Modal/TravelModal';
-import { TicketModal } from '../Modal/TicketModal';
-import { MissionModal } from '../Modal/MissionModal';
-import { RootModal } from '../Modal/RootModal';
-import { MemoryModal } from '../Modal/MemoryModal';
-import { BounusModal } from '../Modal/BounusModal';
+import { TravelModal } from 'src/components/Modal/TravelModal';
+import { TicketModal } from 'src/components/Modal/TicketModal';
+import { MissionModal } from 'src/components/Modal/MissionModal';
+import { RootModal } from 'src/components/Modal/RootModal';
+import { MemoryModal } from 'src/components/Modal/MemoryModal';
+import { BounusModal } from 'src/components/Modal/BounusModal';
 
-import { GlassButton } from '../Inputs/GlassButton';
+import { GlassButton } from 'src/components/Inputs/GlassButton';
 
-import { ResultTag } from '../Gacha/ResultTag';
+import { ResultTag } from 'src/components/Gacha/ResultTag';
 
-import RCapsule from '../../assets/svg/RbigCapusel.svg';
-import YCapsule from '../../assets/svg/YbigCapsule.svg';
-import BCapsule from '../../assets/svg/BbigCapsule.svg';
-import GCapsule from '../../assets/svg/Gcapsule.svg';
-import ORCapsule from '../../assets/svg/ORcapsule.svg';
-import OGCapsule from '../../assets/svg/OGcapsule.svg';
-import OBCapsule from '../../assets/svg/OBcapsule.svg';
-import OYCapsule from '../../assets/svg/OYcapsule.svg';
-import TertiaryButton from '../../assets/svg/TertiaryButton.svg';
-import collectionBg from '../../assets/images/collectionBg.png';
+import RCapsule from 'src/assets/svg/RbigCapusel.svg';
+import YCapsule from 'src/assets/svg/YbigCapsule.svg';
+import BCapsule from 'src/assets/svg/BbigCapsule.svg';
+import GCapsule from 'src/assets/svg/Gcapsule.svg';
+import ORCapsule from 'src/assets/svg/ORcapsule.svg';
+import OGCapsule from 'src/assets/svg/OGcapsule.svg';
+import OBCapsule from 'src/assets/svg/OBcapsule.svg';
+import OYCapsule from 'src/assets/svg/OYcapsule.svg';
+import TertiaryButton from 'src/assets/svg/TertiaryButton.svg';
+import collectionBg from 'src/assets/images/collectionBg.png';
 
 export const GachaResultDetailPage = memo(() => {
   const navigation = useNavigation();
   const route = useRoute();
-  const {plan,id,color,status,prefecture} = route.params;
+  const { plan, id, color, status, prefecture } = route.params;
   const people = route.params.people.toString();
   const capsuleComponents = {
     R: status ? ORCapsule : RCapsule,
@@ -80,7 +80,6 @@ export const GachaResultDetailPage = memo(() => {
                 borderWidth: 2,
                 borderRadius: 19,
                 width: 331,
-                // height: 274,
                 marginTop: 30,
                 paddingHorizontal: 35,
                 paddingVertical: 15,
@@ -88,12 +87,7 @@ export const GachaResultDetailPage = memo(() => {
             >
               <View style={{ marginTop: 5 }}>
                 <Label text="人数" type="tertiary" />
-                <TextInput
-                  style={styles.input}
-                  value={people+"人"}
-                  editable={false}
-                  selectTextOnFocus={false}
-                />
+                <TextInput style={styles.input} value={people + '人'} editable={false} selectTextOnFocus={false} />
               </View>
               <View style={{ marginTop: 5 }}>
                 <Label text="宿泊日数" type="tertiary" />
@@ -142,10 +136,14 @@ export const GachaResultDetailPage = memo(() => {
             backgroundColor: '#fff',
           }}
         >
-          <Pressable onPress={() => navigation.navigate('BuyTicket',{
-            people : people,
-            prefecture : prefecture,
-          })}>
+          <Pressable
+            onPress={() =>
+              navigation.navigate('BuyTicket', {
+                people: people,
+                prefecture: prefecture,
+              })
+            }
+          >
             <TertiaryButton style={{ position: 'absolute', top: 20, left: 50 }} />
             <Text
               style={{ fontSize: 16, fontFamily: 'Noto Sans', fontWeight: 'bold', textAlign: 'center', marginTop: 33 }}

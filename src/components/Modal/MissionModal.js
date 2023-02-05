@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/svg/light.svg';
-import Mission from '../../assets/svg/mission.svg';
-import PeGrid from '../../assets/svg/Pegrid.svg';
-import MissionBack from '../../assets/svg/mission_back.svg';
-import PageButton from '../../assets/svg/mission_arrow.svg';
+import Light from 'src/assets/svg/light.svg';
+import Mission from 'src/assets/svg/mission.svg';
+import PeGrid from 'src/assets/svg/Pegrid.svg';
+import MissionBack from 'src/assets/svg/mission_back.svg';
+import PageButton from 'src/assets/svg/mission_arrow.svg';
 
 export const MissionModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;

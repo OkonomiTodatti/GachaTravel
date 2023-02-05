@@ -5,12 +5,12 @@ import { Auth } from 'aws-amplify';
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 
-import { CustomInput } from '../Inputs/CustomInput';
-import { CustomButton } from '../Inputs/CustomButton';
+import { CustomInput } from 'src/components/Inputs/CustomInput';
+import { CustomButton } from 'src/components/Inputs/CustomButton';
 
-import { Validation } from '../../validations/Validation';
+import { Validation } from 'src/validations/Validation';
 
-import { Label } from '../Text/Lable';
+import { Label } from 'src/components/Text/Lable';
 
 export const ConfirmSignUpPage = memo(() => {
   const navigation = useNavigation();
