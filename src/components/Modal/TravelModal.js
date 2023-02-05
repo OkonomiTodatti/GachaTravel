@@ -60,7 +60,7 @@ export const TravelModal = memo((props) => {
             >
               <View nativeID="place_name">
                 <Text style={{ color: '#20bdbd', fontSize: 12, fontWeight: 'bold', textAlign: 'center' }}>
-                  {data[prefectureId].kana}
+                  {prefectureData[prefectureId].kana}
                 </Text>
                 <Text style={{ color: '#20bdbd', fontSize: 35, fontWeight: 'bold', textAlign: 'center' }}>
                   {/*{data[flag].prefecture}*/}
