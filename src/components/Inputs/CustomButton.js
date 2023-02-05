@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
 import { Spinner } from 'src/components/Spinner/Spinner';
+import { GachaTravelColors } from 'src/constants/constants';
 
 export const CustomButton = memo((props) => {
   const { text, onPress, type = 'PRIMARY', isVisible = true, loading = false } = props;
@@ -12,7 +13,7 @@ export const CustomButton = memo((props) => {
       disabled={!isVisible}
     >
       {loading ? (
-        <Spinner size="small" color="#fff" />
+        <Spinner size="small" />
       ) : (
         <Text style={[styles.text, isVisible ? styles[`text_${type}`] : styles[`text_TERTIARY`]]}>{text}</Text>
       )}
@@ -22,37 +23,32 @@ export const CustomButton = memo((props) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
-    alignItems: 'center',
-    borderRadius: 30,
-  },
-
-  container_PRIMARY: {
-    marginTop: 20,
-    width: '100%',
+    padding: 16,
     height: 55,
-    backgroundColor: '#FF654A',
-    shadowColor: '#CB472F',
+    alignItems: 'center',
+    width: '100%',
+    borderRadius: 30,
+    borderWidth: 1,
     shadowOffset: {
       width: 0,
       height: 4,
     },
     shadowOpacity: 1,
     shadowRadius: 0,
+    marginTop: 24,
+  },
+
+  container_PRIMARY: {
+    backgroundColor: GachaTravelColors.mainButtonBgColor,
+    borderColor: GachaTravelColors.mainButtonStrokeColor,
+    shadowColor: GachaTravelColors.mainButtonShadowColor,
     elevation: 7,
   },
 
   container_TERTIARY: {
-    backgroundColor: '#E2E2E2',
-    marginVertical: 5,
-    width: '100%',
-    shadowColor: '#B3B3B3',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 0,
+    backgroundColor: GachaTravelColors.mainButtonDisabledBgColor,
+    borderColor: GachaTravelColors.mainButtonDisabledStrokeColor,
+    shadowColor: GachaTravelColors.mainButtonDisabledShadowColor,
     elevation: 0,
   },
 
@@ -62,9 +58,10 @@ const styles = StyleSheet.create({
   },
 
   text_PRIMARY: {
-    color: '#FFFFFF',
+    color: GachaTravelColors.mainButtonTextColor,
   },
+
   text_TERTIARY: {
-    color: '#B3B3B3',
+    color: GachaTravelColors.mainButtonDisabledTextColor,
   },
 });

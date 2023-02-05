@@ -7,8 +7,9 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Validation } from 'src/validations/Validation';
 
-import { Label } from 'src/components/Text/Lable';
+import { GachaTravelColors } from 'src/constants/constants';
 
+import { Label } from 'src/components/Text/Lable';
 import { CustomInput } from 'src/components/Inputs/CustomInput';
 import { CustomButton } from 'src/components/Inputs/CustomButton';
 
@@ -56,7 +57,7 @@ export const ForgotPasswordPage = memo(() => {
             },
           }}
         />
-        <CustomButton text="メール送信" onPress={handleSubmit(onForgotPasswordPressed)} loading={loading} />
+        <CustomButton text="再設定メールを送信" onPress={handleSubmit(onForgotPasswordPressed)} loading={loading} />
       </View>
     </View>
   );
@@ -94,8 +95,8 @@ export const ForgotNewPasswordPage = memo(() => {
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.form}>
         <Label text="確認コード" />
-        <Text>メールアドレスに確認コードを送信しました。</Text>
-        <Text>メールに記載されている確認コードを入力してください</Text>
+        <Text style={styles.description}>メールアドレスに確認コードを送信しました。</Text>
+        <Text style={styles.description}>メールに記載されている確認コードを入力してください</Text>
         <CustomInput
           name="code"
           placeholder={Validation.code.placeholder}
@@ -144,21 +145,16 @@ export const ForgotNewPasswordPage = memo(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 16,
+    backgroundColor: GachaTravelColors.mainBgColor,
   },
   form: {
-    padding: 20,
+    padding: 24,
   },
-  Logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
-  },
+
   description: {
-    letterSpacing: 3,
-    lineHeight: 20,
-    marginVertical: 5,
+    color: GachaTravelColors.secondaryTextColor,
+    marginVertical: 8,
     fontWeight: '400',
   },
 });

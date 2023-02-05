@@ -12,6 +12,8 @@ import { Validation } from 'src/validations/Validation';
 
 import { Footer } from 'src/components/layouts/Footer';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 export const SignUpScreen = memo(() => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
@@ -94,7 +96,7 @@ export const SignUpScreen = memo(() => {
           }}
           secureTextEntry
         />
-        <View style={{ marginTop: 45 }}>
+        <View style={styles.buttonContainer}>
           <CustomButton
             text="確認コードを送信"
             onPress={handleSubmit(onSignUpPressed)}
@@ -102,9 +104,8 @@ export const SignUpScreen = memo(() => {
             loading={loading}
           />
         </View>
-        <Text style={{ marginTop: 30 }}>
-          <Text style={{ color: 'red', borderStyle: 'solid', textDecorationLine: 'underline' }}>利用規約</Text>
-          に同意の上、アカウント登録を行ってください
+        <Text style={styles.usageRecordText}>
+          <Text style={styles.usageRecordSpanText}>利用規約</Text>に同意の上、アカウント登録を行ってください
         </Text>
       </View>
       <Footer text="アカウントをお持ちの方は" onPress={onSignInPress} navText="こちら" />
@@ -115,20 +116,35 @@ export const SignUpScreen = memo(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 16,
+    backgroundColor: GachaTravelColors.mainBgColor,
     alignItems: 'center',
   },
   form: {
     width: '100%',
-    padding: 20,
+    padding: 24,
   },
+
   text: {
-    color: '#2D2A2A',
+    color: GachaTravelColors.secondaryTextColor,
     fontSize: 16,
     letterSpacing: 4,
     fontWeight: '800',
     alignItems: 'flex-start',
-    marginTop: 10,
+    marginTop: 16,
+  },
+
+  buttonContainer: {
+    marginTop: 32,
+  },
+
+  usageRecordText: {
+    marginTop: 32,
+  },
+
+  usageRecordSpanText: {
+    color: GachaTravelColors.usageRecordTextColor,
+    borderStyle: 'solid',
+    textDecorationLine: 'underline',
   },
 });

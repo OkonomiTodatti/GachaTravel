@@ -1,14 +1,14 @@
 import React, { memo, useState } from 'react';
 import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
 
-import { Label } from 'src/components/Text/Lable';
+import { peopleData, stayDaysData, travelPlanData } from 'src/constants/data';
+import { GachaTravelColors } from 'src/constants/constants';
 
+import { Label } from 'src/components/Text/Lable';
 import { CustomModal } from 'src/components/Modal/CustomModal';
 
 import PrimaryButton from 'src/assets/svg/Button.svg';
 import Polygon from 'src/assets/svg/polygon.svg';
-
-import { peopleData, stayDaysData, travelPlanData } from 'src/constants/data';
 
 export const SettingGacha = memo((props) => {
   const { navigation } = props;
@@ -32,7 +32,7 @@ export const SettingGacha = memo((props) => {
           selectTextOnFocus={false}
           onPressIn={() => setModalPeopleVisible(!modalPeopleVisible)}
         />
-        <Polygon style={{ position: 'absolute', top: 50, right: 30 }} />
+        <Polygon style={[styles.polygon, styles.polygon1]} />
         <CustomModal
           modalOpen={modalPeopleVisible}
           setModalOpen={setModalPeopleVisible}
@@ -53,7 +53,7 @@ export const SettingGacha = memo((props) => {
           selectTextOnFocus={false}
           onPressIn={() => setModalStayDaysVisible(!modalStayDaysVisible)}
         />
-        <Polygon style={{ position: 'absolute', top: 116, right: 30 }} />
+        <Polygon style={[styles.polygon, styles.polygon2]} />
         <CustomModal
           modalOpen={modalStayDaysVisible}
           setModalOpen={setModalStayDaysVisible}
@@ -74,7 +74,7 @@ export const SettingGacha = memo((props) => {
           selectTextOnFocus={false}
           onPressIn={() => setModalTravelPlanVisible(!modalTravelPlanVisible)}
         />
-        <Polygon style={{ position: 'absolute', top: 179, right: 30 }} />
+        <Polygon style={[styles.polygon, styles.polygon3]} />
         <CustomModal
           modalOpen={modalTravelPlanVisible}
           setModalOpen={setModalTravelPlanVisible}
@@ -83,78 +83,113 @@ export const SettingGacha = memo((props) => {
           items={travelPlanData}
         />
       </View>
-      <View style={[styles.form, { marginTop: 70, paddingBottom: 30 }]}>
+      <View style={[styles.form, styles.totalForm]}>
         <Label text="1人1回5,000円" type="secondary" />
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            borderBottomColor: '#EDEDED',
-            borderBottomWidth: 2,
-            marginTop: 20,
-          }}
-        >
+        <View style={styles.moneyContainer}>
           <Label text="合計" type="secondary" />
           <View style={{ flexDirection: 'row' }}>
-            <Text style={{ marginTop: 2, color: '#777777', fontWeight: 'bold', fontSize: 23, fontFamily: 'Noto Sans' }}>
-              {(Number(people.slice(0, 1)) * 5000).toLocaleString()}
-            </Text>
-            <Text style={{ marginTop: 14, color: '#777777', fontFamily: 'Noto Sans' }}>円</Text>
+            <Text style={styles.moneyText}>{(Number(people.slice(0, 1)) * 5000).toLocaleString()}</Text>
+            <Text style={styles.unitText}>円</Text>
           </View>
         </View>
       </View>
-      <View style={{ marginTop: 30 }}>
-        <Pressable
-          style={{ width: 350, height: 90, position: 'relative' }}
-          onPress={() => navigation.navigate('GachaAnimation')}
-        >
-          <PrimaryButton />
-          <Text
-            style={{
-              color: '#fff',
-              fontFamily: 'Noto Sans',
-              fontWeight: 'bold',
-              fontSize: 24,
-              position: 'absolute',
-              top: 30,
-              left: 95,
-            }}
-          >
-            ガチャを回す
-          </Text>
-        </Pressable>
-      </View>
+      <Pressable style={styles.buttonContainer} onPress={() => navigation.navigate('GachaAnimation')}>
+        <PrimaryButton />
+        <Text style={styles.buttonText}>ガチャを回す</Text>
+      </Pressable>
     </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: '#F1F2EB',
+    padding: 16,
+    backgroundColor: GachaTravelColors.secondaryBgColor,
     flex: 1,
     alignItems: 'center',
   },
 
   form: {
     width: '80%',
-    backgroundColor: '#fff',
+    backgroundColor: GachaTravelColors.mainBgColor,
     borderRadius: 13,
-    paddingVertical: 13,
+    paddingVertical: 16,
     paddingHorizontal: 16,
-    marginTop: 10,
+    marginTop: 16,
+  },
+
+  totalForm: {
+    marginTop: 72,
+    paddingBottom: 32,
   },
 
   input: {
     height: 40,
-    borderBottomColor: '#EDEDED',
+    marginTop: 8,
+    borderBottomColor: GachaTravelColors.lineColor,
     borderBottomWidth: 2,
-    color: '#777777',
+    color: GachaTravelColors.mainTextColor,
     fontFamily: 'Noto Sans',
+  },
+
+  moneyContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomColor: GachaTravelColors.lineColor,
+    borderBottomWidth: 2,
+    marginTop: 24,
+  },
+
+  moneyText: {
+    marginTop: 2,
+    color: GachaTravelColors.mainTextColor,
+    fontWeight: 'bold',
+    fontSize: 23,
+    fontFamily: 'Noto Sans',
+  },
+
+  unitText: {
+    marginTop: 16,
+    color: GachaTravelColors.mainTextColor,
+    fontFamily: 'Noto Sans',
+  },
+
+  polygon: {
+    position: 'absolute',
+    right: 30,
+  },
+
+  polygon1: {
+    top: 58,
+  },
+
+  polygon2: {
+    top: 126,
+  },
+
+  polygon3: {
+    top: 200,
   },
 
   labelContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+
+  buttonContainer: {
+    width: 350,
+    height: 90,
+    position: 'relative',
+    marginTop: 32,
+  },
+
+  buttonText: {
+    color: '#fff',
+    fontFamily: 'Noto Sans',
+    fontWeight: 'bold',
+    fontSize: 24,
+    position: 'absolute',
+    top: 25,
+    left: 95,
   },
 });

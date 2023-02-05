@@ -2,12 +2,7 @@ import { NativeModules, Platform } from 'react-native';
 
 import { I18n } from '@aws-amplify/core';
 
-let langRegionLocale = 'ja';
-
-// If we have an Android phone
-if (Platform.OS === 'android') {
-  langRegionLocale = NativeModules.I18nManager.localeIdentifier || '';
-} else if (Platform.OS === 'ios') {
+if (Platform.OS === 'ios') {
   langRegionLocale = NativeModules.SettingsManager.settings.AppleLocale || '';
 }
 

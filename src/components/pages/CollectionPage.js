@@ -7,12 +7,14 @@ import { useLoginUser } from 'src/provider/LoginUserProvider';
 
 import { useGetStocks } from 'src/hooks/useGetStocks';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 import collectionBg from 'src/assets/images/collectionBg.png';
 import CollectionHeader from 'src/assets/svg/collectionHeader.svg';
 import CollectionSectionHeader from 'src/assets/svg/collectionSectionHeader.svg';
 
 export const CollectionPage = memo(() => {
-  const { loginUser, gachaFlag } = useLoginUser();
+  const { loginUser } = useLoginUser();
 
   const { getStocks, stocks } = useGetStocks();
 
@@ -22,25 +24,11 @@ export const CollectionPage = memo(() => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={collectionBg} resizeMode="cover" style={{ flex: 1 }}>
+      <ImageBackground source={collectionBg} resizeMode="cover">
         <CollectionHeader />
-        <View style={{ alignItems: 'center' }}>
-          <ScrollView contentInset={{ bottom: 200 }}>
-            <CollectionSectionHeader
-              style={{
-                marginRight: 'auto',
-                marginLeft: 'auto',
-                marginTop: 10,
-                shadowColor: '#1BA0A0',
-                shadowOffset: {
-                  width: 0,
-                  height: 3,
-                },
-                shadowOpacity: 1,
-                shadowRadius: 0,
-                elevation: 1,
-              }}
-            />
+        <View style={styles.scrollContainer}>
+          <ScrollView contentInset={styles.scrollView}>
+            <CollectionSectionHeader style={styles.collectionSectionHeader} />
             {stocks.map((stock, index) => (
               <View key={index}>
                 <GachaFrame
@@ -65,20 +53,25 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: 13,
-    marginTop: 15,
-    marginHorizontal: 10,
-    width: 180,
-    height: 180,
-    padding: 10,
+  scrollContainer: {
+    alignItems: 'center',
   },
 
-  border: {
-    borderRightWidth: 30,
-    borderColor: '#333',
-    height: '100%',
-    width: '20%',
+  scrollView: {
+    bottom: 200,
+  },
+
+  collectionSectionHeader: {
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    marginTop: 16,
+    shadowColor: GachaTravelColors.collectionSectionHeaderShadowColor,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 1,
   },
 });

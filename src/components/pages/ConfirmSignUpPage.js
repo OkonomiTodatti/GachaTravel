@@ -5,12 +5,13 @@ import { Auth } from 'aws-amplify';
 import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 import { CustomInput } from 'src/components/Inputs/CustomInput';
 import { CustomButton } from 'src/components/Inputs/CustomButton';
+import { Label } from 'src/components/Text/Lable';
 
 import { Validation } from 'src/validations/Validation';
-
-import { Label } from 'src/components/Text/Lable';
 
 export const ConfirmSignUpPage = memo(() => {
   const navigation = useNavigation();
@@ -48,10 +49,8 @@ export const ConfirmSignUpPage = memo(() => {
     <View showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.form}>
         <Label text="確認コード" />
-        <View style={{ marginTop: 10 }}>
-          <Text style={styles.description}>メールアドレスに確認コードを送信しました。</Text>
-          <Text style={styles.description}>メールに記載されている確認コードを入力してください。</Text>
-        </View>
+        <Text style={styles.description}>メールアドレスに確認コードを送信しました。</Text>
+        <Text style={styles.description}>メールに記載されている確認コードを入力してください。</Text>
         <CustomInput
           name="code"
           placeholder={Validation.code.placeholder}
@@ -59,8 +58,8 @@ export const ConfirmSignUpPage = memo(() => {
           rules={{ required: Validation.code.required }}
         />
         <CustomButton text="アカウント登録" onPress={handleSubmit(onConfirmCode)} loading={loading} />
-        <Text style={{ marginTop: 30 }}>
-          <Text style={{ color: 'red', borderStyle: 'solid', textDecorationLine: 'underline' }}>利用規約</Text>
+        <Text style={styles.usageRecordText}>
+          <Text style={styles.usageRecordSpanText}>利用規約</Text>
           に同意の上、アカウント登録を行ってください
         </Text>
       </View>
@@ -71,18 +70,27 @@ export const ConfirmSignUpPage = memo(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 16,
+    backgroundColor: GachaTravelColors.mainBgColor,
   },
-  Logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
-  },
+
   form: {
-    padding: 20,
+    padding: 24,
   },
+
   description: {
+    color: GachaTravelColors.secondaryTextColor,
+    marginVertical: 8,
     fontWeight: '400',
+  },
+
+  usageRecordText: {
+    marginTop: 32,
+  },
+
+  usageRecordSpanText: {
+    color: GachaTravelColors.usageRecordTextColor,
+    borderStyle: 'solid',
+    textDecorationLine: 'underline',
   },
 });

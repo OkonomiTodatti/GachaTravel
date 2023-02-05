@@ -9,6 +9,8 @@ import Background from 'src/assets/svg/bg2.svg';
 import PrimaryButton from 'src/assets/svg/Button.svg';
 import SubTitle from 'src/assets/svg/subTitle.svg';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 export const LoginHome = memo(() => {
   const navigation = useNavigation();
 
@@ -27,24 +29,12 @@ export const LoginHome = memo(() => {
         <Logo />
         <SubTitle />
         <Gacha />
-        <Pressable style={{ width: 350, height: 90, position: 'relative', marginTop: 14 }} onPress={onPressSignUp}>
+        <Pressable style={styles.accountButton} onPress={onPressSignUp}>
           <PrimaryButton />
-          <Text
-            style={{
-              color: '#fff',
-              fontFamily: 'Noto Sans',
-              fontWeight: 'bold',
-              fontSize: 19,
-              position: 'absolute',
-              top: 28,
-              left: 92,
-            }}
-          >
-            アカウントを登録
-          </Text>
+          <Text style={styles.accountButtonText}>アカウントを登録</Text>
         </Pressable>
-        <Pressable style={styles.button} onPress={onPressLogin}>
-          <Text style={styles.buttonText}>ログイン</Text>
+        <Pressable style={styles.loginButton} onPress={onPressLogin}>
+          <Text style={styles.loginButtonText}>ログイン</Text>
         </Pressable>
       </View>
     </View>
@@ -54,65 +44,47 @@ export const LoginHome = memo(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-  },
-
-  linearGradient: {
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-  },
-
-  Logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
-  },
-
-  text: {
-    color: '#FFFFFF',
-    fontFamily: '07NikumaruFont',
-    letterSpacing: 4,
-    padding: 5,
-    fontWeight: '500',
-    textShadowColor: '#EE695E',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 2,
-  },
-
-  text_ios: {
-    fontSize: 18,
-  },
-
-  text_android: {
-    fontSize: 12,
-    elevation: 2,
+    backgroundColor: GachaTravelColors.mainBgColor,
   },
 
   form: {
     position: 'absolute',
     left: 0,
     right: 0,
-    padding: 20,
+    padding: 16,
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-
-  form_android: {},
 
   form_ios: {
     marginVertical: 64,
   },
 
-  button: {
-    padding: 12,
+  accountButton: {
+    width: 350,
+    height: 90,
+    position: 'relative',
+    marginTop: 16,
+  },
+
+  accountButtonText: {
+    color: GachaTravelColors.mainButtonTextColor,
+    fontFamily: 'Noto Sans',
+    fontWeight: 'bold',
+    fontSize: 19,
+    position: 'absolute',
+    top: 28,
+    left: 92,
+  },
+
+  loginButton: {
+    padding: 16,
     alignItems: 'center',
     borderRadius: 30,
   },
-  buttonText: {
-    padding: 5,
-    color: '#818181',
+
+  loginButtonText: {
+    color: GachaTravelColors.topLoginTextColor,
     fontWeight: '800',
     fontSize: 16,
   },

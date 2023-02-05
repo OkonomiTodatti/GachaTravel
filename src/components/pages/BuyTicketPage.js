@@ -4,6 +4,8 @@ import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import Modal from 'react-native-modal';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 import { Label } from 'src/components/Text/Lable';
 
 import PrimaryButton from 'src/assets/svg/Button.svg';
@@ -60,7 +62,7 @@ export const BuyTicketPage = memo(() => {
           selectTextOnFocus={false}
           onPressIn={() => setModalPeopleVisible(!modalPeopleVisible)}
         />
-        <Polygon style={{ position: 'absolute', top: 60, right: 30 }} />
+        <Polygon style={[styles.polygon, styles.polygon1]} />
         <Label text="目的地" type="secondary" />
         <TextInput
           style={styles.input}
@@ -78,7 +80,7 @@ export const BuyTicketPage = memo(() => {
           selectTextOnFocus={false}
           onPressIn={() => setModalStayDaysVisible(!modalStayDaysVisible)}
         />
-        <Polygon style={{ position: 'absolute', top: 200, right: 30 }} />
+        <Polygon style={[styles.polygon, styles.polygon2]} />
         <Label text="人数" type="secondary" />
         <TextInput
           style={styles.input}
@@ -97,26 +99,12 @@ export const BuyTicketPage = memo(() => {
           selectTextOnFocus={false}
           onPressIn={() => setModalStayDaysVisible(!modalStayDaysVisible)}
         />
-        <Polygon style={{ position: 'absolute', top: 345, right: 30 }} />
+        <Polygon style={[styles.polygon, styles.polygon3]} />
       </View>
-      <View style={{ marginTop: 56 }}>
-        <Pressable style={{ width: 350, height: 90, position: 'relative' }} onPress={toggleModal}>
-          <PrimaryButton />
-          <Text
-            style={{
-              color: '#fff',
-              fontFamily: 'Noto Sans',
-              fontWeight: 'bold',
-              fontSize: 24,
-              position: 'absolute',
-              top: 25,
-              left: 90,
-            }}
-          >
-            フライトを検索
-          </Text>
-        </Pressable>
-      </View>
+      <Pressable style={styles.buttonContainer} onPress={toggleModal}>
+        <PrimaryButton />
+        <Text style={styles.buttonText}>フライトを検索</Text>
+      </Pressable>
     </View>
   );
 });
@@ -124,14 +112,14 @@ export const BuyTicketPage = memo(() => {
 const styles = StyleSheet.create({
   container: {
     padding: 8,
-    backgroundColor: '#F1F2EB',
+    backgroundColor: GachaTravelColors.secondaryBgColor,
     flex: 1,
     alignItems: 'center',
   },
 
   form: {
     width: '80%',
-    backgroundColor: '#fff',
+    backgroundColor: GachaTravelColors.collectionCardBgColor,
     borderRadius: 13,
     paddingVertical: 16,
     paddingHorizontal: 16,
@@ -141,10 +129,27 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     marginTop: 8,
-    borderBottomColor: '#EDEDED',
+    borderBottomColor: GachaTravelColors.lineColor,
     borderBottomWidth: 2,
-    color: '#777777',
+    color: GachaTravelColors.mainTextColor,
     fontFamily: 'Noto Sans',
+  },
+
+  buttonContainer: {
+    width: 350,
+    height: 90,
+    marginTop: 56,
+    position: 'relative',
+  },
+
+  buttonText: {
+    color: GachaTravelColors.mainButtonTextColor,
+    fontFamily: 'Noto Sans',
+    fontWeight: 'bold',
+    fontSize: 24,
+    position: 'absolute',
+    top: 25,
+    left: 90,
   },
 
   labelContainer: {
@@ -154,7 +159,24 @@ const styles = StyleSheet.create({
 
   flexView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GachaTravelColors.mainBgColor,
+  },
+
+  polygon: {
+    position: 'absolute',
+    right: 30,
+  },
+
+  polygon1: {
+    top: 60,
+  },
+
+  polygon2: {
+    top: 200,
+  },
+
+  polygon3: {
+    top: 345,
   },
 
   modal: {
@@ -163,7 +185,7 @@ const styles = StyleSheet.create({
   },
 
   modalContent: {
-    backgroundColor: '#ffffff',
+    backgroundColor: GachaTravelColors.mainBgColor,
     paddingTop: 12,
     paddingHorizontal: 12,
     borderTopRightRadius: 20,
@@ -181,12 +203,12 @@ const styles = StyleSheet.create({
   barIcon: {
     width: 60,
     height: 5,
-    backgroundColor: '#bbb',
+    backgroundColor: GachaTravelColors.bottomModalBgColor,
     borderRadius: 3,
   },
 
   text: {
-    color: '#777777',
+    color: GachaTravelColors.mainTextColor,
     fontSize: 16,
     marginTop: 24,
   },
