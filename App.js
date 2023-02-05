@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import { Amplify } from '@aws-amplify/core';
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,7 +20,7 @@ Amplify.configure({
 const App = () => {
   useEffect(() => {
     setTimeout(() => {
-        SplashScreen.hide();
+      SplashScreen.hide();
     }, 1000);
   }, []);
 

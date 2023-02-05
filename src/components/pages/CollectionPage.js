@@ -1,19 +1,18 @@
 import React, { memo, useEffect } from 'react';
 import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 
-import { GachaFrame } from '../Gacha/GachaFrame';
+import { GachaFrame } from 'src/components/Gacha/GachaFrame';
 
-import { useLoginUser } from '../../provider/LoginUserProvider';
+import { useLoginUser } from 'src/provider/LoginUserProvider';
 
-import { useGetStocks } from '../../hooks/useGetStocks';
+import { useGetStocks } from 'src/hooks/useGetStocks';
 
-import collectionBg from '../../assets/images/collectionBg.png';
-import CollectionHeader from '../../assets/svg/collectionHeader.svg';
-import CollectionSectionHeader from '../../assets/svg/collectionSectionHeader.svg';
+import collectionBg from 'src/assets/images/collectionBg.png';
+import CollectionHeader from 'src/assets/svg/collectionHeader.svg';
+import CollectionSectionHeader from 'src/assets/svg/collectionSectionHeader.svg';
 
 export const CollectionPage = memo(() => {
   const { loginUser, gachaFlag } = useLoginUser();
-  console.log(gachaFlag);
 
   const { getStocks, stocks } = useGetStocks();
 

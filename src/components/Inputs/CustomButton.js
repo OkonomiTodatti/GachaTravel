@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-import { Spinner } from '../Spinner/Spinner';
+import { Spinner } from 'src/components/Spinner/Spinner';
 
 export const CustomButton = memo((props) => {
   const { text, onPress, type = 'PRIMARY', isVisible = true, loading = false } = props;

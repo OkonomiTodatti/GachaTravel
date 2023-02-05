@@ -1,14 +1,14 @@
 import React, { memo, useState } from 'react';
 import { Text, StyleSheet, View, TextInput, Pressable } from 'react-native';
 
-import { Label } from '../Text/Lable';
+import { Label } from 'src/components/Text/Lable';
 
-import { CustomModal } from '../Modal/CustomModal';
+import { CustomModal } from 'src/components/Modal/CustomModal';
 
-import PrimaryButton from '../../assets/svg/Button.svg';
-import Polygon from '../../assets/svg/polygon.svg';
+import PrimaryButton from 'src/assets/svg/Button.svg';
+import Polygon from 'src/assets/svg/polygon.svg';
 
-import { peopleData, stayDaysData, travelPlanData } from '../data';
+import { peopleData, stayDaysData, travelPlanData } from 'src/constants/data';
 
 export const SettingGacha = memo((props) => {
   const { navigation } = props;
@@ -104,7 +104,6 @@ export const SettingGacha = memo((props) => {
         </View>
       </View>
       <View style={{ marginTop: 30 }}>
-        {/*<CustomButton text="はじめる" onPress={() => navigation.navigate('GachaAnimation')} />*/}
         <Pressable
           style={{ width: 350, height: 90, position: 'relative' }}
           onPress={() => navigation.navigate('GachaAnimation')}

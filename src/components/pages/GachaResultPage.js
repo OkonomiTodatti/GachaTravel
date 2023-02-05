@@ -3,21 +3,21 @@ import { StyleSheet, View, Text, TouchableOpacity, Platform, Pressable } from 'r
 
 import { Overlay } from '@rneui/base';
 
-import Background from '../../assets/svg/SBg.svg';
-import Setting from '../../assets/svg/setting.svg';
-import Coin from '../../assets/svg/coin.svg';
-import StartButton from '../../assets/svg/StartButton.svg';
-import Confetti from '../../assets/svg/Confetti.svg';
-import Button from '../../assets/svg/QuaternaryButton.svg';
+import Background from 'src/assets/svg/SBg.svg';
+import Setting from 'src/assets/svg/setting.svg';
+import Coin from 'src/assets/svg/coin.svg';
+import StartButton from 'src/assets/svg/StartButton.svg';
+import Confetti from 'src/assets/svg/Confetti.svg';
+import Button from 'src/assets/svg/QuaternaryButton.svg';
 
-import { TravelModal } from '../Modal/TravelModal';
-import { TicketModal } from '../Modal/TicketModal';
-import { MissionModal } from '../Modal/MissionModal';
-import { RootModal } from '../Modal/RootModal';
-import { MemoryModal } from '../Modal/MemoryModal';
-import { BounusModal } from '../Modal/BounusModal';
+import { TravelModal } from 'src/components/Modal/TravelModal';
+import { TicketModal } from 'src/components/Modal/TicketModal';
+import { MissionModal } from 'src/components/Modal/MissionModal';
+import { RootModal } from 'src/components/Modal/RootModal';
+import { MemoryModal } from 'src/components/Modal/MemoryModal';
+import { BounusModal } from 'src/components/Modal/BounusModal';
 
-import { ResultTag } from '../Gacha/ResultTag';
+import { ResultTag } from 'src/components/Gacha/ResultTag';
 
 export const GachaResultPage = memo((props) => {
   const { navigation } = props;

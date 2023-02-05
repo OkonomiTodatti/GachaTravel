@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/svg/light.svg';
-import YGrid from '../../assets/svg/Ygrid.svg';
-import PageButton from '../../assets/svg/memory_arrow.svg';
+import Light from 'src/assets/svg/light.svg';
+import YGrid from 'src/assets/svg/Ygrid.svg';
+import PageButton from 'src/assets/svg/memory_arrow.svg';
 
 export const MemoryModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
@@ -49,39 +49,39 @@ export const MemoryModal = memo((props) => {
             >
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png9.png')}
+                source={require('src/assets/images/png9.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png1.png')}
+                source={require('src/assets/images/png1.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png2.png')}
+                source={require('src/assets/images/png2.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png3.png')}
+                source={require('src/assets/images/png3.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png4.png')}
+                source={require('src/assets/images/png4.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png5.png')}
+                source={require('src/assets/images/png5.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png6.png')}
+                source={require('src/assets/images/png6.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png7.png')}
+                source={require('src/assets/images/png7.png')}
               />
               <Image
                 style={{ width: '33%', height: 80, marginVertical: 1 }}
-                source={require('../../assets/images/png8.png')}
+                source={require('src/assets/images/png8.png')}
               />
             </View>
             {type === 'primary' ? (

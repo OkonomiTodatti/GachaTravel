@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/svg/light.svg';
-import Japan from '../../assets/svg/japan.svg';
-import BGrid from '../../assets/svg/Bgrid.svg';
-import PageButton from '../../assets/svg/travel_arrow.svg';
+import Light from 'src/assets/svg/light.svg';
+import Japan from 'src/assets/svg/japan.svg';
+import BGrid from 'src/assets/svg/Bgrid.svg';
+import PageButton from 'src/assets/svg/travel_arrow.svg';
 
-import { data } from '../../data';
+import { prefectureData } from 'src/constants/data';
 
 export const TravelModal = memo((props) => {
   const {
@@ -60,7 +60,7 @@ export const TravelModal = memo((props) => {
             >
               <View nativeID="place_name">
                 <Text style={{ color: '#20bdbd', fontSize: 12, fontWeight: 'bold', textAlign: 'center' }}>
-                  {data[prefectureId].kana}
+                  {prefectureData[prefectureId].kana}
                 </Text>
                 <Text style={{ color: '#20bdbd', fontSize: 35, fontWeight: 'bold', textAlign: 'center' }}>
                   {/*{data[flag].prefecture}*/}
@@ -69,7 +69,7 @@ export const TravelModal = memo((props) => {
               </View>
             </View>
             <Text style={{ color: '#777', fontSize: 17, fontWeight: 'bold', textAlign: 'center', marginTop: 18 }}>
-              旅行先は{data[prefectureId].prefecture}です！
+              旅行先は{prefectureData[prefectureId].prefecture}です！
             </Text>
             <View style={{ marginTop: 40, marginLeft: 'auto', marginRight: 'auto' }}>
               <Japan />

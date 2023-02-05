@@ -5,13 +5,12 @@ import { Auth } from 'aws-amplify';
 import { useForm } from 'react-hook-form';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { Validation } from '../../validations/Validation';
+import { Validation } from 'src/validations/Validation';
 
-import { Label } from '../Text/Lable';
+import { Label } from 'src/components/Text/Lable';
 
-import { CustomInput } from '../Inputs/CustomInput';
-import { CustomButton } from '../Inputs/CustomButton';
-
+import { CustomInput } from 'src/components/Inputs/CustomInput';
+import { CustomButton } from 'src/components/Inputs/CustomButton';
 
 export const ForgotPasswordPage = memo(() => {
   const navigation = useNavigation();

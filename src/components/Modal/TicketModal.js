@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/svg/light.svg';
-import Ticket from '../../assets/svg/ticket.svg';
-import RGrid from '../../assets/svg/Rgrid.svg';
-import TicketBack from '../../assets/svg/ticket_back.svg';
-import PageButton from '../../assets/svg/ticket_arrow.svg';
+import Light from 'src/assets/svg/light.svg';
+import Ticket from 'src/assets/svg/ticket.svg';
+import RGrid from 'src/assets/svg/Rgrid.svg';
+import TicketBack from 'src/assets/svg/ticket_back.svg';
+import PageButton from 'src/assets/svg/ticket_arrow.svg';
 
 export const TicketModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;

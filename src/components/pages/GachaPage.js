@@ -2,13 +2,13 @@ import React, { memo, useState } from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { GachaTopPage } from './GachaTopPage';
-import { CollectionPage } from './CollectionPage';
-import { MyPage } from './MyPage';
+import { GachaTopPage } from 'src/components/pages/GachaTopPage';
+import { CollectionPage } from 'src/components/pages/CollectionPage';
+import { MyPage } from 'src/components/pages/MyPage';
 
-import Gacha from '../../assets/svg/ant-design_home-filled.svg';
-import Collection from '../../assets/svg/collection.svg';
-import Mypage from '../../assets/svg/mypage.svg';
+import Gacha from 'src/assets/svg/ant-design_home-filled.svg';
+import Collection from 'src/assets/svg/collection.svg';
+import Mypage from 'src/assets/svg/mypage.svg';
 
 export const GachaPage = memo(() => {
   const Tab = createBottomTabNavigator();

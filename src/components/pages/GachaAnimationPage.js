@@ -4,14 +4,14 @@ import { StyleSheet, View, Dimensions } from 'react-native';
 import Video from 'react-native-video';
 import { API, graphqlOperation } from 'aws-amplify';
 
-import { createStock } from '../../graphql/mutations';
+import { createStock } from 'src/graphql/mutations';
 
-import { useLoginUser } from '../../provider/LoginUserProvider';
+import { useLoginUser } from 'src/provider/LoginUserProvider';
 
-import Gvideo from '../../assets/mp4/Ggacha.mp4';
-import Rvideo from '../../assets/mp4/Rgacha.mp4';
-import Bvideo from '../../assets/mp4/Bgacha.mp4';
-import Yvideo from '../../assets/mp4/Ygacha.mp4';
+import Gvideo from 'src/assets/mp4/Ggacha.mp4';
+import Rvideo from 'src/assets/mp4/Rgacha.mp4';
+import Bvideo from 'src/assets/mp4/Bgacha.mp4';
+import Yvideo from 'src/assets/mp4/Ygacha.mp4';
 
 const { width, height } = Dimensions.get('window');
 

@@ -3,14 +3,14 @@ import { Platform, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'r
 
 import { API, Auth, graphqlOperation } from 'aws-amplify';
 
-import { getUser, listStocks, listUsers } from '../../graphql/queries';
+import { getUser, listStocks, listUsers } from 'src/graphql/queries';
 
-import { useLoginUser } from '../../provider/LoginUserProvider';
+import { useLoginUser } from 'src/provider/LoginUserProvider';
 
-import Background from '../../assets/svg/SBg.svg';
-import Coin from '../../assets/svg/coin.svg';
-import Setting from '../../assets/svg/setting.svg';
-import StartButton from '../../assets/svg/StartButton.svg';
+import Background from 'src/assets/svg/SBg.svg';
+import Coin from 'src/assets/svg/coin.svg';
+import Setting from 'src/assets/svg/setting.svg';
+import StartButton from 'src/assets/svg/StartButton.svg';
 
 export const GachaTopPage = memo((props) => {
   const { navigation } = props;

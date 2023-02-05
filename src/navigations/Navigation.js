@@ -2,18 +2,18 @@ import React, { memo } from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Home } from '../components/pages/Home';
-import { SignInScreen } from '../components/pages/SignInScreen';
-import { SignUpScreen } from '../components/pages/SignUpScreen';
-import { ConfirmSignUpPage } from '../components/pages/ConfirmSignUpPage';
-import { ForgotNewPasswordPage, ForgotPasswordPage } from '../components/pages/ForgotPasswordPage';
-import { LoginHome } from '../components/pages/LoginHome';
-import { SettingGacha } from '../components/pages/SettingGacha';
-import { GachaPage } from '../components/pages/GachaPage';
-import { GachaAnimationPage } from '../components/pages/GachaAnimationPage';
-import { GachaResultPage } from '../components/pages/GachaResultPage';
-import { GachaResultDetailPage } from '../components/pages/GachaResultDetailPage';
-import { BuyTicketPage } from '../components/pages/BuyTicketPage';
+import { Home } from 'src/components/pages/Home';
+import { SignInScreen } from 'src/components/pages/SignInScreen';
+import { SignUpScreen } from 'src/components/pages/SignUpScreen';
+import { ConfirmSignUpPage } from 'src/components/pages/ConfirmSignUpPage';
+import { ForgotNewPasswordPage, ForgotPasswordPage } from 'src/components/pages/ForgotPasswordPage';
+import { LoginHome } from 'src/components/pages/LoginHome';
+import { SettingGacha } from 'src/components/pages/SettingGacha';
+import { GachaPage } from 'src/components/pages/GachaPage';
+import { GachaAnimationPage } from 'src/components/pages/GachaAnimationPage';
+import { GachaResultPage } from 'src/components/pages/GachaResultPage';
+import { GachaResultDetailPage } from 'src/components/pages/GachaResultDetailPage';
+import { BuyTicketPage } from 'src/components/pages/BuyTicketPage';
 
 export const Navigation = memo(() => {
   const Stack = createNativeStackNavigator();

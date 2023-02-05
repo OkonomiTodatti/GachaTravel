@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import { API } from 'aws-amplify';
 
-import * as queries from '../graphql/queries';
+import * as queries from 'src/graphql/queries';
 
 export const useGetRecommendPlan = () => {
   const [stocks, setStocks] = useState([]);

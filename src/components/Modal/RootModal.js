@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import Light from '../../assets/svg/light.svg';
-import BGrid from '../../assets/svg/B2grid.svg';
-import PageButton from '../../assets/svg/route_arrow.svg';
+import Light from 'src/assets/svg/light.svg';
+import BGrid from 'src/assets/svg/B2grid.svg';
+import PageButton from 'src/assets/svg/route_arrow.svg';
 
 export const RootModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
