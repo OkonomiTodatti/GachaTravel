@@ -24,7 +24,7 @@ export const CollectionPage = memo(() => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={collectionBg} resizeMode="cover">
+      <ImageBackground source={collectionBg} resizeMode="cover" style={styles.imageContainer}>
         <CollectionHeader />
         <View style={styles.scrollContainer}>
           <ScrollView contentInset={styles.scrollView}>
@@ -50,6 +50,10 @@ export const CollectionPage = memo(() => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+
+  imageContainer: {
     flex: 1,
   },
 
