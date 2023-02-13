@@ -2,6 +2,8 @@ import React, { memo, useState } from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 import { GachaTopPage } from 'src/components/pages/GachaTopPage';
 import { CollectionPage } from 'src/components/pages/CollectionPage';
 import { MyPage } from 'src/components/pages/MyPage';
@@ -18,12 +20,12 @@ export const GachaPage = memo(() => {
 
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         tabBarStyle: { borderTopLeftRadius: 37, borderTopRightRadius: 37, position: 'absolute', height: '12%' },
         animation: 'fade',
         headerStyle: {
-          backgroundColor: '#FF654A',
-          shadowColor: '#AD150C',
+          backgroundColor: GachaTravelColors.appBarBgColor,
+          shadowColor: GachaTravelColors.appBarShadowColor,
           shadowOffset: {
             width: 0,
             height: 2,
@@ -33,9 +35,9 @@ export const GachaPage = memo(() => {
           borderBottomWidth: 0,
           elevation: 0,
         },
-        headerTintColor: '#fff',
+        headerTintColor: GachaTravelColors.appBarTextColor,
         headerTitleStyle: {
-          color: '#fff',
+          color: GachaTravelColors.appBarTextColor,
         },
       })}
     >
@@ -51,10 +53,21 @@ export const GachaPage = memo(() => {
         }}
         options={{
           tabBarLabel: 'ガチャ',
-          tabBarIcon: ({ focused, color, size }) => (
-            <Gacha style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.5 }} />
+          tabBarIcon: ({ focused }) => (
+            <Gacha
+              style={{
+                color: focused
+                  ? GachaTravelColors.bottomNagigationSelectedTextColor
+                  : GachaTravelColors.bottomNagigationIconColor,
+                opacity: focused ? 1 : 0.5,
+              }}
+            />
           ),
-          tabBarLabelStyle: { color: gachaTab ? '#F13C31' : '#C3C7C6' },
+          tabBarLabelStyle: {
+            color: gachaTab
+              ? GachaTravelColors.bottomNagigationSelectedTextColor
+              : GachaTravelColors.bottomNagigationTextColor,
+          },
           tabBarBadgeStyle: { maxWidth: 18, maxHeight: 18 },
           headerShown: false,
         }}
@@ -72,9 +85,20 @@ export const GachaPage = memo(() => {
         options={{
           tabBarLabel: 'コレクション',
           tabBarIcon: ({ focused, color, size }) => (
-            <Collection style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.6 }} />
+            <Collection
+              style={{
+                color: focused
+                  ? GachaTravelColors.bottomNagigationSelectedTextColor
+                  : GachaTravelColors.bottomNagigationIconColor,
+                opacity: focused ? 1 : 0.5,
+              }}
+            />
           ),
-          tabBarLabelStyle: { color: collectionTab ? '#F13C31' : '#C3C7C6' },
+          tabBarLabelStyle: {
+            color: collectionTab
+              ? GachaTravelColors.bottomNagigationSelectedTextColor
+              : GachaTravelColors.bottomNagigationTextColor,
+          },
           headerTitle: 'コレクション',
           headerShown: false,
         }}
@@ -91,10 +115,21 @@ export const GachaPage = memo(() => {
         }}
         options={{
           tabBarLabel: 'マイページ',
-          tabBarIcon: ({ focused, color, size }) => (
-            <Mypage style={{ color: focused ? '#F13C31' : '#C3C7C6', opacity: focused ? 1 : 0.3 }} />
+          tabBarIcon: ({ focused }) => (
+            <Mypage
+              style={{
+                color: focused
+                  ? GachaTravelColors.bottomNagigationSelectedTextColor
+                  : GachaTravelColors.bottomNagigationIconColor,
+                opacity: focused ? 1 : 0.5,
+              }}
+            />
           ),
-          tabBarLabelStyle: { color: mypageTab ? '#F13C31' : '#C3C7C6' },
+          tabBarLabelStyle: {
+            color: mypageTab
+              ? GachaTravelColors.bottomNagigationSelectedTextColor
+              : GachaTravelColors.bottomNagigationTextColor,
+          },
           animationEnabled: true,
           headerTitle: 'マイページ',
         }}

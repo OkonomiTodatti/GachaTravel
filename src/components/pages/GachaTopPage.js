@@ -3,9 +3,11 @@ import { Platform, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'r
 
 import { API, Auth, graphqlOperation } from 'aws-amplify';
 
-import { getUser, listStocks, listUsers } from 'src/graphql/queries';
+import { listStocks } from 'src/graphql/queries';
 
 import { useLoginUser } from 'src/provider/LoginUserProvider';
+
+import { GachaTravelColors } from 'src/constants/constants';
 
 import Background from 'src/assets/svg/SBg.svg';
 import Coin from 'src/assets/svg/coin.svg';
@@ -41,25 +43,20 @@ export const GachaTopPage = memo((props) => {
     }
   }
 
-  console.log(loginUser);
-
   return (
     <View style={styles.container}>
       <Background />
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', position: 'absolute', top: 80, right: 20 }}>
+      <View style={styles.settingContainer}>
         <TouchableOpacity>
           <Setting />
         </TouchableOpacity>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', position: 'absolute', top: 190, left: 15 }}>
+      <View style={styles.moneyContainer}>
         <Coin />
-        <Text style={{ position: 'absolute', left: 30, fontWeight: 'bold', fontSize: 18, top: 2 }}>5000</Text>
+        <Text style={styles.moneyText}>5000</Text>
       </View>
       <View style={[styles.form, styles[`form_${Platform.OS}`]]}>
-        <Pressable
-          style={{ width: 350, height: 90, position: 'relative' }}
-          onPress={() => navigation.navigate('SettingGacha')}
-        >
+        <Pressable style={styles.buttonContainer} onPress={() => navigation.navigate('SettingGacha')}>
           <StartButton />
         </Pressable>
       </View>
@@ -70,7 +67,13 @@ export const GachaTopPage = memo((props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GachaTravelColors.mainBgColor,
+  },
+
+  buttonContainer: {
+    width: 350,
+    height: 90,
+    position: 'relative',
   },
 
   form: {
@@ -78,8 +81,32 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 85,
-    padding: 25,
+    padding: 24,
     alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+
+  settingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    position: 'absolute',
+    top: 80,
+    right: 20,
+  },
+
+  moneyContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    position: 'absolute',
+    top: 190,
+    left: 15,
+  },
+
+  moneyText: {
+    position: 'absolute',
+    left: 30,
+    fontWeight: 'bold',
+    fontSize: 18,
+    top: 2,
   },
 });

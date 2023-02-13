@@ -5,14 +5,14 @@ import { useNavigation, CommonActions } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 
-import { CustomInput } from 'src/components/Inputs/CustomInput';
-import { CustomButton } from 'src/components/Inputs/CustomButton';
+import { GachaTravelColors } from 'src/constants/constants';
 
 import { Validation } from 'src/validations/Validation';
 
 import { Label } from 'src/components/Text/Lable';
-
 import { Footer } from 'src/components/layouts/Footer';
+import { CustomInput } from 'src/components/Inputs/CustomInput';
+import { CustomButton } from 'src/components/Inputs/CustomButton';
 
 export const SignInScreen = memo(() => {
   const navigation = useNavigation();
@@ -103,25 +103,26 @@ export const SignInScreen = memo(() => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 16,
+    backgroundColor: GachaTravelColors.mainBgColor,
     flex: 1,
     alignItems: 'center',
   },
   form: {
     width: '100%',
-    padding: 20,
+    padding: 24,
   },
   button: {
-    padding: 15,
+    padding: 16,
     alignItems: 'center',
     borderRadius: 30,
   },
   buttonContainer: {
-    marginTop: 30,
+    marginTop: 32,
   },
   buttonText: {
-    color: '#B3B3B3',
+    marginTop: 8,
+    color: GachaTravelColors.forgotTextColor,
     fontWeight: '400',
   },
 });

@@ -3,6 +3,8 @@ import { Alert, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-na
 
 import { Picker } from '@react-native-picker/picker';
 
+import { GachaTravelColors } from 'src/constants/constants';
+
 export const CustomModal = memo((props) => {
   const { modalOpen, setModalOpen, value, setValue, items } = props;
 
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
   },
 
   picker: {
-    backgroundColor: '#fff',
+    backgroundColor: GachaTravelColors.mainBgColor,
     width: '100%',
     height: '30%',
     position: 'absolute',
@@ -54,8 +56,8 @@ const styles = StyleSheet.create({
   text_container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 15,
-    paddingHorizontal: 15,
+    paddingTop: 16,
+    paddingHorizontal: 16,
   },
 
   text: {
@@ -63,9 +65,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   text_cansel: {
-    color: '#535353',
+    color: GachaTravelColors.pickerCanselText,
   },
   text_decision: {
-    color: '#FF654A',
+    color: GachaTravelColors.pickerDecisionText,
   },
 });

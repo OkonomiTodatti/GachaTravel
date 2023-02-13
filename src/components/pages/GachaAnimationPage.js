@@ -17,13 +17,13 @@ const { width, height } = Dimensions.get('window');
 
 export const GachaAnimationPage = memo((props) => {
   const { navigation } = props;
-  const lottieRef = useRef();
+  const playerRef = useRef();
   const [gachaState] = useState(true);
   const { loginUser } = useLoginUser();
   const resetAnimation = () => {
-    if (lottieRef.current) {
-      lottieRef.current.reset();
-      lottieRef.current.play();
+    if (playerRef.current) {
+      playerRef.current.reset();
+      playerRef.current.play();
     }
   };
   let flag = Math.floor(Math.random() * (4 + 1 - 1)) + 1;
@@ -44,14 +44,14 @@ export const GachaAnimationPage = memo((props) => {
   const video = videoComponents[flag];
 
   useEffect(() => {
-    if (lottieRef.current) {
+    if (playerRef.current) {
       if (gachaState) {
-        lottieRef.current.play(0, 119);
+        playerRef.current.play(0, 119);
       } else {
-        lottieRef.current.play(119, 119);
+        playerRef.current.play(119, 119);
       }
     }
-  }, [lottieRef, gachaState]);
+  }, [playerRef, gachaState]);
 
   setTimeout(() => {
     fetchCreateStock({
@@ -73,7 +73,7 @@ export const GachaAnimationPage = memo((props) => {
   }
 
   return (
-    <View style={{ position: 'relative' }}>
+    <View style={styles.container}>
       <Video
         source={video}
         ref={(ref) => {
@@ -88,6 +88,10 @@ export const GachaAnimationPage = memo((props) => {
 });
 
 const styles = StyleSheet.create({
+  container: {
+    position: 'relative',
+  },
+
   backgroundVideo: {
     alignSelf: 'center',
     width: width,
