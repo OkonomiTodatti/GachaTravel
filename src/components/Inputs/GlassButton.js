@@ -1,11 +1,12 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import Bglass from '../../assets/Bglass.svg';
-import Rglass from '../../assets/Rglass.svg';
-import Yglass from '../../assets/Yglass.svg';
-import B2glass from '../../assets/B2glass.svg';
-import Pglass from '../../assets/Pglass.svg';
-import Peglass from '../../assets/Peglass.svg';
+
+import Bglass from 'src/assets/svg/Bglass.svg';
+import Rglass from 'src/assets/svg/Rglass.svg';
+import Yglass from 'src/assets/svg/Yglass.svg';
+import B2glass from 'src/assets/svg/B2glass.svg';
+import Pglass from 'src/assets/svg/Pglass.svg';
+import Peglass from 'src/assets/svg/Peglass.svg';
 
 export const GlassButton = memo((props) => {
   const { onPress, color } = props;

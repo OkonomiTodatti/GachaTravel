@@ -1,25 +1,24 @@
 import React, { memo, useState } from 'react';
-import { Alert, Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { CustomInput } from '../Inputs/CustomInput';
-import { CustomButton } from '../Inputs/CustomButton';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+
 import { Auth } from 'aws-amplify';
-import { CommonActions, useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
-import { Validation } from '../../validations/Validation';
-import { Label } from '../Text/Lable';
+import { useNavigation, useRoute } from '@react-navigation/native';
+
+import { Validation } from 'src/validations/Validation';
+
+import { GachaTravelColors } from 'src/constants/constants';
+
+import { Label } from 'src/components/Text/Lable';
+import { CustomInput } from 'src/components/Inputs/CustomInput';
+import { CustomButton } from 'src/components/Inputs/CustomButton';
 
 export const ForgotPasswordPage = memo(() => {
-  const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
-  });
-
-  const resetAction = CommonActions.reset({
-    index: 0,
-    routes: [{ name: 'サインイン' }],
   });
 
   const onForgotPasswordPressed = handleSubmit(async (data) => {
@@ -31,12 +30,6 @@ export const ForgotPasswordPage = memo(() => {
           navigation.navigate('パスワード再設定', {
             email: data.email,
           });
-          // navigation.dispatch(
-          //   CommonActions.reset({
-          //     index: 0,
-          //     routes: [{ name: 'ForgotNewPassword', params: { email: data.email } }],
-          //   }),
-          // );
         })
         .catch((e) => {
           Alert.alert('Oops', e.message);
@@ -46,10 +39,6 @@ export const ForgotPasswordPage = memo(() => {
       Alert.alert('Oops', e.message);
     }
   });
-
-  const onSignInPress = () => {
-    navigation.dispatch(resetAction);
-  };
 
   return (
     <View showsVerticalScrollIndicator={false} style={styles.container}>
@@ -68,16 +57,14 @@ export const ForgotPasswordPage = memo(() => {
             },
           }}
         />
-        <CustomButton text="メール送信" onPress={handleSubmit(onForgotPasswordPressed)} loading={loading} />
+        <CustomButton text="再設定メールを送信" onPress={handleSubmit(onForgotPasswordPressed)} loading={loading} />
       </View>
     </View>
   );
 });
 
 //パスワードを再設定するページ
-
 export const ForgotNewPasswordPage = memo(() => {
-  const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const route = useRoute();
   const { email } = route.params || '';
@@ -85,11 +72,6 @@ export const ForgotNewPasswordPage = memo(() => {
 
   const { handleSubmit, control, formState } = useForm({
     mode: 'onChange',
-  });
-
-  const resetAction = CommonActions.reset({
-    index: 0,
-    routes: [{ name: 'サインイン' }],
   });
 
   const onForgotPasswordPressed = handleSubmit(async (data) => {
@@ -113,8 +95,8 @@ export const ForgotNewPasswordPage = memo(() => {
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.form}>
         <Label text="確認コード" />
-        <Text>メールアドレスに確認コードを送信しました。</Text>
-        <Text>メールに記載されている確認コードを入力してください</Text>
+        <Text style={styles.description}>メールアドレスに確認コードを送信しました。</Text>
+        <Text style={styles.description}>メールに記載されている確認コードを入力してください</Text>
         <CustomInput
           name="code"
           placeholder={Validation.code.placeholder}
@@ -163,21 +145,16 @@ export const ForgotNewPasswordPage = memo(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 16,
+    backgroundColor: GachaTravelColors.mainBgColor,
   },
   form: {
-    padding: 20,
+    padding: 24,
   },
-  Logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
-  },
+
   description: {
-    letterSpacing: 3,
-    lineHeight: 20,
-    marginVertical: 5,
+    color: GachaTravelColors.secondaryTextColor,
+    marginVertical: 8,
     fontWeight: '400',
   },
 });

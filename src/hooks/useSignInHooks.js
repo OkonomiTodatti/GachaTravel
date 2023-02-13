@@ -1,13 +1,14 @@
 import React, { useCallback, useState } from 'react';
-import { Auth } from 'aws-amplify';
 import { Alert } from 'react-native';
+
+import { Auth } from 'aws-amplify';
 
 export const useSignInHooks = () => {
   const [loading, setLoading] = useState(false);
   const signInHooks = useCallback(async (data) => {
     try {
       setLoading(true);
-      const response = await Auth.signIn(data.email, data.password)
+      await Auth.signIn(data.email, data.password)
         .then(() => {
           setLoading(false);
         })

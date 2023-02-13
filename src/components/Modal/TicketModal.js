@@ -1,10 +1,11 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import Light from '../../assets/light.svg';
-import Ticket from '../../assets/ticket.svg';
-import RGrid from '../../assets/Rgrid.svg';
-import TicketBack from '../../assets/ticket_back.svg';
-import PageButton from '../../assets/ticket_arrow.svg';
+
+import Light from 'src/assets/svg/light.svg';
+import Ticket from 'src/assets/svg/ticket.svg';
+import RGrid from 'src/assets/svg/Rgrid.svg';
+import TicketBack from 'src/assets/svg/ticket_back.svg';
+import PageButton from 'src/assets/svg/ticket_arrow.svg';
 
 export const TicketModal = memo((props) => {
   const { nextButton = false, onPressUp, onPressDown, type = 'primary' } = props;
@@ -78,7 +79,7 @@ export const TicketModal = memo((props) => {
             <Text
               style={{ color: '#777', fontSize: 16, fontWeight: 'bold', textAlign: 'center', fontFamily: 'Noto Sans' }}
             >
-              GETしました！
+              GETしました!
             </Text>
             <View style={{ marginTop: 4, marginLeft: 'auto', marginRight: 'auto' }}>
               <Ticket />

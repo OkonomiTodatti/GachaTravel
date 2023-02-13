@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { TextInput, StyleSheet, View, Text } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
+
+import { Controller } from 'react-hook-form';
 
 export const CustomInput = memo((props) => {
   const { name, placeholder, control, rules, secureTextEntry } = props;

@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
-import { Platform, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native';
+import { Platform, View, StyleSheet } from 'react-native';
+
+import { GachaTravelColors } from 'src/constants/constants';
 
 export const Screen = memo((props) => {
   const { children } = props;
@@ -16,8 +18,8 @@ export const Screen = memo((props) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 16,
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GachaTravelColors.mainBgColor,
   },
 });

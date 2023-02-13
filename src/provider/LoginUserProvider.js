@@ -1,7 +1,8 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+
 export const LoginUserContext = createContext({});
 
-export const LoginUserProvider = (props: { children: React.ReactNode }) => {
+export const LoginUserProvider = (props) => {
   const { children } = props;
   const [loginUser, setLoginUser] = useState(null);
   const [gachaFlag, setGachaFlag] = useState(false);

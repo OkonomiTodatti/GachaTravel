@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View, Platform } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+
+import { GachaTravelColors } from 'src/constants/constants';
 
 export const Footer = memo((props) => {
   const { onPress, text, navText } = props;
@@ -19,9 +21,9 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     width: '90%',
-    bottom: Platform.OS === 'ios' ? 50 : 20,
+    bottom: 48,
     borderTopWidth: 2,
-    borderColor: '#C4C4C4',
+    borderColor: GachaTravelColors.borderColor,
   },
   button: {
     flex: 1,
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   textContainer: {
-    lineHeight: Platform.OS === 'ios' ? 100 : 50,
+    lineHeight: 100,
     textAlign: 'center',
   },
 });

@@ -1,26 +1,25 @@
 import React, { memo, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+
 import { useNavigation, CommonActions } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
-import { CustomInput } from '../Inputs/CustomInput';
-import { CustomButton } from '../Inputs/CustomButton';
-import { Validation } from '../../validations/Validation';
-import { Label } from '../Text/Lable';
-import { Footer } from '../layouts/Footer';
+
+import { GachaTravelColors } from 'src/constants/constants';
+
+import { Validation } from 'src/validations/Validation';
+
+import { Label } from 'src/components/Text/Lable';
+import { Footer } from 'src/components/layouts/Footer';
+import { CustomInput } from 'src/components/Inputs/CustomInput';
+import { CustomButton } from 'src/components/Inputs/CustomButton';
 
 export const SignInScreen = memo(() => {
-  const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, control, formState } = useForm({
     mode: 'onChange',
-  });
-
-  const resetAction = CommonActions.reset({
-    index: 0,
-    routes: [{ name: 'サインアップ' }],
   });
 
   const secondResetAction = CommonActions.reset({
@@ -104,25 +103,26 @@ export const SignInScreen = memo(() => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 16,
+    backgroundColor: GachaTravelColors.mainBgColor,
     flex: 1,
     alignItems: 'center',
   },
   form: {
     width: '100%',
-    padding: 20,
+    padding: 24,
   },
   button: {
-    padding: 15,
+    padding: 16,
     alignItems: 'center',
     borderRadius: 30,
   },
   buttonContainer: {
-    marginTop: 30,
+    marginTop: 32,
   },
   buttonText: {
-    color: '#B3B3B3',
+    marginTop: 8,
+    color: GachaTravelColors.forgotTextColor,
     fontWeight: '400',
   },
 });

@@ -1,21 +1,22 @@
 import React, { memo } from 'react';
-import CollectionFrame from '../../assets/collectionFrame.svg';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import BCapsule from '../../assets/Bcapsule.svg';
-import RCapsule from '../../assets/Rcapsule.svg';
-import YCapsule from '../../assets/Ycapsule.svg';
-import GCapsule from '../../assets/Gcapsule.svg';
-import OBCapsule from '../../assets/OBcapsule.svg';
-import ORCapsule from '../../assets/ORcapsule.svg';
-import OYCapsule from '../../assets/OYcapsule.svg';
-import OGCapsule from '../../assets/OGcapsule.svg';
-import SecondaryButton from '../../assets/SecondaryButton.svg';
+
 import { useNavigation } from '@react-navigation/native';
+
+import BCapsule from 'src/assets/svg/Bcapsule.svg';
+import RCapsule from 'src/assets/svg/Rcapsule.svg';
+import YCapsule from 'src/assets/svg/Ycapsule.svg';
+import GCapsule from 'src/assets/svg/Gcapsule.svg';
+import OBCapsule from 'src/assets/svg/OBcapsule.svg';
+import ORCapsule from 'src/assets/svg/ORcapsule.svg';
+import OYCapsule from 'src/assets/svg/OYcapsule.svg';
+import OGCapsule from 'src/assets/svg/OGcapsule.svg';
+import SecondaryButton from 'src/assets/svg/SecondaryButton.svg';
+import CollectionFrame from 'src/assets/svg/collectionFrame.svg';
 
 export const GachaFrame = memo((props) => {
   const { color, status, prefecture, plan, people, prefectureId } = props;
   const navigation = useNavigation();
-  console.log(status);
   const capsuleStatus = status === 'Before' ? false : true;
   const capsuleComponents = {
     R: capsuleStatus ? ORCapsule : RCapsule,
@@ -42,10 +43,12 @@ export const GachaFrame = memo((props) => {
             onPress={() =>
               navigation.navigate('GachaResultDetail', {
                 name: plan,
+                plan: plan,
                 id: prefectureId,
                 color: color,
                 status: capsuleStatus,
                 prefecture: prefecture,
+                people: people,
               })
             }
           >
